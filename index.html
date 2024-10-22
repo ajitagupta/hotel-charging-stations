@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels with Charging Stations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div style="display: flex; align-items: center;">
+                <img src="logo.png" alt="Hotel Charging Logo" style="width: 150px; margin-right: 10px;">
+                <h1>Hotel Charging Booking</h1>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Hotels</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="search">
+        <h2>Find Hotels with EV Charging</h2>
+        <form id="search-form">
+            <input type="text" id="location" placeholder="Enter location">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <main>
+        <section id="hotel-list">
+            <!-- Hotel search results will be dynamically displayed here -->
+        </section>
+
+        <section id="map">
+            <!-- Map will be displayed here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hotel EV Charging. All rights reserved.</p>
+    </footer>
+
+    <!-- Include the external JavaScript file -->
+    <script src="scripts.js"></script>
+
+    <!-- Google Maps API script -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLZ8y1K18c8MR7vOAzhdrtEcAUnf6dKdA&callback=initMap"></script>
+</body>
+</html>

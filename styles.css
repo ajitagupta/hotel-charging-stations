@@ -1,0 +1,158 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background-color: #2f8f2f; /* Dark Green Background */
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav img {
+    width: 100px;
+    margin-right: 15px;
+}
+
+header nav h1 {
+    font-size: 2rem;
+    color: white; /* White Title to Contrast Green */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white; /* White Navigation Links */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+header nav ul li a:hover {
+    color: #addfad; /* Light Green Hover */
+}
+
+/* Search Form Styling */
+#search {
+    background-color: #3cb371; /* Medium Sea Green Background */
+    padding: 4rem 0;
+    text-align: center;
+    color: white;
+}
+
+#search h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#search-form input[type="text"] {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+#search-form button {
+    padding: 0.75rem 1.5rem;
+    background-color: #2f8f2f; /* Dark Green Button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-form button:hover {
+    background-color: #246e24; /* Darker Green on Hover */
+}
+
+/* Main Layout with Sidebar and Map */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hotel Card Styling */
+#hotel-list .hotel-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 30%; /* Set width to take up about one-third of the container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+    margin-bottom: 20px; /* Add bottom margin for some spacing */
+    text-align: center;
+}
+
+#hotel-list .hotel-card img.hotel-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#hotel-list .hotel-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#hotel-list .hotel-card p {
+    color: #555;
+}
+
+#map {
+    flex-basis: 35%; /* Map takes up 35% width */
+    height: 500px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Footer */
+footer {
+    background-color: #2f8f2f; /* Dark Green Footer */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
