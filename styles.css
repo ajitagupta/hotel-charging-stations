@@ -102,50 +102,74 @@ header nav ul li a:hover {
     background-color: #246e24; /* Darker Green on Hover */
 }
 
-/* Main Layout with Sidebar and Map */
+/* Main Layout */
 main {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Hotel List */
+#hotel-list {
+    flex-basis: 60%;
 }
 
 /* Hotel Card Styling */
 #hotel-list .hotel-card {
+    display: flex;
+    align-items: center;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 1rem;
-    width: 30%; /* Set width to take up about one-third of the container */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
-    margin-bottom: 20px; /* Add bottom margin for some spacing */
-    text-align: center;
-}
-
-#hotel-list .hotel-card img.hotel-image {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 180px; /* Reduced height to match the reference */
+}
+
+/* Hotel Image */
+#hotel-list .hotel-card img.hotel-image {
+    width: 30%; /* Image on the left side, takes up 30% of the card */
+    height: 100%; /* Full height */
     border-radius: 5px;
-    margin-bottom: 10px;
+    object-fit: cover;
+    margin-right: 15px;
 }
 
-#hotel-list .hotel-card h3 {
-    font-size: 1.5rem;
+/* Hotel Info */
+#hotel-list .hotel-info {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Text styling */
+#hotel-list .hotel-info h3 {
+    font-size: 1.4rem;
     margin-bottom: 0.5rem;
+    color: #2f8f2f;
 }
 
-#hotel-list .hotel-card p {
+#hotel-list .hotel-info p {
+    font-size: 0.9rem;
     color: #555;
+    margin: 5px 0;
 }
 
+/* Map Section */
 #map {
-    flex-basis: 35%; /* Map takes up 35% width */
-    height: 500px;
+    flex-basis: 35%; /* Take up 35% of the space next to hotel list */
+    height: 500px; /* Fixed height for the map */
     background-color: #e9ecef;
     border-radius: 5px;
     border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
