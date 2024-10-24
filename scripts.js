@@ -12,11 +12,11 @@ function initMap() {
     });
 }
 
-// Sample hotel data for testing
+// Updated sample hotel data with slugs
 const hotels = [
-    { name: 'Hotel Alpha', location: 'Zurich', chargingStations: 2, imageUrl: 'https://placehold.co/300x200?text=Hotel+Alpha' },
-    { name: 'Hotel Beta', location: 'Geneva', chargingStations: 5, imageUrl: 'https://placehold.co/300x200?text=Hotel+Beta' },
-    { name: 'Hotel Gamma', location: 'Basel', chargingStations: 1, imageUrl: 'https://placehold.co/300x200?text=Hotel+Gamma' },
+    { name: 'Hotel Alpha', location: 'Zurich', chargingStations: 2, imageUrl: 'https://placehold.co/300x200?text=Hotel+Alpha', slug: 'hotel-alpha' },
+    { name: 'Hotel Beta', location: 'Geneva', chargingStations: 5, imageUrl: 'https://placehold.co/300x200?text=Hotel+Beta', slug: 'hotel-beta' },
+    { name: 'Hotel Gamma', location: 'Basel', chargingStations: 1, imageUrl: 'https://placehold.co/300x200?text=Hotel+Gamma', slug: 'hotel-gamma' },
 ];
 
 // Function to display filtered hotels dynamically
@@ -38,7 +38,7 @@ function searchHotels(location) {
             hotelCard.innerHTML = `
                 <img src="${hotel.imageUrl}" alt="${hotel.name}" class="hotel-image">
                 <div class="hotel-info">
-                    <h3>${hotel.name}</h3>
+                    <h3><a href="hoteldescription.html?hotel=${hotel.slug}">${hotel.name}</a></h3>
                     <p>Location: ${hotel.location}</p>
                     <p>Charging Stations: ${hotel.chargingStations}</p>
                 </div>

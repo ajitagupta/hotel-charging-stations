@@ -162,6 +162,22 @@ main {
     margin: 5px 0;
 }
 
+/* General styling for the hotel name link */
+.hotel-info h3 a {
+    color: inherit; /* Keep the color consistent with the h3 tag */
+    text-decoration: none; /* Remove underline */
+    cursor: default; /* Disable pointer cursor by default */
+}
+
+/* Only show the pointer and enable link on hover */
+.hotel-info h3 a:hover {
+    text-decoration: none; /* No underline on hover */
+    color: #2f8f2f; /* Change color to indicate it's clickable */
+    cursor: pointer; /* Show pointer on hover */
+}
+
+
+
 /* Map Section */
 #map {
     flex-basis: 35%; /* Take up 35% of the space next to hotel list */
