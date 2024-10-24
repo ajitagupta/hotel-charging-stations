@@ -29,7 +29,7 @@
 
     <!-- Title Image Section -->
     <section class="title-section">
-        <img src="https://placehold.co/1200x500" alt="Hotel Palace Luzern" class="title-image">
+        <img src="https://placehold.co/800x375" alt="Hotel Palace Luzern" class="title-image">
         <div class="title-text">
             <h1 id="hotel-title"></h1>
             <p>Ein legendäres Grandhotel direkt am Vierwaldstättersee.</p>
@@ -42,95 +42,113 @@
         <section class="hotel-details">
             <!-- Left Column for Text Sections -->
             <div class="left-column">
-                <div class="description">
-                    <h2>Über das Hotel</h2>
-                    <p>
-                        Das Hotel Palace Luzern liegt direkt am Ufer des Vierwaldstättersees und bietet seinen Gästen 
-                        ein luxuriöses Ambiente, exzellenten Service und unvergleichliche Ausblicke auf die Alpen. 
-                        Mit einer reichen Geschichte und eleganten Zimmern bietet dieses Hotel eine unvergessliche Erfahrung.
-                    </p>
-                    <h2>Ausstattungen</h2>
-                    <ul>
-                        <li>24-Stunden-Rezeption</li>
-                        <li>WLAN</li>
-                        <li>Parkplatz</li>
-                        <li>Wellnessbereich</li>
-                        <li>Haustiere erlaubt</li>
-                    </ul>
-                </div>
-
-                <!-- Ratings Section -->
-                <div class="ratings">
-                    <h2>Bewertungen</h2>
-                    <div class="rating">
-                        <p>⭐⭐⭐⭐⭐ 4.8/5</p>
-                        <p>"Ein fantastischer Aufenthalt! Wunderschöne Aussicht und hervorragender Service." - Gast A</p>
-                    </div>
-                    <div class="rating">
-                        <p>⭐⭐⭐⭐ 4.5/5</p>
-                        <p>"Sehr gut, nur das WLAN war etwas langsam." - Gast B</p>
-                    </div>
-                    <div class="rating">
-                        <p>⭐⭐⭐⭐⭐ 5/5</p>
-                        <p>"Das beste Hotel in Luzern! Ich komme wieder!" - Gast C</p>
+                <!-- Über das Hotel Card -->
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Über das Hotel</h2>
+                        <p>
+                            Das Hotel Palace Luzern liegt direkt am Ufer des Vierwaldstättersees und bietet seinen Gästen 
+                            ein luxuriöses Ambiente, exzellenten Service und unvergleichliche Ausblicke auf die Alpen. 
+                            Mit einer reichen Geschichte und eleganten Zimmern bietet dieses Hotel eine unvergessliche Erfahrung.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Contact Section -->
-                <div class="contact">
-                    <h2>Kontakt</h2>
-                    <p>Adresse: Seestrasse 19, 6002 Luzern, Schweiz</p>
-                    <p>Telefon: +41 41 555 55 55</p>
-                    <p>Email: <a href="mailto:info@palaceluzern.ch">info@palaceluzern.ch</a></p>
+                <!-- Ausstattungen Card -->
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Ausstattungen</h2>
+                        <ul class="facilities-grid">
+                            <li class="facility-item"><label>24-Stunden-Rezeption</label></li>
+                            <li class="facility-item"><label>WLAN</label></li>
+                            <li class="facility-item"><label>Parkplatz</label></li>
+                            <li class="facility-item"><label>Wellnessbereich</label></li>
+                            <li class="facility-item"><label>Haustiere erlaubt</label></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bewertungen Card -->
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Bewertungen</h2>
+                        <div class="rating">
+                            <p>⭐⭐⭐⭐⭐ 4.8/5</p>
+                            <p>"Ein fantastischer Aufenthalt! Wunderschöne Aussicht und hervorragender Service." - Gast A</p>
+                        </div>
+                        <div class="rating">
+                            <p>⭐⭐⭐⭐ 4.5/5</p>
+                            <p>"Sehr gut, nur das WLAN war etwas langsam." - Gast B</p>
+                        </div>
+                        <div class="rating">
+                            <p>⭐⭐⭐⭐⭐ 5/5</p>
+                            <p>"Das beste Hotel in Luzern! Ich komme wieder!" - Gast C</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kontakt Card -->
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Kontakt</h2>
+                        <p>Adresse: Seestrasse 19, 6002 Luzern, Schweiz</p>
+                        <p>Telefon: +41 41 555 55 55</p>
+                        <p>Email: <a href="mailto:info@palaceluzern.ch">info@palaceluzern.ch</a></p>
+                    </div>
                 </div>
             </div>
 
             <!-- Right Column for Bildergalerie and Booking Section -->
             <div class="right-column">
-                <div class="gallery">
-                    <h2>Bildergalerie</h2>
-                    <div id="hotelCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#hotelCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#hotelCarousel" data-slide-to="1"></li>
-                            <li data-target="#hotelCarousel" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="https://placehold.co/360x240" alt="Image 1">
+                <!-- Bildergalerie Card -->
+                <div class="card gallery">
+                    <div class="card-body">
+                        <h2>Bildergalerie</h2>
+                        <div id="hotelCarousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#hotelCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#hotelCarousel" data-slide-to="1"></li>
+                                <li data-target="#hotelCarousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="https://placehold.co/360x240" alt="Image 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="https://placehold.co/360x240" alt="Image 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="https://placehold.co/360x240" alt="Image 3">
+                                </div>
                             </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="https://placehold.co/360x240" alt="Image 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="https://placehold.co/360x240" alt="Image 3">
-                            </div>
+                            <a class="carousel-control-prev" href="#hotelCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#hotelCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                        <a class="carousel-control-prev" href="#hotelCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#hotelCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
                 </div>
 
-                <!-- Booking Section -->
-                <div class="booking">
-                    <h2>Verfügbarkeit überprüfen</h2>
-                    <form id="booking-form">
-                        <div class="form-group">
-                            <label for="checkin">Check-in Datum</label>
-                            <input type="date" id="checkin" name="checkin" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkout">Check-out Datum</label>
-                            <input type="date" id="checkout" name="checkout" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-success">Verfügbarkeit prüfen</button>
-                    </form>
+                <!-- Booking Section Card -->
+                <div class="card booking">
+                    <div class="card-body">
+                        <h2>Verfügbarkeit überprüfen</h2>
+                        <form id="booking-form">
+                            <div class="form-group">
+                                <label for="checkin">Check-in Datum</label>
+                                <input type="date" id="checkin" name="checkin" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout">Check-out Datum</label>
+                                <input type="date" id="checkout" name="checkout" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-success">Verfügbarkeit prüfen</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -154,6 +172,11 @@
         const urlParams = new URLSearchParams(window.location.search);
         const hotelSlug = urlParams.get('hotel');
         document.getElementById('hotel-title').innerText = hotelSlug;
+
+        // Set today's date as default for the check-in and check-out date
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkin').value = today;
+        document.getElementById('checkout').value = today;
     </script>    
 
 </body>
