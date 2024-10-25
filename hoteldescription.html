@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Description - Palace Luzern</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="hoteldescription.css">
+    <link rel="stylesheet" href="styles.css">
     <!-- Bootstrap CSS for Carousel -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -18,9 +18,10 @@
                 <h1>Hotel Charging Booking</h1>
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Hotels</a></li>
                 <li><a href="#">Map</a></li>
+                <li><a href="planyourjourney.html">Plan Your Journey</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -146,6 +147,12 @@
                                 <label for="checkout">Check-out Datum</label>
                                 <input type="date" id="checkout" name="checkout" class="form-control">
                             </div>
+
+                            <!-- Checkbox for booking a charger -->
+                            <div class="form-group">
+                                <input type="checkbox" id="charger" name="charger">
+                                <label for="charger" style="color: #3cb371; font-weight: bold;">Charger buchen</label>
+                            </div>                           
                             <button type="submit" class="btn btn-success">Verfügbarkeit prüfen</button>
                         </form>
                     </div>
