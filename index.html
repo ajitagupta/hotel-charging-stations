@@ -27,24 +27,24 @@
     <section id="search">
         <h2>Find Hotels with EV Charging</h2>
         <form id="search-form">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div class="search-container">
                 <!-- Location input -->
-                <input type="text" id="location" placeholder="Enter location" style="padding: 0.75rem; flex-grow: 1; border-radius: 5px; border: 1px solid #ccc; margin-right: 10px;">
-
+                <input type="text" id="location" placeholder="Enter location" class="search-input">
+        
                 <!-- Charging type filter -->
-                <select id="charging-type" name="charging-type" style="padding: 0.75rem; border-radius: 5px; border: 1px solid #ccc;">
+                <select id="charging-type" name="charging-type" class="search-select">
                     <option value="">Select Charging Type</option>
-                    <option value="">Any</option> <!-- Added back the 'Any' option -->
+                    <option value="">Any</option>
                     <option value="rapid-ultra-rapid">Rapid / Ultra-Rapid (CCS, CHAdeMO)</option>
                     <option value="fast">Fast Charging (Type 2, 7kW-22kW)</option>
                     <option value="slow">Slow Charging (Type 1, up to 3.7kW)</option>
                 </select>
-
-               <!-- Search button aligned to the right -->
-               <button type="submit" class="search-button">Search</button>
-
+        
+                <!-- Search button aligned to the right -->
+                <button type="submit" class="search-button">Search</button>
             </div>
         </form>
+        
     </section>
 
     <main>
