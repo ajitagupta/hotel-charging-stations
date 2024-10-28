@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Hotels - ElectriStay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="hotels.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div style="display: flex; align-items: center;">
+                <img src="logo_green.png" alt="Hotel Charging Logo" style="width: 150px; margin-right: 10px;">
+                <h1 class="title">ElectriStay
+                    <span>Stay Charged, Stay Relaxed</span>
+                </h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="maps.html">Map</a></li>
+                <li><a href="planyourjourney.html">Plan Your Journey</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar for Category Selection -->
+        <aside class="sidebar">
+            <h2>Select a Category</h2>
+            <ul>
+                <li onclick="filterHotels('Swiss Hotels')">Swiss Hotels</li>
+                <li onclick="filterHotels('Spa and Wellness Hotels')">Spa and Wellness Hotels</li>
+                <li onclick="filterHotels('Family Hotels')">Family Hotels</li>
+                <li onclick="filterHotels('Bike Hotels')">Bike Hotels</li>
+                <li onclick="filterHotels('Luxury Hotels')">Luxury Hotels</li>
+                <li onclick="filterHotels('Winter Sports Hotels')">Winter Sports Hotels</li>
+            </ul>
+        </aside>
+
+        <!-- Right Section for Hotel Cards -->
+        <section class="hotels-section">
+            <div id="hotels-container" class="hotel-cards">
+                <!-- Placeholder hotel cards; dynamically replace these based on selected category -->
+                <div class="hotel-card">
+                    <img src="https://placehold.co/300x200" alt="Swiss Hotel">
+                    <h3>Swiss Hotel</h3>
+                    <p>Experience the authentic Swiss hospitality in our cozy mountain lodges.</p>
+                </div>
+                <div class="hotel-card">
+                    <img src="https://placehold.co/300x200" alt="Spa and Wellness Hotel">
+                    <h3>Spa and Wellness Hotel</h3>
+                    <p>Relax and rejuvenate in our top-rated spa and wellness hotels.</p>
+                </div>
+                <div class="hotel-card">
+                    <img src="https://placehold.co/300x200" alt="Family Hotel">
+                    <h3>Family Hotel</h3>
+                    <p>Enjoy a perfect family getaway with activities and amenities for everyone.</p>
+                </div>
+                <!-- Additional hotel cards will be loaded based on the selected category -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ElectriStay. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for filtering hotels based on category -->
+    <script>
+        function filterHotels(category) {
+            // Replace the hotel cards with those matching the selected category
+            const hotelsContainer = document.getElementById('hotels-container');
+            hotelsContainer.innerHTML = ''; // Clear current hotels
+
+            // Sample data for different categories (you can replace this with actual data)
+            const hotelsData = {
+                'Swiss Hotels': [
+                    { title: 'Swiss Chalet', description: 'An authentic Swiss chalet experience.', img: 'https://placehold.co/300x200' },
+                    { title: 'Alpine Lodge', description: 'Mountain views and warm hospitality.', img: 'https://placehold.co/300x200' },
+                ],
+                'Spa and Wellness Hotels': [
+                    { title: 'Luxury Spa Resort', description: 'Pamper yourself in luxurious spa facilities.', img: 'https://placehold.co/300x200' },
+                    { title: 'Wellness Haven', description: 'A place for relaxation and rejuvenation.', img: 'https://placehold.co/300x200' },
+                ],
+                'Family Hotels': [
+                    { title: 'Family Adventure Resort', description: 'Fun activities for the entire family.', img: 'https://placehold.co/300x200' },
+                    { title: 'Kids Paradise', description: 'A hotel designed for family fun.', img: 'https://placehold.co/300x200' },
+                ],
+                // Add more categories as needed
+            };
+
+            // Populate hotels based on selected category
+            const selectedHotels = hotelsData[category] || [];
+            selectedHotels.forEach(hotel => {
+                const hotelCard = document.createElement('div');
+                hotelCard.className = 'hotel-card';
+                hotelCard.innerHTML = `
+                    <img src="${hotel.img}" alt="${hotel.title}">
+                    <h3>${hotel.title}</h3>
+                    <p>${hotel.description}</p>
+                `;
+                hotelsContainer.appendChild(hotelCard);
+            });
+        }
+    </script>
+</body>
+</html>

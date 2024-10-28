@@ -18,15 +18,7 @@ function initMap() {
         const marker = new google.maps.Marker({
             position: cityMarkers[city],
             map: map,
-            title: city,
-            icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                scale: 8,
-                fillColor: "#34b234",
-                fillOpacity: 1,
-                strokeWeight: 1,
-                strokeColor: "#2f8f2f"
-            }
+            title: city
         });
 
         const infoWindow = new google.maps.InfoWindow({
