@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotels with Charging Stations</title>
+    <title>ElectriStay</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,60 +11,63 @@
         <nav>
             <div style="display: flex; align-items: center;">
                 <img src="logo_green.png" alt="Hotel Charging Logo" style="width: 150px; margin-right: 10px;">
-                <h1>Hotel Charging Booking</h1>
+                <h1 class="title">ElectriStay
+                    <span>Stay Charged, Stay Relaxed</span>
+                </h1>
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Hotels</a></li>
-                <li><a href="#">Map</a></li>
-                <li><a href="planyourjourney.html">Plan Your Journey</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" data-translate="home">Home</a></li>
+                <li><a href="#" data-translate="hotels">Hotels</a></li>
+                <li><a href="#" data-translate="map">Map</a></li>
+                <li><a href="planyourjourney.html" data-translate="journey">Plan Your Journey</a></li>
+                <li><a href="aboutus.html" data-translate="about">About Us</a></li>
+                <li><a href="contact.html" data-translate="contact">Contact</a></li>
             </ul>
+
+            <!-- Language Selector -->
+            <select id="language-selector">
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="fr">Français</option>
+                <option value="it">Italiano</option>
+                <option value="rm">Rumantsch</option>
+            </select>
         </nav>
     </header>
 
     <section id="search">
-        <h2>Find Hotels with EV Charging</h2>
+        <h2 data-translate="search-title">Find Hotels with EV Charging</h2>
         <form id="search-form">
             <div class="search-container">
-                <!-- Location input -->
-                <input type="text" id="location" placeholder="Enter location" class="search-input">
-        
-                <!-- Charging type filter -->
+                <input type="text" id="location" placeholder="Enter location" class="search-input" data-placeholder="location">
+                <!-- Charging type filter with data-translate attributes on each option -->
                 <select id="charging-type" name="charging-type" class="search-select">
-                    <option value="">Select Charging Type</option>
-                    <option value="">Any</option>
-                    <option value="rapid-ultra-rapid">Rapid / Ultra-Rapid (CCS, CHAdeMO)</option>
-                    <option value="fast">Fast Charging (Type 2, 7kW-22kW)</option>
-                    <option value="slow">Slow Charging (Type 1, up to 3.7kW)</option>
+                    <option value="all" data-translate="chargingTypeAll">Select Charging Type</option>
+                    <option value="any" data-translate="chargingTypeAny">Any</option>
+                    <option value="rapid-ultra-rapid" data-translate="chargingTypeRapid">Rapid / Ultra-Rapid (CCS, CHAdeMO)</option>
+                    <option value="fast" data-translate="chargingTypeFast">Fast Charging (Type 2, 7kW-22kW)</option>
+                    <option value="slow" data-translate="chargingTypeSlow">Slow Charging (Type 1, up to 3.7kW)</option>
                 </select>
-        
-                <!-- Search button aligned to the right -->
-                <button type="submit" class="search-button">Search</button>
+                <button type="submit" class="search-button" data-translate="search">Search</button>
             </div>
         </form>
-        
     </section>
 
     <main>
         <section id="hotel-list">
             <!-- Hotel search results will be dynamically displayed here -->
         </section>
-
         <section id="map">
             <!-- Map will be displayed here -->
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Hotel EV Charging. All rights reserved.</p>
+        <p>&copy; 2024 Hotel EV Charging. <span data-translate="footer-rights">All rights reserved.</span></p>
     </footer>
 
-    <!-- Include the external JavaScript file -->
+    <!-- JavaScript for language handling -->
     <script src="scripts.js"></script>
-
-    <!-- Google Maps API script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLZ8y1K18c8MR7vOAzhdrtEcAUnf6dKdA&callback=initMap"></script>
 </body>
 </html>

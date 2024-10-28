@@ -61,6 +61,8 @@ header nav ul li a.active {
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 10px;
+    color: white;
+    font-weight: bold;
 }
 
 .hero-content p {

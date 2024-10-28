@@ -63,3 +63,118 @@ document.getElementById('search-form').addEventListener('submit', function (e) {
         searchHotels('');
     }
 });
+
+// Translation dictionary with dropdown options added
+const translations = {
+    en: {
+        home: "Home",
+        hotels: "Hotels",
+        map: "Map",
+        journey: "Plan Your Journey",
+        about: "About Us",
+        contact: "Contact",
+        searchTitle: "Find Hotels with EV Charging",
+        search: "Search",
+        location: "Enter location",
+        chargingTypeAll: "Select Charging Type",
+        chargingTypeAny: "Any",
+        chargingTypeRapid: "Rapid / Ultra-Rapid (CCS, CHAdeMO)",
+        chargingTypeFast: "Fast Charging (Type 2, 7kW-22kW)",
+        chargingTypeSlow: "Slow Charging (Type 1, up to 3.7kW)",
+        footerRights: "All rights reserved."
+    },
+    de: {
+        home: "Startseite",
+        hotels: "Hotels",
+        map: "Karte",
+        journey: "Reise planen",
+        about: "Über uns",
+        contact: "Kontakt",
+        searchTitle: "Finden Sie Hotels mit EV-Ladestationen",
+        search: "Suche",
+        location: "Ort eingeben",
+        chargingTypeAll: "Ladeart wählen",
+        chargingTypeAny: "Alle",
+        chargingTypeRapid: "Schnell / Ultraschnell (CCS, CHAdeMO)",
+        chargingTypeFast: "Schnellladung (Typ 2, 7kW-22kW)",
+        chargingTypeSlow: "Langsame Ladung (Typ 1, bis zu 3.7kW)",
+        footerRights: "Alle Rechte vorbehalten."
+    },
+    fr: {
+        home: "Accueil",
+        hotels: "Hôtels",
+        map: "Carte",
+        journey: "Planifiez votre voyage",
+        about: "À propos de nous",
+        contact: "Contact",
+        searchTitle: "Trouvez des hôtels avec des stations de recharge EV",
+        search: "Chercher",
+        location: "Entrez l'emplacement",
+        chargingTypeAll: "Sélectionnez le type de recharge",
+        chargingTypeAny: "Tous",
+        chargingTypeRapid: "Rapide / Ultra-Rapide (CCS, CHAdeMO)",
+        chargingTypeFast: "Recharge rapide (Type 2, 7kW-22kW)",
+        chargingTypeSlow: "Recharge lente (Type 1, jusqu'à 3.7kW)",
+        footerRights: "Tous droits réservés."
+    },
+    it: {
+        home: "Home",
+        hotels: "Hotel",
+        map: "Mappa",
+        journey: "Pianifica il tuo viaggio",
+        about: "Chi siamo",
+        contact: "Contatti",
+        searchTitle: "Trova hotel con stazioni di ricarica per EV",
+        search: "Cerca",
+        location: "Inserisci la località",
+        chargingTypeAll: "Seleziona il tipo di ricarica",
+        chargingTypeAny: "Qualsiasi",
+        chargingTypeRapid: "Rapida / Ultra-rapida (CCS, CHAdeMO)",
+        chargingTypeFast: "Ricarica veloce (Tipo 2, 7kW-22kW)",
+        chargingTypeSlow: "Ricarica lenta (Tipo 1, fino a 3.7kW)",
+        footerRights: "Tutti i diritti riservati."
+    },
+    rm: {
+        home: "Chasa",
+        hotels: "Hotels",
+        map: "Charta",
+        journey: "Planischar tia via",
+        about: "Da nus",
+        contact: "Contact",
+        searchTitle: "Chatta hotels cun staziuns da chargiar EV",
+        search: "Tschertga",
+        location: "Endatescha il lieu",
+        chargingTypeAll: "Tscherna il tip da chargiar",
+        chargingTypeAny: "Tut",
+        chargingTypeRapid: "Svelt / Ultra-svelt (CCS, CHAdeMO)",
+        chargingTypeFast: "Chargiada svelta (Tip 2, 7kW-22kW)",
+        chargingTypeSlow: "Chargiada plauna (Tip 1, fin 3.7kW)",
+        footerRights: "Tuts dretgs riservads."
+    }
+};
+
+// Set up event listener for language change
+document.getElementById("language-selector").addEventListener("change", (event) => {
+    const selectedLanguage = event.target.value;
+    updateContentLanguage(selectedLanguage);
+});
+
+
+// Update function to include dropdown translations
+function updateContentLanguage(lang) {
+    document.querySelectorAll("[data-translate]").forEach((element) => {
+        const key = element.getAttribute("data-translate");
+        if (translations[lang][key]) {
+            element.innerText = translations[lang][key];
+        }
+    });
+
+    // Update placeholders and dropdown options
+    document.getElementById("location").placeholder = translations[lang].location;
+    document.querySelectorAll("#charging-type option").forEach((option) => {
+        const key = option.getAttribute("data-translate");
+        if (translations[lang][key]) {
+            option.innerText = translations[lang][key];
+        }
+    });
+}
