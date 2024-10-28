@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Charging Stations - ElectriStay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="maps.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div style="display: flex; align-items: center;">
+                <img src="logo_green.png" alt="Hotel Charging Logo" style="width: 150px; margin-right: 10px;">
+                <h1 class="title">ElectriStay
+                    <span>Stay Charged, Stay Relaxed</span>
+                </h1>
+            </div>
+            <ul>
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="#">Hotels</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="planyourjourney.html">Plan Your Journey</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar for City Selection -->
+        <aside class="sidebar">
+            <h2>Select a City</h2>
+            <ul>
+                <li onclick="loadMap('Zurich')">Zurich</li>
+                <li onclick="loadMap('Geneva')">Geneva</li>
+                <li onclick="loadMap('Bern')">Bern</li>
+                <li onclick="loadMap('Lucerne')">Lucerne</li>
+                <li onclick="loadMap('Basel')">Basel</li>
+            </ul>
+        </aside>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div id="map"></div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ElectriStay. All rights reserved.</p>
+    </footer>
+
+    <!-- Google Maps API Script -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLZ8y1K18c8MR7vOAzhdrtEcAUnf6dKdA&callback=initMap"></script>
+    <script src="maps.js"></script>
+</body>
+</html>

@@ -79,7 +79,8 @@ header {
     display: flex;  /* Keeps elements in one line */
     justify-content: center;  /* Centers the form */
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    /*background-color: rgba(255, 255, 255, 0.8);*/
+    background-color: #e1f5e1; /* Light green background */
     padding: 1rem;
     border-radius: 5px;
     max-width: 1100px;
