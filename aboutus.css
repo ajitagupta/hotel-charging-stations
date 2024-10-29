@@ -13,43 +13,6 @@ body {
     line-height: 1.6;
 }
 
-/* Header Styling */
-header {
-    background-color: #2f8f2f;
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-}
-
-header nav ul li {
-    margin-right: 20px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-header nav ul li a:hover,
-header nav ul li a.active {
-    color: #addfad;
-}
-
 /* Hero Section */
 .hero-section {
     background-color: #3cb371; /* Updated Green Color */
