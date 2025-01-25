@@ -7,14 +7,14 @@
 }
 
 body {
-    background-color: #f1f8f1;
+    background-color: #fff8e1; /* Light yellow for the background */
     color: #333;
     line-height: 1.6;
 }
 
 /* Header Styling */
 header {
-    background-color: #2f8f2f;
+    background-color: #000; /* Black background for header */
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -28,7 +28,7 @@ header {
     font-family: "Raleway", sans-serif;
     font-weight: bold;
     font-size: 2.5rem;
-    color: white;
+    color: #ffc107; /* Yellow for the title text */
     text-transform: capitalize;
     margin: 0;
 }
@@ -40,7 +40,7 @@ header {
     width: 60px;
     height: 2px;
     content: "";
-    background-color: white;
+    background-color: #ffc107; /* Yellow underline */
 }
 
 .title span {
@@ -49,7 +49,7 @@ header {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 4px;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 193, 7, 0.7); /* Semi-transparent yellow */
     margin-top: 4px;
 }
 
@@ -75,7 +75,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: white;
+    color: #ffc107; /* Yellow for links */
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
@@ -83,15 +83,15 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #d1ffd1;
+    color: #fff59d; /* Lighter yellow on hover */
 }
 
 /* Search Section Styling */
 #search {
-    background-color: #3cb371;
+    background-color: #333; /* Dark background for contrast */
     padding: 3rem 0;
     text-align: center;
-    color: white;
+    color: #ffc107; /* Yellow for text */
 }
 
 #search h2 {
@@ -106,7 +106,7 @@ header nav ul li a:hover {
     justify-content: center;
     align-items: center;
     padding: 0.75rem;
-    background-color: #e1f5e1;
+    background-color: #fff8e1; /* Light yellow */
     border-radius: 8px;
     max-width: 740px;
     margin: 0 auto;
@@ -126,8 +126,8 @@ header nav ul li a:hover {
 
 #search-form button {
     padding: 0.75rem 1.5rem;
-    background-color: #2f8f2f;
-    color: white;
+    background-color: #ffc107; /* Yellow for button */
+    color: #000; /* Black text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -137,7 +137,7 @@ header nav ul li a:hover {
 }
 
 #search-form button:hover {
-    background-color: #246e24;
+    background-color: #ffeb3b; /* Brighter yellow */
 }
 
 /* Main Layout */
@@ -160,18 +160,17 @@ main {
 #hotel-list .hotel-card {
     display: flex;
     align-items: center;
-    /*background-color: #e1f5e1;*/
-    border: 1px solid #2f8f2f;
+    border: 1px solid #ffc107; /* Yellow border */
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(47, 143, 47, 0.2);
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #hotel-list .hotel-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(47, 143, 47, 0.4);
+    box-shadow: 0 6px 12px rgba(255, 193, 7, 0.4);
 }
 
 #hotel-list .hotel-card img.hotel-image {
@@ -192,39 +191,39 @@ main {
 #hotel-list .hotel-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #2f8f2f;
-}
-
-#hotel-list .hotel-info p {
-    font-size: 0.9rem;
-    color: #2f5f2f;
+    color: #000; /* Black for titles */
 }
 
 #hotel-list .hotel-info h3 a {
-    color: #2f8f2f; /* Main green color */
+    color: #ffc107; /* Yellow links */
     text-decoration: none; /* Removes underline */
     font-weight: bold;
 }
 
 #hotel-list .hotel-info h3 a:hover {
     text-decoration: underline; /* Optional: Add underline on hover for clarity */
-    color: #246e24; /* Darker green on hover */
+    color: #ffeb3b; /* Brighter yellow on hover */
+}
+
+#hotel-list .hotel-info p {
+    font-size: 0.9rem;
+    color: #333;
 }
 
 /* Map Section Styling */
 #map {
     flex-basis: 35%;
     height: 500px;
-    background-color: #e9ecef;
+    background-color: #fff8e1; /* Light yellow */
     border-radius: 8px;
-    border: 1px solid #2f8f2f;
+    border: 1px solid #ffc107; /* Yellow border */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer Styling */
 footer {
-    background-color: #2f8f2f;
-    color: white;
+    background-color: #000; /* Black background */
+    color: #ffc107; /* Yellow text */
     padding: 1rem;
     text-align: center;
     font-size: 0.9rem;
@@ -236,13 +235,13 @@ footer {
     padding: 0.5rem;
     border-radius: 5px;
     border: none;
-    background-color: #d1ffd1;
-    color: #2f8f2f;
+    background-color: #fff59d; /* Light yellow */
+    color: #000; /* Black text */
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #language-selector:hover {
-    background-color: #b0e0b0;
+    background-color: #fff176; /* Slightly darker yellow */
 }

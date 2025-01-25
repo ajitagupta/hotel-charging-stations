@@ -8,13 +8,13 @@
 
 /* Styling the body background */
 body {
-    background-color: #f8f9fa;
+    background-color: #fff8e1; /* Light yellow background */
     line-height: 1.6;
 }
 
 /* Header Styling */
 header {
-    background-color: #2f8f2f;
+    background-color: #000; /* Black background */
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -24,10 +24,10 @@ header {
 
 /* Styling the search section */
 #search {
-    background-color: #3cb371; /* Correct green background */
-    padding: 3rem 0; /* Adjusted padding */
+    background-color: #333; /* Dark background for contrast */
+    padding: 3rem 0;
     text-align: center;
-    color: white;
+    color: #ffc107; /* Yellow text */
 }
 
 #search h2 {
@@ -39,9 +39,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Slight opacity for contrast */
+    background-color: rgba(0, 0, 0, 0.7); /* Black with slight opacity for contrast */
     border-radius: 5px;
-    max-width: 660px; /* Consistent width with your previous design */
+    max-width: 660px;
     margin: 0 auto;
     padding: 10px;
 }
@@ -49,84 +49,88 @@ header {
 #search-form input, #search-form select {
     padding: 0.75rem;
     margin-right: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffc107; /* Yellow border */
     border-radius: 5px;
-    flex-grow: 1; /* Ensures that inputs are flexible */
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fffde7; /* Light yellow background */
 }
 
 #search-form button {
     padding: 0.75rem 1.5rem;
-    background-color: #2f8f2f;
-    color: white;
+    background-color: #ffc107; /* Yellow button */
+    color: #000; /* Black text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 #search-form button:hover {
-    background-color: #246e24;
+    background-color: #ffeb3b; /* Brighter yellow on hover */
 }
 
 /* Map Section (if any) */
 #map {
     height: 500px;
-    background-color: #e9ecef;
+    background-color: #fffde7; /* Light yellow */
     border-radius: 5px;
+    border: 2px solid #ffc107; /* Yellow border */
 }
 
 /* Search Form Styling */
 #journey-form {
-    display: flex;  /* Keeps elements in one line */
-    justify-content: center;  /* Centers the form */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    /*background-color: rgba(255, 255, 255, 0.8);*/
-    background-color: #e1f5e1; /* Light green background */
+    background-color: #fffde7; /* Light yellow background */
     padding: 1rem;
     border-radius: 5px;
     max-width: 1100px;
     margin: 0 auto;
-    gap: 10px;  /* Space between elements */
+    gap: 10px;
 }
 
 #journey-form input[type="text"],
 #journey-form select,
 #journey-form input[type="number"] {
-    padding: 0.75rem;  /* Uniform padding */
+    padding: 0.75rem;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffc107; /* Yellow border */
     background-color: white;
-    font-size: 1rem;  /* Consistent font size */
-    color: #333;  /* Text color */
+    font-size: 1rem;
+    color: #333; /* Text color */
 }
 
 #journey-form input[type="text"],
 #journey-form select {
-    font-size: 1rem;  /* Ensure font-size is the same */
-    font-family: Arial, sans-serif;  /* Set a consistent font-family */
-    color: #555;  /* Set a uniform font color */
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    color: #555; /* Uniform text color */
     padding: 0.75rem;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffc107; /* Yellow border */
     background-color: white;
     flex-grow: 1;
 }
 
 #journey-form button {
-    padding: 0.75rem 1.5rem;  /* Uniform button size */
-    background-color: #2f8f2f;
-    color: white;
+    padding: 0.75rem 1.5rem;
+    background-color: #ffc107; /* Yellow button */
+    color: #000; /* Black text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;  /* Consistent font size */
+    font-size: 1rem;
 }
 
 #journey-form button:hover {
-    background-color: #246e24;  /* Hover effect */
+    background-color: #ffeb3b; /* Brighter yellow hover effect */
 }
 
 #journey-form input[type="text"]::placeholder,
 #journey-form input[type="number"]::placeholder {
-    color: #888;  /* Placeholder text color */
+    color: #888; /* Placeholder text color */
     font-size: 1rem;
 }

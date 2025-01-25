@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f8f9fa;
+    background-color: #fff8e1; /* Light yellow background */
     line-height: 1.6;
 }
 
@@ -28,9 +28,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffc107; /* Yellow text */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
     padding: 20px;
+    border-radius: 8px;
 }
 
 .title-text h1 {
@@ -51,48 +52,9 @@ body {
 }
 
 /* Card Styling */
-/* Card Styling for Ausstattungen */
-.card .facilities-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    gap: 10px;
-    list-style-type: none; /* Remove bullet points */
-    padding: 0;
-}
-
-.card .facilities-grid .facility-item {
-    flex: 1 1 30%; /* Flex-basis set to 30% to allow 3 items per row if space permits */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    text-align: center;
-    font-size: 1rem;
-    border-radius: 5px;
-    margin-bottom: 10px; /* Adds space between rows */
-}
-
-/* Styling for labels inside the facilities grid */
-.card .facilities-grid .facility-item label {
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: #e7f5e7; /* Light green background to match theme */
-    color: #2f8f2f; /* Dark green text */
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 0.8rem; /* Reduced font size */
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    text-align: center; /* Ensure centered text inside the label */
-}
-
-
-/* Card Styling */
 .card {
     background-color: white;
-    border: 1px solid #ddd;
+    border: 1px solid #ffc107; /* Yellow border */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -105,27 +67,45 @@ body {
 .card h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #2f8f2f;
+    color: #ffc107; /* Yellow text */
 }
 
 .card p {
     font-size: 1rem;
     margin-bottom: 10px;
+    color: #333; /* Black text */
 }
-
 
 /* Facilities Grid */
 .facilities-grid {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 10px;
+    list-style-type: none;
+    padding: 0;
 }
 
 .facility-item {
-    flex: 1;
+    flex: 1 1 30%;
     padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    background-color: #fffde7; /* Light yellow background */
+    border: 1px solid #ffc107; /* Yellow border */
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.facility-item label {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #ffc107; /* Yellow background for labels */
+    color: #000; /* Black text */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
     text-align: center;
 }
 
@@ -135,20 +115,25 @@ body {
 }
 
 .booking .btn-success {
-    background-color: #3cb371;
+    background-color: #ffc107; /* Yellow button */
+    color: #000; /* Black text */
     border: none;
     padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .booking .btn-success:hover {
-    background-color: #2f8f2f;
+    background-color: #ffeb3b; /* Brighter yellow on hover */
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #2f8f2f;
-    color: white;
+    background-color: #000; /* Black background */
+    color: #ffc107; /* Yellow text */
     font-size: 1rem;
 }

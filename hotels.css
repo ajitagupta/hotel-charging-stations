@@ -1,7 +1,7 @@
 /* General Styling for Hotels Page */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #fff8e1; /* Light yellow background */
     margin: 0;
     padding: 0;
 }
@@ -15,18 +15,18 @@ body {
 /* Sidebar Styling */
 .sidebar {
     width: 280px;
-    background-color: #e1f5e1; /* Light green background */
-    color: #034d03;
+    background-color: #fffde7; /* Light yellow */
+    color: #000; /* Black text */
     padding: 2rem 1rem;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
-    border-right: 2px solid #2f8f2f;
+    border-right: 2px solid #ffc107; /* Yellow border */
 }
 
 .sidebar h2 {
     font-size: 1.6rem;
     margin-bottom: 1.5rem;
-    color: #034d03;
+    color: #ffc107; /* Yellow text */
     text-align: center;
 }
 
@@ -40,7 +40,7 @@ body {
 
 .sidebar ul li {
     background-color: #ffffff;
-    color: #2f8f2f;
+    color: #000; /* Black text */
     font-size: 1.1rem;
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
@@ -52,8 +52,8 @@ body {
 }
 
 .sidebar ul li:hover {
-    background-color: #2f8f2f; /* Dark green on hover */
-    color: #ffffff;
+    background-color: #ffc107; /* Yellow on hover */
+    color: #000; /* Black text on hover */
     transform: translateX(4px); /* Subtle movement on hover */
 }
 
@@ -76,8 +76,8 @@ body {
 }
 
 .hotel-card {
-    background-color: #ffffff;
-    color: #2f8f2f;
+    background-color: #ffffff; /* White background */
+    color: #000; /* Black text */
     width: 45%;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -101,19 +101,19 @@ body {
 
 .hotel-card h3 {
     font-size: 1.3rem;
-    color: #034d03;
+    color: #ffc107; /* Yellow text */
     margin-bottom: 0.5rem;
 }
 
 .hotel-card p {
     font-size: 0.9rem;
-    color: #555;
+    color: #555; /* Neutral gray */
 }
 
 /* Footer */
 footer {
-    background-color: #2f8f2f;
-    color: white;
+    background-color: #000; /* Black background */
+    color: #ffc107; /* Yellow text */
     text-align: center;
     padding: 1rem;
     position: relative;

@@ -8,15 +8,15 @@
 
 /* Body Styling */
 body {
-    background-color: #f8f9fa;
+    background-color: #fff8e1; /* Light yellow background */
     color: #333;
     line-height: 1.6;
 }
 
 /* Hero Section */
 .hero-section {
-    background-color: #3cb371; /* Updated Green Color */
-    color: white;
+    background-color: #333; /* Dark background for contrast */
+    color: #ffc107; /* Yellow text */
     padding: 100px 20px;
     text-align: center;
 }
@@ -24,35 +24,38 @@ body {
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: white;
+    color: #ffc107; /* Yellow for headings */
     font-weight: bold;
 }
 
 .hero-content p {
     font-size: 1.5rem;
+    color: #fff; /* White for secondary text */
 }
 
-/* Mission Section */
+/* Mission, Impact, and Team Sections */
 .mission-section, .impact-section, .team-section {
     padding: 60px 20px;
     text-align: center;
+    background-color: #fffde7; /* Light yellow background */
 }
 
 .mission-section h2, .impact-section h2, .team-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #2f8f2f;
+    color: #ffc107; /* Yellow for headings */
 }
 
 .mission-section p, .impact-section p, .team-section p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
+    color: #333; /* Black text */
 }
 
 /* Values Section */
 .values-section {
-    background-color: #e9f5e9;
+    background-color: #fff8e1; /* Light yellow background */
     padding: 60px 20px;
     text-align: center;
 }
@@ -70,21 +73,23 @@ body {
     width: 30%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    border: 1px solid #ffc107; /* Yellow border */
 }
 
 .value-item h3 {
-    color: #2f8f2f;
+    color: #ffc107; /* Yellow for headings */
     margin-bottom: 10px;
 }
 
 .value-item p {
     font-size: 1rem;
+    color: #333; /* Black text */
 }
 
 /* Footer */
 footer {
-    background-color: #2f8f2f;
-    color: white;
+    background-color: #000; /* Black background */
+    color: #ffc107; /* Yellow text */
     padding: 20px;
     text-align: center;
 }
