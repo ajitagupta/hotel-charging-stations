@@ -7,19 +7,20 @@
 }
 
 body {
-    background-color: #fff8e1; /* Light yellow for the background */
-    color: #333;
+    background-color: #F5F5F5; /* Light gray background for urban sophistication */
+    color: #333333; /* Dark gray text */
     line-height: 1.6;
 }
 
 /* Header Styling */
 header {
-    background-color: #000; /* Black background for header */
+    background-color: #FFFFFF; /* White background for header */
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for modern feel */
+    border-bottom: 2px solid #E0E0E0; /* Light border for separation */
 }
 
 /* Title Styling */
@@ -28,30 +29,35 @@ header {
     font-family: "Raleway", sans-serif;
     font-weight: bold;
     font-size: 2.5rem;
-    color: #ffc107; /* Yellow for the title text */
+    color: #333333; /* Dark gray title text */
     text-transform: capitalize;
     margin: 0;
+    text-align: left; /* Left-align title */
+    display: block; /* Ensure it spans full width */
 }
 
 .title:before {
     position: absolute;
-    left: 0;
     bottom: -10px;
+    left: 0; /* Keep underline aligned to the left */
     width: 60px;
     height: 2px;
     content: "";
-    background-color: #ffc107; /* Yellow underline */
+    background-color: #FFC107; /* Yellow underline */
 }
 
 .title span {
-    display: block;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    color: rgba(255, 193, 7, 0.7); /* Semi-transparent yellow */
-    margin-top: 4px;
+    letter-spacing: 2px;
+    color: rgba(255, 193, 7, 0.7); /* Semi-transparent yellow subtitle */
+    margin-top: 8px; /* Space between title and slogan */
+    display: block; /* Stack slogan under title */
+    text-align: left; /* Left-align slogan */
 }
+
+
 
 /* Navigation Styling */
 header nav {
@@ -60,22 +66,14 @@ header nav {
     align-items: center;
 }
 
-header nav img {
-    width: 120px;
-    margin-right: 15px;
-}
-
 header nav ul {
     list-style: none;
     display: flex;
-}
-
-header nav ul li {
-    margin-right: 20px;
+    gap: 20px; /* Space between navigation items */
 }
 
 header nav ul li a {
-    color: #ffc107; /* Yellow for links */
+    color: #FFC107; /* Yellow for links */
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
@@ -83,15 +81,15 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #fff59d; /* Lighter yellow on hover */
+    color: #FFEB3B; /* Brighter yellow on hover */
 }
 
 /* Search Section Styling */
 #search {
-    background-color: #333; /* Dark background for contrast */
+    background-color: #F5F5F5; /* Light gray background */
     padding: 3rem 0;
     text-align: center;
-    color: #ffc107; /* Yellow for text */
+    color: #333333; /* Dark gray text */
 }
 
 #search h2 {
@@ -106,7 +104,7 @@ header nav ul li a:hover {
     justify-content: center;
     align-items: center;
     padding: 0.75rem;
-    background-color: #fff8e1; /* Light yellow */
+    background-color: #FFFFFF; /* White background for contrast */
     border-radius: 8px;
     max-width: 740px;
     margin: 0 auto;
@@ -117,17 +115,17 @@ header nav ul li a:hover {
 #search-form input[type="text"],
 #search-form select {
     padding: 0.75rem;
-    border: 1px solid #ccc;
+    border: 1px solid #CCC; /* Light border */
     border-radius: 5px;
     flex-grow: 1;
     font-size: 1rem;
-    color: #333;
+    color: #333333; /* Dark gray text */
 }
 
 #search-form button {
     padding: 0.75rem 1.5rem;
-    background-color: #ffc107; /* Yellow for button */
-    color: #000; /* Black text */
+    background-color: #FFC107; /* Yellow for button */
+    color: #000000; /* Black text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -137,7 +135,7 @@ header nav ul li a:hover {
 }
 
 #search-form button:hover {
-    background-color: #ffeb3b; /* Brighter yellow */
+    background-color: #FFEB3B; /* Brighter yellow */
 }
 
 /* Main Layout */
@@ -148,6 +146,9 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
+    background-color: #FFFFFF; /* White main background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Hotel List */
@@ -160,17 +161,18 @@ main {
 #hotel-list .hotel-card {
     display: flex;
     align-items: center;
-    border: 1px solid #ffc107; /* Yellow border */
+    border: 1px solid #E0E0E0; /* Light gray border */
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+    background-color: #FFFFFF; /* White background for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #hotel-list .hotel-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(255, 193, 7, 0.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 #hotel-list .hotel-card img.hotel-image {
@@ -191,43 +193,43 @@ main {
 #hotel-list .hotel-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #000; /* Black for titles */
+    color: #333333; /* Dark gray for titles */
 }
 
 #hotel-list .hotel-info h3 a {
-    color: #ffc107; /* Yellow links */
-    text-decoration: none; /* Removes underline */
+    color: #FFC107; /* Yellow links */
+    text-decoration: none;
     font-weight: bold;
 }
 
 #hotel-list .hotel-info h3 a:hover {
-    text-decoration: underline; /* Optional: Add underline on hover for clarity */
-    color: #ffeb3b; /* Brighter yellow on hover */
+    text-decoration: underline;
+    color: #FFEB3B; /* Brighter yellow on hover */
 }
 
 #hotel-list .hotel-info p {
     font-size: 0.9rem;
-    color: #333;
+    color: #666666; /* Subtle gray text */
 }
 
 /* Map Section Styling */
 #map {
     flex-basis: 35%;
     height: 500px;
-    background-color: #fff8e1; /* Light yellow */
+    background-color: #FFFFFF; /* White background for map section */
     border-radius: 8px;
-    border: 1px solid #ffc107; /* Yellow border */
+    border: 1px solid #E0E0E0; /* Light gray border */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer Styling */
 footer {
-    background-color: #000; /* Black background */
-    color: #ffc107; /* Yellow text */
-    padding: 1rem;
+    background-color: #FFFFFF; /* White background */
+    color: #333333; /* Dark gray text */
     text-align: center;
-    font-size: 0.9rem;
-    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 2px solid #E0E0E0; /* Subtle separation border */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Language Selector Styling */
@@ -235,13 +237,20 @@ footer {
     padding: 0.5rem;
     border-radius: 5px;
     border: none;
-    background-color: #fff59d; /* Light yellow */
-    color: #000; /* Black text */
+    background-color: #FFC107; /* Yellow background */
+    color: #000000; /* Black text */
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #language-selector:hover {
-    background-color: #fff176; /* Slightly darker yellow */
+    background-color: #FFEB3B; /* Lighter yellow */
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
 }

@@ -8,88 +8,99 @@
 
 /* Styling the body background */
 body {
-    background-color: #fff8e1; /* Light yellow background */
+    background-color: #F5F5F5; /* Light gray background for urban sophistication */
     line-height: 1.6;
+    color: #333333; /* Dark gray text */
 }
 
 /* Header Styling */
 header {
-    background-color: #000; /* Black background */
+    background-color: #FFFFFF; /* White background */
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-bottom: 2px solid #E0E0E0; /* Light gray border for separation */
 }
 
 /* Styling the search section */
 #search {
-    background-color: #333; /* Dark background for contrast */
+    background-color: #FFFFFF; /* White background for search section */
     padding: 3rem 0;
     text-align: center;
-    color: #ffc107; /* Yellow text */
+    color: #333333; /* Dark gray text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 
 #search h2 {
     font-size: 2.2rem;
     margin-bottom: 20px;
+    color: #FFC107; /* Yellow for headings */
+    font-weight: bold;
 }
 
 #search-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Black with slight opacity for contrast */
+    background-color: #FFFFFF; /* White background for form */
     border-radius: 5px;
     max-width: 660px;
     margin: 0 auto;
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for form */
+    gap: 10px;
 }
 
-#search-form input, #search-form select {
+#search-form input,
+#search-form select {
     padding: 0.75rem;
-    margin-right: 10px;
-    border: 1px solid #ffc107; /* Yellow border */
+    border: 1px solid #E0E0E0; /* Light gray border for inputs */
     border-radius: 5px;
     flex-grow: 1;
     font-size: 1rem;
-    color: #333;
-    background-color: #fffde7; /* Light yellow background */
+    color: #333333; /* Dark gray text */
+    background-color: #FFFFFF; /* White background for inputs */
 }
 
 #search-form button {
     padding: 0.75rem 1.5rem;
-    background-color: #ffc107; /* Yellow button */
-    color: #000; /* Black text */
+    background-color: #FFC107; /* Yellow button */
+    color: #000000; /* Black text for button */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 #search-form button:hover {
-    background-color: #ffeb3b; /* Brighter yellow on hover */
+    background-color: #FFEB3B; /* Brighter yellow on hover */
 }
 
 /* Map Section (if any) */
 #map {
     height: 500px;
-    background-color: #fffde7; /* Light yellow */
+    background-color: #FFFFFF; /* White background for map */
     border-radius: 5px;
-    border: 2px solid #ffc107; /* Yellow border */
+    border: 1px solid #E0E0E0; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Search Form Styling */
+/* Journey Form Styling */
 #journey-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fffde7; /* Light yellow background */
+    background-color: #FFFFFF; /* White background for form */
     padding: 1rem;
     border-radius: 5px;
     max-width: 1100px;
     margin: 0 auto;
     gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 #journey-form input[type="text"],
@@ -97,40 +108,30 @@ header {
 #journey-form input[type="number"] {
     padding: 0.75rem;
     border-radius: 5px;
-    border: 1px solid #ffc107; /* Yellow border */
-    background-color: white;
+    border: 1px solid #E0E0E0; /* Light gray border for inputs */
+    background-color: #FFFFFF; /* White background for inputs */
     font-size: 1rem;
-    color: #333; /* Text color */
-}
-
-#journey-form input[type="text"],
-#journey-form select {
-    font-size: 1rem;
-    font-family: Arial, sans-serif;
-    color: #555; /* Uniform text color */
-    padding: 0.75rem;
-    border-radius: 5px;
-    border: 1px solid #ffc107; /* Yellow border */
-    background-color: white;
-    flex-grow: 1;
+    color: #333333; /* Dark gray text */
 }
 
 #journey-form button {
     padding: 0.75rem 1.5rem;
-    background-color: #ffc107; /* Yellow button */
-    color: #000; /* Black text */
+    background-color: #FFC107; /* Yellow button */
+    color: #000000; /* Black text for button */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 #journey-form button:hover {
-    background-color: #ffeb3b; /* Brighter yellow hover effect */
+    background-color: #FFEB3B; /* Brighter yellow hover effect */
 }
 
 #journey-form input[type="text"]::placeholder,
 #journey-form input[type="number"]::placeholder {
-    color: #888; /* Placeholder text color */
+    color: #888888; /* Subtle gray for placeholder text */
     font-size: 1rem;
 }

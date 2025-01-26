@@ -8,54 +8,56 @@
 
 /* Body Styling */
 body {
-    background-color: #fff8e1; /* Light yellow background */
-    color: #333;
+    background-color: #F5F5F5; /* Light gray background */
+    color: #333333; /* Dark gray text */
     line-height: 1.6;
 }
 
 /* Hero Section */
 .hero-section {
-    background-color: #333; /* Dark background for contrast */
-    color: #ffc107; /* Yellow text */
+    background-color: #FFFFFF; /* White background for a clean and modern feel */
+    color: #333333; /* Dark gray text */
     padding: 100px 20px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: #ffc107; /* Yellow for headings */
+    color: #333333; /* Dark gray for headings */
     font-weight: bold;
 }
 
 .hero-content p {
     font-size: 1.5rem;
-    color: #fff; /* White for secondary text */
+    color: #666666; /* Subtle gray for secondary text */
 }
 
 /* Mission, Impact, and Team Sections */
 .mission-section, .impact-section, .team-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: #fffde7; /* Light yellow background */
+    background-color: #FFFFFF; /* White background for sections */
+    border-bottom: 2px solid #E0E0E0; /* Subtle border for section separation */
 }
 
 .mission-section h2, .impact-section h2, .team-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #ffc107; /* Yellow for headings */
+    color: #FFC107; /* Yellow for headings */
 }
 
 .mission-section p, .impact-section p, .team-section p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    color: #333; /* Black text */
+    color: #333333; /* Dark gray text for readability */
 }
 
 /* Values Section */
 .values-section {
-    background-color: #fff8e1; /* Light yellow background */
+    background-color: #F5F5F5; /* Light gray background */
     padding: 60px 20px;
     text-align: center;
 }
@@ -67,29 +69,37 @@ body {
 }
 
 .value-item {
-    background-color: white;
+    background-color: #FFFFFF; /* White cards for values */
     padding: 20px;
     margin: 10px;
     width: 30%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    border: 1px solid #ffc107; /* Yellow border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card depth */
+    border-radius: 8px;
+    border: 1px solid #E0E0E0; /* Light gray border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly more pronounced shadow on hover */
 }
 
 .value-item h3 {
-    color: #ffc107; /* Yellow for headings */
+    color: #FFC107; /* Yellow for headings */
     margin-bottom: 10px;
 }
 
 .value-item p {
     font-size: 1rem;
-    color: #333; /* Black text */
+    color: #666666; /* Subtle gray for text */
 }
 
 /* Footer */
 footer {
-    background-color: #000; /* Black background */
-    color: #ffc107; /* Yellow text */
+    background-color: #FFFFFF; /* White footer for clean look */
+    color: #333333; /* Dark gray text */
     padding: 20px;
     text-align: center;
+    border-top: 2px solid #E0E0E0; /* Light gray border for separation */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow above footer */
 }
