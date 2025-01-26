@@ -161,13 +161,63 @@ main {
 }
 
 /* Hotel List Section */
+/* Hotel List Section */
 #hotel-list {
     flex-basis: 60%;
     margin-bottom: 20px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 12px; /* Smooth corners for modern design */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    background-color: rgba(255, 255, 255, 0.9); /* Single-layer semi-transparent background */
 }
+
+/* Hotel Card Styling */
+#hotel-list .hotel-card {
+    display: flex;
+    align-items: center; /* Align image and text vertically */
+    margin-bottom: 15px; /* Space between cards */
+    overflow: hidden; /* Ensure content stays within bounds */
+    padding: 15px; /* Padding for spacing */
+}
+
+/* Image Styling */
+#hotel-list .hotel-card img.hotel-image {
+    width: 100px; /* Fixed width for consistency */
+    height: 100px; /* Fixed height */
+    border-radius: 10px; /* Rounded edges for images */
+    object-fit: cover; /* Ensures image fits the dimensions */
+    margin-right: 15px; /* Space between image and text */
+}
+
+/* Hotel Information Styling */
+#hotel-list .hotel-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center-align text vertically */
+    flex-grow: 1;
+}
+
+#hotel-list .hotel-info h3 {
+    font-size: 1.6rem; /* Slightly larger title */
+    color: #FFC107; /* Yellow for title */
+    font-family: "Poppins", sans-serif;
+    margin: 0 0 5px 0;
+}
+
+#hotel-list .hotel-info h3 a {
+    color: #FFC107; /* Yellow for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+#hotel-list .hotel-info h3 a:hover {
+    color: #FFEB3B; /* Brighter yellow on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+
+
 
 /* Map Section */
 #map {

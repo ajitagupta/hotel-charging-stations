@@ -3,90 +3,92 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Updated modern font */
 }
 
 /* Styling the body background */
 body {
-    background-color: #F5F5F5; /* Light gray background for urban sophistication */
-    line-height: 1.6;
-    color: #333333; /* Dark gray text */
+    background-color: #f5f5f5; /* Soft gray background for urban elegance */
+    line-height: 1.7;
+    color: #333333; /* Neutral dark gray text */
 }
 
 /* Header Styling */
 header {
-    background-color: #FFFFFF; /* White background */
+    background-color: #ffffff; /* White background */
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-bottom: 2px solid #E0E0E0; /* Light gray border for separation */
+    border-bottom: 2px solid #ffc107; /* Yellow border for visual continuity */
 }
 
 /* Styling the search section */
 #search {
-    background-color: #FFFFFF; /* White background for search section */
+    background-color: #ffffff; /* White background for search section */
     padding: 3rem 0;
     text-align: center;
-    color: #333333; /* Dark gray text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    color: #333333; /* Neutral dark gray text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for separation */
 }
 
 #search h2 {
     font-size: 2.2rem;
     margin-bottom: 20px;
-    color: #FFC107; /* Yellow for headings */
+    color: #ffc107; /* Yellow for headings */
     font-weight: bold;
+    font-family: "Poppins", sans-serif; /* Modern and clean font for emphasis */
 }
 
 #search-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFFFFF; /* White background for form */
-    border-radius: 5px;
-    max-width: 660px;
+    background-color: #ffffff; /* White background for form */
+    border-radius: 8px; /* Rounded corners for form */
+    max-width: 680px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for form */
     gap: 10px;
 }
 
 #search-form input,
 #search-form select {
-    padding: 0.75rem;
-    border: 1px solid #E0E0E0; /* Light gray border for inputs */
-    border-radius: 5px;
+    padding: 0.85rem;
+    border: 1px solid #e0e0e0; /* Light gray border for inputs */
+    border-radius: 6px;
     flex-grow: 1;
     font-size: 1rem;
-    color: #333333; /* Dark gray text */
-    background-color: #FFFFFF; /* White background for inputs */
+    color: #333333; /* Neutral dark gray text */
+    background-color: #ffffff; /* White background for inputs */
 }
 
 #search-form button {
-    padding: 0.75rem 1.5rem;
-    background-color: #FFC107; /* Yellow button */
+    padding: 0.85rem 1.5rem;
+    background-color: #ffc107; /* Yellow button */
     color: #000000; /* Black text for button */
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
 }
 
 #search-form button:hover {
-    background-color: #FFEB3B; /* Brighter yellow on hover */
+    background-color: #ffeb3b; /* Brighter yellow on hover */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Map Section (if any) */
 #map {
     height: 500px;
-    background-color: #FFFFFF; /* White background for map */
-    border-radius: 5px;
-    border: 1px solid #E0E0E0; /* Light gray border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #ffffff; /* White background for map */
+    border-radius: 8px;
+    border: 2px solid #ffc107; /* Prominent yellow border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Journey Form Styling */
@@ -94,40 +96,42 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFFFFF; /* White background for form */
-    padding: 1rem;
-    border-radius: 5px;
+    background-color: #ffffff; /* White background for form */
+    padding: 1.5rem;
+    border-radius: 8px;
     max-width: 1100px;
-    margin: 0 auto;
-    gap: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 2rem auto;
+    gap: 15px; /* Increased spacing for better usability */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 #journey-form input[type="text"],
 #journey-form select,
 #journey-form input[type="number"] {
-    padding: 0.75rem;
-    border-radius: 5px;
-    border: 1px solid #E0E0E0; /* Light gray border for inputs */
-    background-color: #FFFFFF; /* White background for inputs */
+    padding: 0.85rem;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0; /* Light gray border for inputs */
+    background-color: #ffffff; /* White background for inputs */
     font-size: 1rem;
-    color: #333333; /* Dark gray text */
+    color: #333333; /* Neutral dark gray text */
+    width: 100%;
 }
 
 #journey-form button {
-    padding: 0.75rem 1.5rem;
-    background-color: #FFC107; /* Yellow button */
+    padding: 0.85rem 1.5rem;
+    background-color: #ffc107; /* Yellow button */
     color: #000000; /* Black text for button */
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
 }
 
 #journey-form button:hover {
-    background-color: #FFEB3B; /* Brighter yellow hover effect */
+    background-color: #ffeb3b; /* Brighter yellow on hover */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 #journey-form input[type="text"]::placeholder,
