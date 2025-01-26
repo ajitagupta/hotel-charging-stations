@@ -3,13 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Updated font */
 }
 
 body {
     background-color: #F5F5F5; /* Light gray background for urban sophistication */
     color: #333333; /* Dark gray text */
-    line-height: 1.6;
+    line-height: 1.7; /* Increased for better readability */
+    font-size: 16px; /* Base font size */
 }
 
 /* Header Styling */
@@ -26,24 +27,25 @@ header {
 /* Title Styling */
 .title {
     position: relative;
-    font-family: "Raleway", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: bold;
-    font-size: 2.5rem;
-    color: #333333; /* Dark gray title text */
+    font-size: 2.8rem;
+    color: #333333;
     text-transform: capitalize;
     margin: 0;
-    text-align: left; /* Left-align title */
-    display: block; /* Ensure it spans full width */
+    text-align: left;
+    display: block;
+    line-height: 1.2; /* Reduces space within the title */
 }
 
 .title:before {
     position: absolute;
     bottom: -10px;
-    left: 0; /* Keep underline aligned to the left */
+    left: 0;
     width: 60px;
     height: 2px;
     content: "";
-    background-color: #FFC107; /* Yellow underline */
+    background-color: #FFC107;
 }
 
 .title span {
@@ -51,13 +53,11 @@ header {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: rgba(255, 193, 7, 0.7); /* Semi-transparent yellow subtitle */
-    margin-top: 8px; /* Space between title and slogan */
-    display: block; /* Stack slogan under title */
-    text-align: left; /* Left-align slogan */
+    color: rgba(255, 193, 7, 0.7);
+    margin-top: 4px; /* Reduce space above slogan */
+    display: block;
+    text-align: left;
 }
-
-
 
 /* Navigation Styling */
 header nav {
@@ -76,7 +76,7 @@ header nav ul li a {
     color: #FFC107; /* Yellow for links */
     text-decoration: none;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.1rem; /* Slightly larger for improved readability */
     transition: color 0.3s ease;
 }
 
@@ -84,16 +84,25 @@ header nav ul li a:hover {
     color: #FFEB3B; /* Brighter yellow on hover */
 }
 
+/* Middle Container Styling */
+.middle-container {
+    background: url('./images/sustainability3.png') no-repeat center center; /* Background image */
+    background-size: cover; /* Ensures the image covers the section */
+    padding: 40px 20px; /* Adds padding inside the container */
+    border-radius: 8px; /* Optional rounded corners */
+}
+
 /* Search Section Styling */
 #search {
-    background-color: #F5F5F5; /* Light gray background */
-    padding: 3rem 0;
+    padding: 3rem 0; /* Maintain spacing for the section */
     text-align: center;
     color: #333333; /* Dark gray text */
+    background-color: transparent; /* Transparent background for visibility */
 }
 
 #search h2 {
-    font-size: 2rem;
+    font-size: 2.2rem; /* Increased size for emphasis */
+    font-family: "Poppins", sans-serif; /* Updated font */
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -114,7 +123,7 @@ header nav ul li a:hover {
 
 #search-form input[type="text"],
 #search-form select {
-    padding: 0.75rem;
+    padding: 0.85rem; /* Slightly larger padding */
     border: 1px solid #CCC; /* Light border */
     border-radius: 5px;
     flex-grow: 1;
@@ -123,13 +132,13 @@ header nav ul li a:hover {
 }
 
 #search-form button {
-    padding: 0.75rem 1.5rem;
+    padding: 0.85rem 1.5rem; /* Larger padding for prominence */
     background-color: #FFC107; /* Yellow for button */
     color: #000000; /* Black text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem; /* Slightly larger */
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
@@ -146,80 +155,27 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
-    background-color: #FFFFFF; /* White main background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle depth */
 }
 
-/* Hotel List */
+/* Hotel List Section */
 #hotel-list {
     flex-basis: 60%;
     margin-bottom: 20px;
-}
-
-/* Hotel Card Styling */
-#hotel-list .hotel-card {
-    display: flex;
-    align-items: center;
-    border: 1px solid #E0E0E0; /* Light gray border */
+    padding: 20px;
     border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 20px;
-    background-color: #FFFFFF; /* White background for cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-#hotel-list .hotel-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-#hotel-list .hotel-card img.hotel-image {
-    width: 30%;
-    height: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-right: 15px;
-}
-
-#hotel-list .hotel-info {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#hotel-list .hotel-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #333333; /* Dark gray for titles */
-}
-
-#hotel-list .hotel-info h3 a {
-    color: #FFC107; /* Yellow links */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#hotel-list .hotel-info h3 a:hover {
-    text-decoration: underline;
-    color: #FFEB3B; /* Brighter yellow on hover */
-}
-
-#hotel-list .hotel-info p {
-    font-size: 0.9rem;
-    color: #666666; /* Subtle gray text */
-}
-
-/* Map Section Styling */
+/* Map Section */
 #map {
     flex-basis: 35%;
     height: 500px;
-    background-color: #FFFFFF; /* White background for map section */
+    padding: 20px;
     border-radius: 8px;
-    border: 1px solid #E0E0E0; /* Light gray border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Footer Styling */
