@@ -15,13 +15,14 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #FFFFFF; /* White background for header */
+    background-color: rgba(255, 255, 255, 0.95); /* Slight opacity for modern feel */
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000; /* Ensures header stays on top */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for modern feel */
     border-bottom: 2px solid #E0E0E0; /* Light border for separation */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth scrolling transition */
 }
 
 /* Title Styling */
@@ -62,7 +63,7 @@ header {
 /* Navigation Styling */
 header nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Keeps title on the left and nav items on the right */
     align-items: center;
 }
 
@@ -147,23 +148,33 @@ header nav ul li a:hover {
     background-color: #FFEB3B; /* Brighter yellow */
 }
 
-/* Main Layout */
+/* Main Layout - Initially Hidden */
 main {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
-    border-radius: 8px; /* Optional rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle depth */
+    display: none; /* Hide the main section initially */
+    opacity: 0; /* Ensure it fades in smoothly */
+    transform: translateY(20px); /* Slide in from below */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
+    max-width: 1000px; /* Restrict width */
+    margin: 20px auto; /* Center align the section */
+    padding: 20px; /* Add padding inside the section */
+    border-radius: 8px; /* Smooth rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex; /* Flex container to align children */
+    gap: 20px; /* Space between hotel-list and map sections */
 }
 
-/* Hotel List Section */
+/* Visible State for Main Section */
+main.visible {
+    display: flex; /* Keep as flex for alignment */
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Remove vertical offset */
+}
+
+
 /* Hotel List Section */
 #hotel-list {
-    flex-basis: 60%;
+    flex: 2; /* Take 2 parts of the available space */
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 12px; /* Smooth corners for modern design */
@@ -216,16 +227,14 @@ main {
     transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
-
-
-
 /* Map Section */
 #map {
-    flex-basis: 35%;
+    flex: 1; /* Take 1 part of the available space */
     height: 500px;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: rgba(255, 255, 255, 0.9); /* Match background */
 }
 
 /* Footer Styling */

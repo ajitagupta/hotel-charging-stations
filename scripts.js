@@ -178,3 +178,19 @@ function updateContentLanguage(lang) {
         }
     });
 }
+
+// Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector("#search-form input[type='text']");
+    const mainSection = document.querySelector("main");
+
+    // Event listener for input
+    searchInput.addEventListener("input", () => {
+        // Check if the input has a value
+        if (searchInput.value.trim() !== "") {
+            mainSection.classList.add("visible"); // Add the visible class
+        } else {
+            mainSection.classList.remove("visible"); // Hide if input is cleared
+        }
+    });
+});
