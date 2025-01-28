@@ -110,7 +110,7 @@ const translations = {
         hotels: "Hotels",
         map: "Map",
         journey: "Plan Your Journey",
-        about: "About Us",
+        aboutus: "About Us",
         contact: "Contact",
         searchTitle: "Find Hotels with EV Charging",
         search: "Search",
@@ -127,7 +127,7 @@ const translations = {
         hotels: "Hotels",
         map: "Karte",
         journey: "Reise planen",
-        about: "Über uns",
+        aboutus: "Über uns",
         contact: "Kontakt",
         searchTitle: "Finden Sie Hotels mit EV-Ladestationen",
         search: "Suche",
@@ -144,7 +144,7 @@ const translations = {
         hotels: "Hôtels",
         map: "Carte",
         journey: "Planifiez votre voyage",
-        about: "À propos de nous",
+        aboutus: "À propos de nous",
         contact: "Contact",
         searchTitle: "Trouvez des hôtels avec des stations de recharge EV",
         search: "Chercher",
@@ -161,7 +161,7 @@ const translations = {
         hotels: "Hotel",
         map: "Mappa",
         journey: "Pianifica il tuo viaggio",
-        about: "Chi siamo",
+        aboutus: "Chi siamo",
         contact: "Contatti",
         searchTitle: "Trova hotel con stazioni di ricarica per EV",
         search: "Cerca",
@@ -178,7 +178,7 @@ const translations = {
         hotels: "Hotels",
         map: "Charta",
         journey: "Planischar tia via",
-        about: "Da nus",
+        aboutus: "Da nus",
         contact: "Contact",
         searchTitle: "Chatta hotels cun staziuns da chargiar EV",
         search: "Tschertga",
@@ -200,23 +200,31 @@ document.getElementById("language-selector").addEventListener("change", (event) 
 
 
 // Update function to include dropdown translations
+// Update function to include dropdown translations with new logic
 function updateContentLanguage(lang) {
-    document.querySelectorAll("[data-translate]").forEach((element) => {
-        const key = element.getAttribute("data-translate");
+    // Update text content for elements with [data-text]
+    document.querySelectorAll("[data-text]").forEach((element) => {
+        const key = element.getAttribute("data-text");
         if (translations[lang][key]) {
-            element.innerText = translations[lang][key];
+            element.textContent = translations[lang][key];
         }
     });
 
-    // Update placeholders and dropdown options
-    document.getElementById("location").placeholder = translations[lang].location;
+    // Update placeholders for inputs
+    const locationInput = document.getElementById("location");
+    if (locationInput && translations[lang].location) {
+        locationInput.placeholder = translations[lang].location;
+    }
+
+    // Update dropdown options for charging types
     document.querySelectorAll("#charging-type option").forEach((option) => {
         const key = option.getAttribute("data-translate");
         if (translations[lang][key]) {
-            option.innerText = translations[lang][key];
+            option.textContent = translations[lang][key];
         }
     });
 }
+
 
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", () => {
