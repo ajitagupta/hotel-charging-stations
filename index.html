@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElectriStay</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+  
 </head>
 <body>
     <header>
@@ -66,12 +70,40 @@
     
     </div>
 
-    <footer>
+    <!--<footer>
         <p>&copy; 2025 ElectriStay. <span data-translate="footer-rights">All rights reserved.</span></p>
+    </footer>-->
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <img src="logo_yellowblack.png" alt="Logo">
+                <h2 class="footer-title">ElectriStay</h2>
+                <p>Stay Charged, Stay Relaxed</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="./icons/linkedin.png" alt="Linkedin"></a>
+                    <a href="#"><img src="./icons/twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="./icons/instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
     </footer>
+    
+    
+
 
     <!-- JavaScript for language handling -->
     <script src="scripts.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLZ8y1K18c8MR7vOAzhdrtEcAUnf6dKdA&callback=initMap"></script>
 </body>
 </html>

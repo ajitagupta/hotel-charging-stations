@@ -1,40 +1,64 @@
-// Initialize Google Map
-function initMap() {
-    var zurich = { lat: 47.3769, lng: 8.5417 }; // Center the map at Zurich
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
-        center: zurich
-    });
+// Initialize the Leaflet Map
+const map = L.map("map").setView([47.3769, 8.5417], 12);
 
-    var marker = new google.maps.Marker({
-        position: zurich,
-        map: map
-    });
-}
+// Add OpenStreetMap tiles
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19,
+}).addTo(map);
 
-// Updated sample hotel data with slugs
+
+// Marker layer group for dynamic markers
+const markers = L.layerGroup().addTo(map);
+
+// Sample hotel data
 const hotels = [
-    { name: 'Hotel Alpha', location: 'Zurich', chargingStations: 2, imageUrl: 'https://placehold.co/300x200?text=Hotel+Alpha', slug: 'hotel-alpha' },
-    { name: 'Hotel Beta', location: 'Geneva', chargingStations: 5, imageUrl: 'https://placehold.co/300x200?text=Hotel+Beta', slug: 'hotel-beta' },
-    { name: 'Hotel Gamma', location: 'Basel', chargingStations: 1, imageUrl: 'https://placehold.co/300x200?text=Hotel+Gamma', slug: 'hotel-gamma' },
+    {
+        name: "Hotel Alpha",
+        location: "Zurich",
+        lat: 47.3769,
+        lng: 8.5417,
+        chargingStations: 2,
+        imageUrl: "https://placehold.co/300x200?text=Hotel+Alpha",
+        slug: "hotel-alpha",
+    },
+    {
+        name: "Hotel Beta",
+        location: "Geneva",
+        lat: 46.2044,
+        lng: 6.1432,
+        chargingStations: 5,
+        imageUrl: "https://placehold.co/300x200?text=Hotel+Beta",
+        slug: "hotel-beta",
+    },
+    {
+        name: "Hotel Gamma",
+        location: "Basel",
+        lat: 47.5596,
+        lng: 7.5886,
+        chargingStations: 1,
+        imageUrl: "https://placehold.co/300x200?text=Hotel+Gamma",
+        slug: "hotel-gamma",
+    },
 ];
 
 // Function to display filtered hotels dynamically
 function searchHotels(location) {
-    const hotelList = document.getElementById('hotel-list');
-    hotelList.innerHTML = ''; // Clear previous results
+    const hotelList = document.getElementById("hotel-list");
+    hotelList.innerHTML = ""; // Clear previous results
+    markers.clearLayers(); // Clear map markers
 
-    // Convert the location to lowercase and trim extra spaces
     const searchTerm = location.toLowerCase().trim();
 
-    // Filter hotels based on the entered location
-    const filteredHotels = hotels.filter(hotel => hotel.location.toLowerCase().includes(searchTerm));
+    const filteredHotels = hotels.filter((hotel) =>
+        hotel.location.toLowerCase().includes(searchTerm)
+    );
 
-    // If results are found, display them; otherwise show a 'no results' message
     if (filteredHotels.length > 0) {
-        filteredHotels.forEach(hotel => {
-            const hotelCard = document.createElement('div');
-            hotelCard.className = 'hotel-card';
+        filteredHotels.forEach((hotel) => {
+            // Create hotel card
+            const hotelCard = document.createElement("div");
+            hotelCard.className = "hotel-card";
             hotelCard.innerHTML = `
                 <img src="${hotel.imageUrl}" alt="${hotel.name}" class="hotel-image">
                 <div class="hotel-info">
@@ -44,23 +68,38 @@ function searchHotels(location) {
                 </div>
             `;
             hotelList.appendChild(hotelCard);
+
+            // Add marker to the map
+            const marker = L.marker([hotel.lat, hotel.lng]).addTo(markers);
+            marker.bindPopup(`
+                <b>${hotel.name}</b><br>
+                ${hotel.location}<br>
+                Charging Stations: ${hotel.chargingStations}
+            `);
         });
+
+        // Center map on the first filtered hotel
+        map.setView([filteredHotels[0].lat, filteredHotels[0].lng], 12);
     } else {
-        hotelList.innerHTML = '<p>No hotels found in this location.</p>';
+        hotelList.innerHTML = "<p>No hotels found in this location.</p>";
+        map.setView([47.3769, 8.5417], 12); // Reset map to Zurich
     }
 }
 
 // Event listener for form submission
-document.getElementById('search-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent form from submitting the traditional way
-    const location = document.getElementById('location').value;
+document.getElementById("search-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent form from reloading
+    const location = document.getElementById("location").value;
+    const mainSection = document.querySelector("main");
 
     // Check if the user entered a location
     if (location) {
         searchHotels(location);
+        mainSection.style.display = "flex"; // Show main section
+        mainSection.classList.add("visible"); // Add visible class for animations
     } else {
-        // If no location is entered, show all hotels
-        searchHotels('');
+        mainSection.style.display = "none"; // Hide main section
+        mainSection.classList.remove("visible");
     }
 });
 

@@ -69,7 +69,29 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 ElectriStay. <span data-translate="footer-rights">All rights reserved.</span></p>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <img src="logo_yellowblack.png" alt="Logo">
+                <h2 class="footer-title">ElectriStay</h2>
+                <p>Stay Charged, Stay Relaxed</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="./icons/linkedin.png" alt="Linkedin"></a>
+                    <a href="#"><img src="./icons/twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="./icons/instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- JavaScript for filtering hotels based on category -->
@@ -82,16 +104,16 @@
             // Sample data for different categories (you can replace this with actual data)
             const hotelsData = {
                 'Swiss Hotels': [
-                    { title: 'Swiss Chalet', description: 'An authentic Swiss chalet experience.', img: 'https://placehold.co/300x200' },
-                    { title: 'Alpine Lodge', description: 'Mountain views and warm hospitality.', img: 'https://placehold.co/300x200' },
+                    { title: 'Swiss Chalet', description: 'An authentic Swiss chalet experience.', img: 'https://placehold.co/150x100' },
+                    { title: 'Alpine Lodge', description: 'Mountain views and warm hospitality.', img: 'https://placehold.co/150x100' },
                 ],
                 'Spa and Wellness Hotels': [
-                    { title: 'Luxury Spa Resort', description: 'Pamper yourself in luxurious spa facilities.', img: 'https://placehold.co/300x200' },
-                    { title: 'Wellness Haven', description: 'A place for relaxation and rejuvenation.', img: 'https://placehold.co/300x200' },
+                    { title: 'Luxury Spa Resort', description: 'Pamper yourself in luxurious spa facilities.', img: 'https://placehold.co/150x100' },
+                    { title: 'Wellness Haven', description: 'A place for relaxation and rejuvenation.', img: 'https://placehold.co/150x100' },
                 ],
                 'Family Hotels': [
-                    { title: 'Family Adventure Resort', description: 'Fun activities for the entire family.', img: 'https://placehold.co/300x200' },
-                    { title: 'Kids Paradise', description: 'A hotel designed for family fun.', img: 'https://placehold.co/300x200' },
+                    { title: 'Family Adventure Resort', description: 'Fun activities for the entire family.', img: 'https://placehold.co/150x100' },
+                    { title: 'Kids Paradise', description: 'A hotel designed for family fun.', img: 'https://placehold.co/150x100' },
                 ],
                 // Add more categories as needed
             };

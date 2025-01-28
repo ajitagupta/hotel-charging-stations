@@ -6,6 +6,8 @@
     <title>Explore Charging Stations - ElectriStay</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="maps.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />    
 </head>
 <body>
     <!-- Header Section -->
@@ -50,11 +52,34 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 ElectriStay. <span data-translate="footer-rights">All rights reserved.</span></p>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <img src="logo_yellowblack.png" alt="Logo">
+                <h2 class="footer-title">ElectriStay</h2>
+                <p>Stay Charged, Stay Relaxed</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="./icons/linkedin.png" alt="Linkedin"></a>
+                    <a href="#"><img src="./icons/twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="./icons/instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Google Maps API Script -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLZ8y1K18c8MR7vOAzhdrtEcAUnf6dKdA&callback=initMap"></script>
+    <!-- Leaflet API Script -->
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLZ8y1K18c8MR7vOAzhdrtEcAUnf6dKdA&callback=initMap"></script>-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="maps.js"></script>
 </body>
 </html>

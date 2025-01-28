@@ -238,14 +238,97 @@ main.visible {
 }
 
 /* Footer Styling */
-footer {
-    background-color: #FFFFFF; /* White background */
-    color: #333333; /* Dark gray text */
-    text-align: center;
-    padding: 1rem;
-    border-top: 2px solid #E0E0E0; /* Subtle separation border */
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Top-align content */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Space between columns */
 }
+
+.footer-column {
+    flex: 1; /* Each column takes up equal space */
+    text-align: center; /* Center text within each column */
+}
+
+.footer-column h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFC107; /* Yellow headings */
+    margin-bottom: 1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+    color: #333; /* Neutral gray text */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #FFC107; /* Yellow hover effect */
+}
+
+.footer-column:not(:last-child) {
+    border-right: 1px solid #E0E0E0; /* Light divider */
+    padding-right: 1rem;
+}
+
+
+.footer-column img {
+    max-width: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+footer {
+    background: linear-gradient(135deg, #ffffff, #f5f5f5); /* Subtle gradient */
+    padding: 3rem 0;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.footer-title {
+    font-size: 1.8rem; /* Larger font size */
+    font-family: 'Poppins', sans-serif; /* Matching font style */
+    color: #FFC107; /* Yellow color */
+    font-weight: bold; /* Emphasize the title */
+    text-align: center; /* Center-align text */
+    margin: 1rem 0 0.2rem; /* Reduce bottom margin */
+}
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+    margin-top: 1rem;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2); /* Subtle zoom effect */
+    opacity: 0.8;
+}
+
+
 
 /* Language Selector Styling */
 #language-selector {
