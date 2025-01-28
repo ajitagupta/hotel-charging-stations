@@ -99,5 +99,6 @@ button.btn {
 }
 
 button.btn:hover {
-    background-color: #FFEB3B; /* Brighter yellow on hover */
+    background-color: #E69100; /* Dark orange for better visibility */
+    color: #FFFFFF; /* White text for contrast */
 }

@@ -41,46 +41,6 @@ header {
     font-family: "Poppins", sans-serif; /* Modern and clean font for emphasis */
 }
 
-#search-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff; /* White background for form */
-    border-radius: 8px; /* Rounded corners for form */
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for form */
-    gap: 10px;
-}
-
-#search-form input,
-#search-form select {
-    padding: 0.85rem;
-    border: 1px solid #e0e0e0; /* Light gray border for inputs */
-    border-radius: 6px;
-    flex-grow: 1;
-    font-size: 1rem;
-    color: #333333; /* Neutral dark gray text */
-    background-color: #ffffff; /* White background for inputs */
-}
-
-#search-form button {
-    padding: 0.85rem 1.5rem;
-    background-color: #ffc107; /* Yellow button */
-    color: #000000; /* Black text for button */
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
-}
-
-#search-form button:hover {
-    background-color: #ffeb3b; /* Brighter yellow on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-}
 
 /* Map Section (if any) */
 #map {
@@ -130,8 +90,8 @@ header {
 }
 
 #journey-form button:hover {
-    background-color: #ffeb3b; /* Brighter yellow on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+    background-color: #E69100; /* Dark orange for better visibility */
+    color: #FFFFFF; /* White text for contrast */
 }
 
 #journey-form input[type="text"]::placeholder,

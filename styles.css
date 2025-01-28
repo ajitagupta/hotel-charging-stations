@@ -51,7 +51,7 @@ header {
 
 .title span {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: rgba(255, 193, 7, 0.7);
@@ -82,12 +82,13 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #FFEB3B; /* Brighter yellow on hover */
+    color: #FFA000; /* Darker yellow for improved contrast */
 }
+
 
 /* Middle Container Styling */
 .middle-container {
-    background: url('./images/sustainability10.png') no-repeat center center; /* Background image */
+    background: url('./images/sustainability.png') no-repeat center center; /* Background image */
     background-size: cover; /* Ensures the image covers the section */
     padding: 40px 20px; /* Adds padding inside the container */
     border-radius: 8px; /* Optional rounded corners */
@@ -145,8 +146,10 @@ header nav ul li a:hover {
 }
 
 #search-form button:hover {
-    background-color: #FFEB3B; /* Brighter yellow */
+    background-color: #E69100; /* Dark orange for better visibility */
+    color: #FFFFFF; /* White text for contrast */
 }
+
 
 /* Main Layout - Initially Hidden */
 main {
@@ -223,8 +226,8 @@ main.visible {
 }
 
 #hotel-list .hotel-info h3 a:hover {
-    color: #FFEB3B; /* Brighter yellow on hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    color: #E68A00; /* Darker yellow-orange for contrast */
+    transform: scale(1.05); /* Keep the zoom effect */
 }
 
 /* Map Section */
@@ -278,8 +281,9 @@ main.visible {
 }
 
 .footer-column ul li a:hover {
-    color: #FFC107; /* Yellow hover effect */
+    color: #555555; /* Dark gray for better text readability */
 }
+
 
 .footer-column:not(:last-child) {
     border-right: 1px solid #E0E0E0; /* Light divider */
@@ -343,8 +347,9 @@ footer {
 }
 
 #language-selector:hover {
-    background-color: #FFEB3B; /* Lighter yellow */
+    background-color: #E69100; /* Dark orange for improved contrast */
 }
+
 
 .nav-icon {
     width: 20px;
