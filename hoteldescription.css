@@ -49,6 +49,13 @@ body {
     font-size: 1.2rem;
 }
 
+/* Container Spacing */
+.container {
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* Hotel Details Section with Cards */
 .hotel-details {
     display: grid;
@@ -120,8 +127,15 @@ body {
 .booking .form-group {
     margin-bottom: 15px;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    flex-direction: column; /* Stack label and input vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Add spacing between label and input */
+}
+
+/* Adjust button alignment */
+.booking button {
+    margin-top: 15px; /* Add spacing above the button */
+    display: inline-block;
 }
 
 .booking .btn-success {
@@ -145,6 +159,8 @@ body {
     transform: scale(0.95); /* Press effect */
 }
 
+
+/* Input and Date Picker Styling */
 .booking input[type="text"],
 .booking input[type="date"],
 .booking select {
@@ -153,7 +169,88 @@ body {
     border-radius: 6px;
     font-size: 1rem;
     color: #333;
+    max-width: 600px;
 }
+
+/* Calendar Pop-up (Flatpickr) */
+.flatpickr-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Booking Button Styling */
+.booking .btn-success {
+    padding: 0.85rem 1.5rem; /* Larger padding for prominence */
+    background-color: #FFC107; /* Yellow background */
+    color: #000000; /* Black text */
+    border: none;
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer;
+    font-size: 1.1rem; /* Slightly larger for better readability */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for "Check Availability" button */
+.booking .btn-success:hover {
+    background-color: #E69100; /* Dark orange for better visibility */
+    color: #FFFFFF; /* White text for contrast */
+}
+
+
+.booking .btn-success:active {
+    transform: scale(0.95); /* Press effect */
+}
+
+/* Adjust labels in the Booking section */
+.booking .form-group label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+
+.booking input[type="checkbox"] {
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+/* Style the label with forest green */
+.booking label[for="charger"] {
+    display: inline-block;
+    background-color: #228B22; /* Forest green background */
+    color: #FFFFFF; /* White text for readability */
+    font-weight: bold;
+    padding: 5px 12px; /* Add padding for button-like appearance */
+    border-radius: 4px; /* Rounded corners */
+    border: 2px solid #006400; /* Darker green border for contrast */
+    cursor: pointer; /* Pointer cursor for clickability */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover and press effects */
+    margin: 0; /* Reset default margin */
+}
+
+/* Hover effect for the label */
+.booking label[for="charger"]:hover {
+    background-color: #006400; /* Darker forest green on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Checkbox styling */
+.booking input[type="checkbox"] {
+    transform: scale(1.2); /* Slightly larger checkbox */
+    margin: 0; /* Reset default margin */
+}
+
+/* Date Picker Styling */
+.date-picker {
+    max-width: 200px; /* Restrict width of date picker inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
 
 /* Footer */
 footer {
@@ -164,4 +261,26 @@ footer {
     border-top: 2px solid #ffc107; /* Yellow top border for theme */
     font-size: 1rem;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styled Email Text */
+.contact-email {
+    font-style: italic; /* Italic text for emphasis */
+    font-weight: 500; /* Medium font weight */
+    color: #555; /* Neutral dark gray for a softer look */
+    text-decoration: none; /* Remove any underlines */
+}
+
+/* Hover effect without underline */
+nav ul li a:hover {
+    text-decoration: none; /* Ensure no underline appears */
+}
+
+/* Align checkbox and label side-by-side */
+.booking .form-group.checkbox-group {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Vertically align items */
+    gap: 10px; /* Add spacing between checkbox and label */
+    margin-top: 10px; /* Add spacing above the checkbox group */
 }
