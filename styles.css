@@ -351,29 +351,25 @@ footer {
     vertical-align: middle;
 }
 
-
-
-#search h2 {
-    font-size: 2.2rem;
-    font-weight: 600;
-    text-align: center;
-    position: relative;
-    display: inline-block;
+.title-container {
     background-color: white;
-    padding: 10px 20px;
+    padding: 15px 25px;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
+.title-container h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0;
+}
 
-.search-subtitle {
+.title-container .search-subtitle {
     font-family: 'Dancing Script', cursive;
-    font-size: 1rem;
-    color: green;
-    position: absolute;
-    bottom: 900px; /* Adjust the vertical position below the title */
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: #00A000;
+    margin-top: 0px;
 }
-
-

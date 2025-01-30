@@ -45,14 +45,13 @@
     <div class="middle-container">
 
         <section id="search">
-            <h2 data-translate="search-title">Find Hotels with EV Charging</h2>
-            <p class="search-subtitle">... and book your Charging Station today!</p>
-            <br/>
-            <br/>
+            <div class="title-container">
+                <h2 data-translate="search-title">Find Hotels with EV Charging</h2>
+                <p class="search-subtitle">... and book your Charging Station today!</p>
+            </div>
             <form id="search-form">
                 <div class="search-container">
                     <input type="text" id="location" placeholder="Enter location" class="search-input" data-placeholder="location">
-                    <!-- Charging type filter with data-translate attributes on each option -->
                     <select id="charging-type" name="charging-type" class="search-select">
                         <option value="all" data-translate="chargingTypeAll">Select Charging Type</option>
                         <option value="any" data-translate="chargingTypeAny">Any</option>
@@ -64,6 +63,7 @@
                 </div>
             </form>
         </section>
+        
 
         <main>
             <section id="hotel-list">
