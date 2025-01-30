@@ -102,13 +102,6 @@ header nav ul li a:hover {
     background-color: transparent; /* Transparent background for visibility */
 }
 
-#search h2 {
-    font-size: 2.2rem; /* Increased size for emphasis */
-    font-family: "Poppins", sans-serif; /* Updated font */
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
 /* Search Form Styling */
 #search-form {
     display: flex;
@@ -357,3 +350,30 @@ footer {
     margin-right: 8px;
     vertical-align: middle;
 }
+
+
+
+#search h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.search-subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    color: green;
+    position: absolute;
+    bottom: 900px; /* Adjust the vertical position below the title */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
