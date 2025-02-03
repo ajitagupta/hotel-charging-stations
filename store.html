@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectriStay Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="store.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div style="display: flex; align-items: center;">
+                <a href="index.html">
+                    <img src="logo_yellowblack.png" alt="ElectriStay Logo" style="width: 170px; margin-right: 10px;">
+                </a>
+                <h1 class="title">ElectriStay
+                    <span>Stay Charged, Stay Relaxed</span>
+                </h1>
+            </div>
+            <ul>
+                <li><a href="index.html"><img src="./icons/home.png" alt="Home" class="nav-icon">Home</a></li>
+                <li><a href="hotels.html"><img src="./icons/hotel.png" alt="Hotels" class="nav-icon">Hotels</a></li>
+                <li><a href="maps.html"><img src="./icons/map.png" alt="Map" class="nav-icon">Map</a></li>
+                <li><a href="planyourjourney.html"><img src="./icons/journey.png" alt="Plan Your Journey" class="nav-icon">Plan Your Journey</a></li>
+                <li><a href="#" data-translate="store"><img src="./icons/store.png" alt="Store" class="nav-icon"><span data-text="store">Store</span></a></li>
+                <li><a href="aboutus.html"><img src="./icons/aboutus.png" alt="About Us" class="nav-icon">About Us</a></li>
+                <li><a href="contact.html"><img src="./icons/contact.png" alt="Contact" class="nav-icon">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Store Layout -->
+    <div class="store-layout">
+        <aside class="sidebar">
+            <h2>Select a Category</h2>
+            <ul>
+                <li onclick="filterStore('EV Chargers')">EV Chargers</li>
+                <li onclick="filterStore('Travel Backpacks')">Travel Backpacks</li>
+                <li onclick="filterStore('Luggage')">Luggage</li>
+                <li onclick="filterStore('Accessories')">Accessories</li>
+            </ul>
+        </aside>
+
+        <section class="store-section">
+            <div id="store-container">
+                <div class="store-item">
+                    <img src="https://placehold.co/300x200" alt="EV Chargers">
+                    <h3>EV Chargers</h3>
+                    <p>Reliable chargers for your electric journey.</p>
+                    <button>Shop Now</button>
+                </div>
+                <div class="store-item">
+                    <img src="https://placehold.co/300x200" alt="Travel Backpacks">
+                    <h3>Travel Backpacks</h3>
+                    <p>Designed for comfortable and stylish travel.</p>
+                    <button>Shop Now</button>
+                </div>
+                <div class="store-item">
+                    <img src="https://placehold.co/300x200" alt="Luggage">
+                    <h3>Luggage</h3>
+                    <p>Durable luggage for your next adventure.</p>
+                    <button>Shop Now</button>
+                </div>
+                <div class="store-item">
+                    <img src="https://placehold.co/300x200" alt="Accessories">
+                    <h3>Accessories</h3>
+                    <p>Enhance your travel experience with quality accessories.</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <img src="logo_yellowblack.png" alt="Logo">
+                <h2 class="footer-title">ElectriStay</h2>
+                <p>Stay Charged, Stay Relaxed</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="./icons/linkedin.png" alt="Linkedin"></a>
+                    <a href="#"><img src="./icons/twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="./icons/instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for filtering store items -->
+    <script>
+        function filterStore(category) {
+            const storeContainer = document.getElementById('store-container');
+            storeContainer.innerHTML = '';
+
+            const storeData = {
+                'EV Chargers': [
+                    { title: 'Fast Charger Pro', description: 'High-speed charging for your EV.', img: 'https://placehold.co/300x200' },
+                    { title: 'Compact Charger', description: 'Portable and reliable EV charger.', img: 'https://placehold.co/300x200' }
+                ],
+                'Travel Backpacks': [
+                    { title: 'Adventure Backpack', description: 'Designed for travelers on the go.', img: 'https://placehold.co/300x200' },
+                    { title: 'Urban Explorer', description: 'Stylish and functional travel backpack.', img: 'https://placehold.co/300x200' }
+                ],
+                'Luggage': [
+                    { title: 'Lightweight Suitcase', description: 'Durable and spacious luggage.', img: 'https://placehold.co/300x200' },
+                    { title: 'Traveler’s Choice', description: 'Reliable luggage for frequent travelers.', img: 'https://placehold.co/300x200' }
+                ],
+                'Accessories': [
+                    { title: 'Travel Pillow', description: 'Comfortable neck pillow for long journeys.', img: 'https://placehold.co/300x200' },
+                    { title: 'Portable Power Bank', description: 'Stay charged wherever you go.', img: 'https://placehold.co/300x200' }
+                ]
+            };
+
+            const selectedItems = storeData[category] || [];
+            selectedItems.forEach(item => {
+                const storeItem = document.createElement('div');
+                storeItem.className = 'store-item';
+                storeItem.innerHTML = `
+                    <img src="${item.img}" alt="${item.title}">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <button>Shop Now</button>
+                `;
+                storeContainer.appendChild(storeItem);
+            });
+        }
+    </script>
+</body>
+</html>
