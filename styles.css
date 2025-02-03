@@ -373,3 +373,61 @@ footer {
     color: #00A000;
     margin-top: -10px;
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    header nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .title {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    #search-form {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    #search-form input, #search-form select, #search-form button {
+        width: 100%;
+    }
+    
+    main {
+        flex-direction: column;
+    }
+    
+    #hotel-list, #map {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
