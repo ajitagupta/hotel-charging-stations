@@ -117,3 +117,56 @@ footer {
     border-top: 2px solid #E0E0E0;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+    .values-grid {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .value-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .mission-section h2, .sustainability-section h2, .team-section h2 {
+        font-size: 1.8rem;
+    }
+    .values-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .value-item {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .mission-section, .sustainability-section, .team-section {
+        padding: 40px 15px;
+    }
+    .value-item {
+        width: 100%;
+        padding: 15px;
+    }
+}

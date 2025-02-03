@@ -93,3 +93,48 @@ footer {
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .sidebar {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 4px solid #ffc107;
+    }
+    .map-section {
+        border-left: none;
+        border-top: 4px solid #ffc107;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar h2 {
+        font-size: 1.5rem;
+    }
+    .sidebar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .map-section {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar h2 {
+        font-size: 1.3rem;
+    }
+    .sidebar ul li {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+    .map-section {
+        height: 50vh;
+    }
+}

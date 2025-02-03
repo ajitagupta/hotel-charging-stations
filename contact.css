@@ -102,3 +102,57 @@ button.btn:hover {
     background-color: #E69100; /* Dark orange for better visibility */
     color: #FFFFFF; /* White text for contrast */
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    .left-column, .right-column {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    #contact-section {
+        padding: 3rem 1.5rem;
+    }
+    .left-column h2 {
+        font-size: 1.8rem;
+    }
+    .left-column p {
+        font-size: 1.1rem;
+    }
+    .right-column h3 {
+        font-size: 1.4rem;
+    }
+    .form-group input, .form-group textarea {
+        font-size: 0.95rem;
+    }
+    button.btn {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-column h2 {
+        font-size: 1.5rem;
+    }
+    .left-column p {
+        font-size: 1rem;
+    }
+    .right-column h3 {
+        font-size: 1.3rem;
+    }
+    .form-group input, .form-group textarea {
+        font-size: 0.9rem;
+        padding: 0.65rem;
+    }
+    button.btn {
+        font-size: 0.9rem;
+        padding: 0.65rem 1.2rem;
+    }
+}

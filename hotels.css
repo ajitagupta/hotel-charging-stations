@@ -129,3 +129,41 @@ footer {
     letter-spacing: 0.5px; /* Subtle spacing for modern typography */
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .sidebar {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+    .hotels-section {
+        padding: 1rem;
+    }
+    .hotel-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hotel-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hotel-card {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar h2 {
+        font-size: 1.5rem;
+    }
+    .hotel-card {
+        width: 100%;
+    }
+}
