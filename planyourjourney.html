@@ -6,8 +6,8 @@
     <title>Plan Your Journey - ElectriStay</title>
     <link rel="stylesheet" href="planyourjourney.css">
     <link rel="stylesheet" href="styles.css">
-     <!-- Leaflet CSS -->
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />       
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <header>
@@ -21,34 +21,29 @@
                 </h1>
             </div>
             <ul>
-                <li><a href="index.html" data-translate="home"><img src="./icons/home.png" alt="Home" class="nav-icon">Home</a></li>
-                <li><a href="hotels.html" data-translate="hotels"><img src="./icons/hotel.png" alt="Hotels" class="nav-icon">Hotels</a></li>
-                <li><a href="maps.html" data-translate="map"><img src="./icons/map.png" alt="Map" class="nav-icon">Map</a></li>
-                <li><a href="#" data-translate="journey"><img src="./icons/journey.png" alt="Plan Your Journey" class="nav-icon">Plan Your Journey</a></li>
-                <li><a href="store.html" data-translate="store"><img src="./icons/store.png" alt="Store" class="nav-icon"><span data-text="store">Store</span></a></li>
-                <li><a href="aboutus.html" data-translate="aboutus"><img src="./icons/aboutus.png" alt="About Us" class="nav-icon">About Us</a></li>
-                <li><a href="contact.html" data-translate="contact"><img src="./icons/contact.png" alt="Contact" class="nav-icon">Contact</a></li>
-            </ul> 
+                <li><a href="index.html"><img src="./icons/home.png" alt="Home" class="nav-icon">Home</a></li>
+                <li><a href="hotels.html"><img src="./icons/hotel.png" alt="Hotels" class="nav-icon">Hotels</a></li>
+                <li><a href="maps.html"><img src="./icons/map.png" alt="Map" class="nav-icon">Map</a></li>
+                <li><a href="#"><img src="./icons/journey.png" alt="Plan Your Journey" class="nav-icon">Plan Your Journey</a></li>
+                <li><a href="store.html"><img src="./icons/store.png" alt="Store" class="nav-icon">Store</a></li>
+                <li><a href="aboutus.html"><img src="./icons/aboutus.png" alt="About Us" class="nav-icon">About Us</a></li>
+                <li><a href="contact.html"><img src="./icons/contact.png" alt="Contact" class="nav-icon">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
     <section id="search">
         <h2>Plan Your Journey with Charging Stations</h2>
         <form id="journey-form">
-            <input type="text" placeholder="Enter starting location">
-            <input type="text" placeholder="Enter destination">
-            <select>
-                <option>Select Charging Type</option>
-                <option value="fast">Fast Charging</option>
-                <option value="slow">Slow Charging</option>
-            </select>
-            <input type="number" placeholder="Max distance (km)">
-            <button type="submit">Find Route</button>
+            <input type="text" id="source" placeholder="Enter starting location" required>
+            <input type="text" id="destination" placeholder="Enter destination" required>
+            <input type="number" id="max-distance" placeholder="Max distance (km)" min="1" required>
+            <button type="button" onclick="fetchChargingStations()">Find Route</button>
         </form>
     </section>
 
-    <section id="map">
-        <!-- Google Map will be displayed here -->
+    <section id="map-container">
+        <div id="map" style="height: 600px;"></div>
     </section>
 
     <footer>
@@ -77,9 +72,93 @@
         </div>
     </footer>
 
-    <script src="journey.js"></script>
-    <!-- Leaflet API Script -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        let map = L.map('map').setView([46.8182, 8.2275], 7);
+        let routeLayer = null; // Layer to hold the route polyline
 
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        function fetchChargingStations() {
+            let source = document.getElementById("source").value.trim();
+            let destination = document.getElementById("destination").value.trim();
+            let maxDistance = document.getElementById("max-distance").value;
+
+            if (!source || !destination || !maxDistance || maxDistance <= 0) {
+                alert("Please enter valid values for all fields.");
+                return;
+            }
+
+            Promise.all([
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${source}`).then(res => res.json()),
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${destination}`).then(res => res.json())
+            ]).then(results => {
+                let sourceData = results[0][0];
+                let destData = results[1][0];
+
+                if (!sourceData || !destData) {
+                    alert("Invalid locations. Please try again.");
+                    return;
+                }
+
+                let sourceLat = parseFloat(sourceData.lat);
+                let sourceLon = parseFloat(sourceData.lon);
+                let destLat = parseFloat(destData.lat);
+                let destLon = parseFloat(destData.lon);
+
+                let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+
+                fetch(backendUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.features || data.features.length === 0) {
+                            alert("No charging stations found along this route.");
+                            return;
+                        }
+
+                        // Clear previous markers and route
+                        map.eachLayer(layer => {
+                            if (layer instanceof L.Marker || layer === routeLayer) {
+                                map.removeLayer(layer);
+                            }
+                        });
+
+                        // Add source & destination markers
+                        L.marker([sourceLat, sourceLon], { icon: L.icon({ iconUrl: './icons/start.png', iconSize: [50, 50] }) })
+                            .addTo(map).bindPopup(`<b>Start: ${source}</b>`);
+                        L.marker([destLat, destLon], { icon: L.icon({ iconUrl: './icons/end.png', iconSize: [50, 50] }) })
+                            .addTo(map).bindPopup(`<b>Destination: ${destination}</b>`);
+
+                        // Draw the route line
+                        if (routeLayer) {
+                            map.removeLayer(routeLayer);
+                        }
+                        routeLayer = L.polyline([[sourceLat, sourceLon], [destLat, destLon]], { color: 'blue', weight: 4 })
+                            .addTo(map);
+
+                        // Plot Charging Stations
+                        data.features.forEach(station => {
+                            let coords = station.geometry.coordinates;
+                            let lat = coords[1];
+                            let lon = coords[0];
+
+                            L.marker([lat, lon], { icon: L.icon({ iconUrl: './icons/charging.png', iconSize: [30, 30] }) })
+                                .addTo(map)
+                                .bindPopup(`<b>Charging Station</b><br>Latitude: ${lat}<br>Longitude: ${lon}`);
+                        });
+
+                        // Zoom to fit the route and stations
+                        let bounds = L.latLngBounds([[sourceLat, sourceLon], [destLat, destLon]]);
+                        data.features.forEach(station => {
+                            let coords = station.geometry.coordinates;
+                            bounds.extend([coords[1], coords[0]]);
+                        });
+                        map.fitBounds(bounds);
+                    })
+                    .catch(error => console.error("Error fetching charging stations:", error));
+            }).catch(error => console.error("Error fetching location data:", error));
+        }
+    </script>
 </body>
 </html>
