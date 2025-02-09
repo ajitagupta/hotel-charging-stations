@@ -73,92 +73,109 @@
     </footer>
 
     <script>
-        let map = L.map('map').setView([46.8182, 8.2275], 7);
-        let routeLayer = null; // Layer to hold the route polyline
+        document.addEventListener("DOMContentLoaded", function () {
+            let map = L.map('map').setView([46.8182, 8.2275], 7);
+            let routeLayer = null;
+            let startMarker = null;
+            let endMarker = null;
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
 
-        function fetchChargingStations() {
-            let source = document.getElementById("source").value.trim();
-            let destination = document.getElementById("destination").value.trim();
-            let maxDistance = document.getElementById("max-distance").value;
+            function fetchChargingStations() {
+                let source = document.getElementById("source").value.trim();
+                let destination = document.getElementById("destination").value.trim();
+                let maxDistance = document.getElementById("max-distance").value;
 
-            if (!source || !destination || !maxDistance || maxDistance <= 0) {
-                alert("Please enter valid values for all fields.");
-                return;
-            }
-
-            Promise.all([
-                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${source}`).then(res => res.json()),
-                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${destination}`).then(res => res.json())
-            ]).then(results => {
-                let sourceData = results[0][0];
-                let destData = results[1][0];
-
-                if (!sourceData || !destData) {
-                    alert("Invalid locations. Please try again.");
+                if (!source || !destination || !maxDistance || maxDistance <= 0) {
+                    alert("Please enter valid values for all fields.");
                     return;
                 }
 
-                let sourceLat = parseFloat(sourceData.lat);
-                let sourceLon = parseFloat(sourceData.lon);
-                let destLat = parseFloat(destData.lat);
-                let destLon = parseFloat(destData.lon);
+                Promise.all([
+                    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${source}`).then(res => res.json()),
+                    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${destination}`).then(res => res.json())
+                ]).then(results => {
+                    let sourceData = results[0][0];
+                    let destData = results[1][0];
 
-                let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+                    if (!sourceData || !destData) {
+                        alert("Invalid locations. Please try again.");
+                        return;
+                    }
 
-                fetch(backendUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (!data.features || data.features.length === 0) {
-                            alert("No charging stations found along this route.");
-                            return;
-                        }
+                    let sourceLat = parseFloat(sourceData.lat);
+                    let sourceLon = parseFloat(sourceData.lon);
+                    let destLat = parseFloat(destData.lat);
+                    let destLon = parseFloat(destData.lon);
 
-                        // Clear previous markers and route
-                        map.eachLayer(layer => {
-                            if (layer instanceof L.Marker || layer === routeLayer) {
-                                map.removeLayer(layer);
+                    let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+                    console.log("📌 Sending Request to Backend:", backendUrl);
+
+                    fetch(backendUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log("🔍 Backend Response:", data);
+
+                            if (!data.route || !data.stations || data.stations.length === 0) {
+                                alert("No charging stations found along this route.");
+                                return;
                             }
-                        });
 
-                        // Add source & destination markers
-                        L.marker([sourceLat, sourceLon], { icon: L.icon({ iconUrl: './icons/start.png', iconSize: [50, 50] }) })
-                            .addTo(map).bindPopup(`<b>Start: ${source}</b>`);
-                        L.marker([destLat, destLon], { icon: L.icon({ iconUrl: './icons/end.png', iconSize: [50, 50] }) })
-                            .addTo(map).bindPopup(`<b>Destination: ${destination}</b>`);
+                            // ✅ Clear previous layers
+                            map.eachLayer(layer => {
+                                if (layer instanceof L.Marker || layer === routeLayer) {
+                                    map.removeLayer(layer);
+                                }
+                            });
 
-                        // Draw the route line
-                        if (routeLayer) {
-                            map.removeLayer(routeLayer);
-                        }
-                        routeLayer = L.polyline([[sourceLat, sourceLon], [destLat, destLon]], { color: 'blue', weight: 4 })
-                            .addTo(map);
+                            // ✅ Custom Icons
+                            let startIcon = L.icon({
+                                iconUrl: './icons/start.png',
+                                iconSize: [70, 70]
+                            });
 
-                        // Plot Charging Stations
-                        data.features.forEach(station => {
-                            let coords = station.geometry.coordinates;
-                            let lat = coords[1];
-                            let lon = coords[0];
+                            let endIcon = L.icon({
+                                iconUrl: './icons/end.png',
+                                iconSize: [70, 70]
+                            });
 
-                            L.marker([lat, lon], { icon: L.icon({ iconUrl: './icons/charging.png', iconSize: [30, 30] }) })
+                            // ✅ Add Start & End Markers
+                            startMarker = L.marker([sourceLat, sourceLon], { icon: startIcon })
                                 .addTo(map)
-                                .bindPopup(`<b>Charging Station</b><br>Latitude: ${lat}<br>Longitude: ${lon}`);
-                        });
+                                .bindPopup(`<b>Start Location</b><br>${source}`);
 
-                        // Zoom to fit the route and stations
-                        let bounds = L.latLngBounds([[sourceLat, sourceLon], [destLat, destLon]]);
-                        data.features.forEach(station => {
-                            let coords = station.geometry.coordinates;
-                            bounds.extend([coords[1], coords[0]]);
-                        });
-                        map.fitBounds(bounds);
-                    })
-                    .catch(error => console.error("Error fetching charging stations:", error));
-            }).catch(error => console.error("Error fetching location data:", error));
-        }
+                            endMarker = L.marker([destLat, destLon], { icon: endIcon })
+                                .addTo(map)
+                                .bindPopup(`<b>Destination</b><br>${destination}`);
+
+                            // ✅ Draw Route
+                            let routeCoordinates = data.route.map(coord => [coord[0], coord[1]]);
+                            routeLayer = L.polyline(routeCoordinates, { color: 'blue', weight: 4 }).addTo(map);
+
+                            // ✅ Display Charging Stations
+                            data.stations.forEach(station => {
+                                let lat = station.latitude;
+                                let lon = station.longitude;
+
+                                L.marker([lat, lon], {
+                                    icon: L.icon({ iconUrl: './icons/charging.png', iconSize: [30, 30] }) 
+                                })
+                                .addTo(map)
+                                .bindPopup(`<b>Charging Station</b><br>Latitude: ${lat}<br>Longitude: ${lon}<br>Distance: ${station.distance_km.toFixed(2)} km`);
+                            });
+
+                            map.fitBounds(routeLayer.getBounds());
+                        })
+                        .catch(error => console.error("⚠️ Error:", error));
+                }).catch(error => console.error("⚠️ Location Fetch Error:", error));
+            }
+
+            // Expose the function to the global scope
+            window.fetchChargingStations = fetchChargingStations;
+        });
     </script>
+
 </body>
 </html>
