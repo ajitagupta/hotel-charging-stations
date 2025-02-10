@@ -15,12 +15,14 @@ body {
 
 /* Hero Section */
 .hero-section {
+    /*background: url('https://via.placeholder.com/1500x600') no-repeat center center/cover;*/
     color: #FFC107; /* Yellow text for contrast */
     padding: 100px 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
 }
+
 .hero-section::before {
     content: "";
     position: absolute;
@@ -36,48 +38,42 @@ body {
     font-size: 3rem;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #FFC107;
+    color: #FFC107; /* Yellow text for headings */
 }
 
 .hero-content p {
     font-size: 1.5rem;
+    /*color: #FFFFFF; /* White text for secondary content */
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Mission Section */
-.mission-section {
+/* Mission, Sustainability, and Team Sections */
+.mission-section, .sustainability-section, .team-section {
     padding: 60px 20px;
     text-align: center;
     background-color: #FFFFFF;
     border-bottom: 2px solid #E0E0E0;
 }
 
-.mission-section h2 {
+.mission-section h2, .sustainability-section h2, .team-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #FFC107;
+    color: #FFC107; /* Yellow for sustainability theme */
 }
 
-.mission-section p {
+.mission-section p, .sustainability-section p, .team-section p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    color: #333333;
 }
+
 
 /* Values Section */
 .values-section {
     background-color: #F5F5F5;
     padding: 60px 20px;
     text-align: center;
-    border-bottom: 2px solid #E0E0E0; /* Added separation */
-}
-
-.values-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: black;
 }
 
 .values-grid {
@@ -93,6 +89,7 @@ body {
     width: 30%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    border: 1px solid #E0E0E0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -111,34 +108,16 @@ body {
     color: #666666;
 }
 
-/* Team Section */
-.team-section {
-    background-color: #FFFFFF; /* Changed to white for contrast */
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.team-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #FFC107;
-}
-
-.team-section p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #333333;
-}
-
 /* Footer */
 footer {
-    background-color: #FFC107;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #333333;
     padding: 20px;
     text-align: center;
     border-top: 2px solid #E0E0E0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -164,6 +143,9 @@ footer {
     .hero-content p {
         font-size: 1.2rem;
     }
+    .mission-section h2, .sustainability-section h2, .team-section h2 {
+        font-size: 1.8rem;
+    }
     .values-grid {
         flex-direction: column;
         align-items: center;
@@ -180,7 +162,7 @@ footer {
     .hero-content p {
         font-size: 1rem;
     }
-    .mission-section, .values-section, .why-electristay, .team-section {
+    .mission-section, .sustainability-section, .team-section {
         padding: 40px 15px;
     }
     .value-item {

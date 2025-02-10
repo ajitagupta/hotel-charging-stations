@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        #map { height: 600px; }
+        .legend { background: white; padding: 10px; font-size: 14px; border-radius: 5px; position: absolute; bottom: 20px; right: 20px; z-index: 1000; }
+        .legend img { width: 20px; margin-right: 5px; }
+    </style>
 </head>
 <body>
     <header>
@@ -43,34 +48,13 @@
     </section>
 
     <section id="map-container">
-        <div id="map" style="height: 600px;"></div>
-    </section>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <img src="./images/logo_yellowblack.png" alt="Logo">
-                <h2 class="footer-title">ElectriStay</h2>
-                <p>Stay Charged, Stay Relaxed</p>
-            </div>
-            <div class="footer-column">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <a href="#"><img src="./icons/linkedin.png" alt="Linkedin"></a>
-                    <a href="#"><img src="./icons/twitter.png" alt="Twitter"></a>
-                    <a href="#"><img src="./icons/instagram.png" alt="Instagram"></a>
-                </div>
-            </div>
+        <div id="map"></div>
+        <div class="legend">
+            <h4>Legend</h4>
+            <p><img src="./icons/restaurant.png" alt="Dining Available"> Charging Station with Dining</p>
+            <p><img src="./icons/charging.png" alt="Regular Charging"> Charging Station</p>
         </div>
-    </footer>
+    </section>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -110,28 +94,22 @@
                     let destLat = parseFloat(destData.lat);
                     let destLon = parseFloat(destData.lon);
 
-                    /*let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;*/
-                    let backendUrl = `https://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
-                    console.log("📌 Sending Request to Backend:", backendUrl);
-
+                    let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+                    
                     fetch(backendUrl)
                         .then(response => response.json())
                         .then(data => {
-                            console.log("🔍 Backend Response:", data);
-
                             if (!data.route || !data.stations || data.stations.length === 0) {
                                 alert("No charging stations found along this route.");
                                 return;
                             }
 
-                            // ✅ Clear previous layers
                             map.eachLayer(layer => {
                                 if (layer instanceof L.Marker || layer === routeLayer) {
                                     map.removeLayer(layer);
                                 }
                             });
 
-                            // ✅ Custom Icons
                             let startIcon = L.icon({
                                 iconUrl: './icons/start.png',
                                 iconSize: [70, 70]
@@ -142,7 +120,6 @@
                                 iconSize: [70, 70]
                             });
 
-                            // ✅ Add Start & End Markers
                             startMarker = L.marker([sourceLat, sourceLon], { icon: startIcon })
                                 .addTo(map)
                                 .bindPopup(`<b>Start Location</b><br>${source}`);
@@ -151,17 +128,18 @@
                                 .addTo(map)
                                 .bindPopup(`<b>Destination</b><br>${destination}`);
 
-                            // ✅ Draw Route
                             let routeCoordinates = data.route.map(coord => [coord[0], coord[1]]);
                             routeLayer = L.polyline(routeCoordinates, { color: 'blue', weight: 4 }).addTo(map);
 
-                            // ✅ Display Charging Stations
                             data.stations.forEach(station => {
                                 let lat = station.latitude;
                                 let lon = station.longitude;
 
                                 L.marker([lat, lon], {
-                                    icon: L.icon({ iconUrl: './icons/charging.png', iconSize: [30, 30] }) 
+                                    icon: L.icon({ 
+                                        iconUrl: `./icons/${station.icon}`, 
+                                        iconSize: [30, 30] 
+                                    }) 
                                 })
                                 .addTo(map)
                                 .bindPopup(`<b>Charging Station</b><br>Latitude: ${lat}<br>Longitude: ${lon}<br>Distance: ${station.distance_km.toFixed(2)} km`);
@@ -173,7 +151,6 @@
                 }).catch(error => console.error("⚠️ Location Fetch Error:", error));
             }
 
-            // Expose the function to the global scope
             window.fetchChargingStations = fetchChargingStations;
         });
     </script>
