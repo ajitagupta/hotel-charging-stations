@@ -95,7 +95,7 @@
                     let destLon = parseFloat(destData.lon);
 
                     /*let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;*/arguments
-                    let backendUrl = `http://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+                    let backendUrl = `https://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
                     fetch(backendUrl)
                         .then(response => response.json())
                         .then(data => {
