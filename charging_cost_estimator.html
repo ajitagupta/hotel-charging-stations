@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charging Cost Estimator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function estimateCost() {
+            let evModel = document.getElementById("ev_model").value;
+            let batteryCapacity = document.getElementById("battery_capacity").value;
+            let currentCharge = document.getElementById("current_charge").value;
+            let desiredCharge = document.getElementById("desired_charge").value;
+            let stationId = document.getElementById("station_id").value;
+
+            if (!evModel || !batteryCapacity || !currentCharge || !desiredCharge || !stationId) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            let apiUrl = `http://127.0.0.1:5001/estimate-charging-cost?ev_model=${evModel}&battery_capacity=${batteryCapacity}&current_charge=${currentCharge}&desired_charge=${desiredCharge}&station_id=${stationId}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("result").innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
+                    } else {
+                        document.getElementById("result").innerHTML = `
+                            <h3>Charging Cost Estimate</h3>
+                            <p><b>EV Model:</b> ${data.ev_model}</p>
+                            <p><b>Energy Needed:</b> ${data.energy_needed_kwh} kWh</p>
+                            <p><b>Price per kWh:</b> €${data.price_per_kwh}</p>
+                            <p><b>Estimated Cost:</b> <strong>€${data.estimated_cost}</strong></p>
+                        `;
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Charging Cost Estimator</h1>
+    <form>
+        <label for="ev_model">EV Model:</label>
+        <input type="text" id="ev_model" placeholder="e.g., Tesla Model 3" required>
+
+        <label for="battery_capacity">Battery Capacity (kWh):</label>
+        <input type="number" id="battery_capacity" placeholder="e.g., 75" required>
+
+        <label for="current_charge">Current Charge (%):</label>
+        <input type="number" id="current_charge" placeholder="e.g., 20" required>
+
+        <label for="desired_charge">Desired Charge (%):</label>
+        <input type="number" id="desired_charge" placeholder="e.g., 80" required>
+
+        <label for="station_id">Charging Station ID:</label>
+        <input type="text" id="station_id" placeholder="e.g., 12345" required>
+
+        <button type="button" onclick="estimateCost()">Calculate Cost</button>
+    </form>
+
+    <div id="result"></div>
+</body>
+</html>

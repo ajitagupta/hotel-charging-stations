@@ -29,7 +29,11 @@
   "routes": [
     {
       "src": "/proxy-api.*",
-      "dest": "api/index.py"
+      "dest": "api/planyourjourney.py"
+    },
+    {
+      "src": "/estimate-charging-cost.*",
+      "dest": "api/charging_cost.py"
     },
     {
       "src": "/(.*)",

@@ -43,9 +43,14 @@
             <input type="text" id="source" placeholder="Enter starting location" required>
             <input type="text" id="destination" placeholder="Enter destination" required>
             <input type="number" id="max-distance" placeholder="Max distance (km)" min="1" required>
+    
+            <!-- Only ask for how much to charge -->
+            <input type="number" id="charge_difference" placeholder="Charge Difference (%)" min="1" max="100" required>
+    
             <button type="button" onclick="fetchChargingStations()">Find Route</button>
         </form>
     </section>
+    
 
     <section id="map-container">
         <div id="map"></div>
@@ -71,8 +76,9 @@
                 let source = document.getElementById("source").value.trim();
                 let destination = document.getElementById("destination").value.trim();
                 let maxDistance = document.getElementById("max-distance").value;
+                let chargeDifference = document.getElementById("charge_difference").value;
 
-                if (!source || !destination || !maxDistance || maxDistance <= 0) {
+                if (!source || !destination || !maxDistance || !chargeDifference) {
                     alert("Please enter valid values for all fields.");
                     return;
                 }
@@ -94,11 +100,15 @@
                     let destLat = parseFloat(destData.lat);
                     let destLon = parseFloat(destData.lon);
 
-                    /*let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;*/arguments
-                    let backendUrl = `https://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+                    let backendUrl = `http://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+                    /*let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;*/
+                    console.log("📌 Sending Request to Backend:", backendUrl);
+
                     fetch(backendUrl)
                         .then(response => response.json())
                         .then(data => {
+                            console.log("🔍 Backend Response:", data);
+
                             if (!data.route || !data.stations || data.stations.length === 0) {
                                 alert("No charging stations found along this route.");
                                 return;
@@ -134,15 +144,35 @@
                             data.stations.forEach(station => {
                                 let lat = station.latitude;
                                 let lon = station.longitude;
+                                let distance = station.distance_km.toFixed(2); // Distance to route in km
 
-                                L.marker([lat, lon], {
-                                    icon: L.icon({ 
-                                        iconUrl: `./icons/${station.icon}`, 
-                                        iconSize: [30, 30] 
-                                    }) 
-                                })
-                                .addTo(map)
-                                .bindPopup(`<b>Charging Station</b><br>Latitude: ${lat}<br>Longitude: ${lon}<br>Distance: ${station.distance_km.toFixed(2)} km`);
+                                let costApiUrl = `http://electristay.vercel.app/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;
+                                /*let costApiUrl = `http://127.0.0.1:5001/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;*/
+                                console.log("⚡ Fetching Cost from:", costApiUrl);
+
+                                fetch(costApiUrl)
+                                    .then(res => res.json())
+                                    .then(costData => {
+                                        let popupContent = `
+                                            <b>Charging Station:</b> ${costData.charging_station || "Unknown"}<br>
+                                            <b>Operator:</b> ${costData.operator || "N/A"}<br>
+                                            <b>Latitude:</b> ${lat}<br>
+                                            <b>Longitude:</b> ${lon}<br>
+                                            <b>Distance to Route:</b> ${distance} km<br>
+                                            <b>Energy Needed:</b> ${costData.energy_needed_kwh} kWh<br>
+                                            <b>Price per kWh:</b> €${costData.price_per_kwh}<br>
+                                            <b>Estimated Cost:</b> <strong>€${costData.estimated_cost}</strong>
+                                        `;
+
+                                        let iconUrl = station.has_restaurant ? './icons/restaurant.png' : './icons/charging.png';
+
+                                        L.marker([lat, lon], {
+                                            icon: L.icon({ iconUrl: iconUrl, iconSize: [30, 30] })
+                                        })
+                                        .addTo(map)
+                                        .bindPopup(popupContent);
+                                    })
+                                    .catch(error => console.error("⚠️ Error Fetching Cost:", error));
                             });
 
                             map.fitBounds(routeLayer.getBounds());
@@ -153,6 +183,7 @@
 
             window.fetchChargingStations = fetchChargingStations;
         });
+
     </script>
 
 </body>
