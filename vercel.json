@@ -2,7 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/index.py",
+      "src": "api/planyourjourney.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/charging_cost.py",
       "use": "@vercel/python"
     },
     {
@@ -42,6 +46,8 @@
   ],
   "env": {
     "GRAPHOPPER_API_KEY": "df7dbaa8-06dc-44d2-8bab-45ef03acdf44",
-    "GEO_SERVER_URL": "http://ich-tanke-strom.switzerlandnorth.cloudapp.azure.com:8080/geoserver/ich-tanke-strom/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=ich-tanke-strom:chargingStations&outputFormat=application/json"
+    "GEO_SERVER_URL": "http://ich-tanke-strom.switzerlandnorth.cloudapp.azure.com:8080/geoserver/ich-tanke-strom/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=ich-tanke-strom:chargingStations&outputFormat=application/json",
+    "API_KEY": "cd4b0e39-c1fe-4b35-8925-6346928c4bc8",
+    "FOURSQUARE_API_KEY": "fsq3yqMebqUXB4tptfOlHpy5bBTGVwmD5nUGBsdIpxyDgGA="
   }
 }
