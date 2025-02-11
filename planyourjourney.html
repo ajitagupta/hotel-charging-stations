@@ -100,7 +100,7 @@
                     let destLat = parseFloat(destData.lat);
                     let destLon = parseFloat(destData.lon);
 
-                    let backendUrl = `http://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+                    let backendUrl = `https://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
                     /*let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;*/
                     console.log("📌 Sending Request to Backend:", backendUrl);
 
@@ -146,7 +146,7 @@
                                 let lon = station.longitude;
                                 let distance = station.distance_km.toFixed(2); // Distance to route in km
 
-                                let costApiUrl = `http://electristay.vercel.app/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;
+                                let costApiUrl = `https://electristay.vercel.app/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;
                                 /*let costApiUrl = `http://127.0.0.1:5001/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;*/
                                 console.log("⚡ Fetching Cost from:", costApiUrl);
 
