@@ -13,8 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let destination = document.getElementById("destination").value.trim();
         let maxDistance = document.getElementById("max-distance").value;
         let chargeDifference = document.getElementById("charge_difference").value;
+        let batteryCapacity = document.getElementById("battery_capacity").value;
+        let carModel = document.getElementById("car_model").value.trim();
+        let efficiency = document.getElementById("efficiency").value;
 
-        if (!source || !destination || !maxDistance || !chargeDifference) {
+        if (!source || !destination || !maxDistance || !chargeDifference || !batteryCapacity || !carModel || !efficiency) {
             alert("Please enter valid values for all fields.");
             return;
         }
@@ -37,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let destLon = parseFloat(destData.lon);
 
             let backendUrl = `https://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
-            /*let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;*/
             console.log("📌 Sending Request to Backend:", backendUrl);
 
             fetch(backendUrl)
@@ -82,8 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         let lon = station.longitude;
                         let distance = station.distance_km.toFixed(2); // Distance to route in km
 
-                        let costApiUrl = `https://electristay.vercel.app/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;
-                        /*let costApiUrl = `http://127.0.0.1:5001/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;*/
+                        let costApiUrl = `https://electristay.vercel.app/estimate-charging-cost?chargeDifference=${chargeDifference}&batteryCapacity=${batteryCapacity}&lat=${lat}&lon=${lon}&carModel=${encodeURIComponent(carModel)}&efficiency=${efficiency}`;
                         console.log("⚡ Fetching Cost from:", costApiUrl);
 
                         fetch(costApiUrl)
@@ -120,12 +121,11 @@ document.addEventListener("DOMContentLoaded", function () {
     window.fetchChargingStations = fetchChargingStations;
 });
 
-
 function toggleConfiguration() {
-        let configSection = document.getElementById("configuration-section");
-        if (configSection.style.display === "none" || configSection.style.display === "") {
-            configSection.style.display = "block";
-        } else {
-            configSection.style.display = "none";
-        }
+    let configSection = document.getElementById("configuration-section");
+    if (configSection.style.display === "none" || configSection.style.display === "") {
+        configSection.style.display = "block";
+    } else {
+        configSection.style.display = "none";
     }
+}
