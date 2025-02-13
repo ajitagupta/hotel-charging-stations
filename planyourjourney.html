@@ -9,9 +9,28 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
-        #map { height: 600px; }
-        .legend { background: white; padding: 10px; font-size: 14px; border-radius: 5px; position: absolute; bottom: 20px; right: 20px; z-index: 1000; }
+        /*#map { height: 500px; width: 100%; position: relative; }*/
+        .legend { 
+            background: white; 
+            padding: 10px; 
+            font-size: 14px; 
+            border-radius: 5px; 
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            z-index: 1000;
+        }
         .legend img { width: 20px; margin-right: 5px; }
+
+        .configuration-section {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -40,27 +59,45 @@
     <section id="search">
         <h2>Plan Your Journey with Charging Stations</h2>
         <form id="journey-form">
-            <input type="text" id="source" placeholder="Enter starting location" required>
-            <input type="text" id="destination" placeholder="Enter destination" required>
-            <input type="number" id="max-distance" placeholder="Max distance (km)" min="1" required>
-    
-            <!-- Only ask for how much to charge -->
-            <input type="number" id="charge_difference" placeholder="Charge Difference (%)" min="1" max="100" required>
-    
+            <input type="text" id="source" placeholder="Enter starting location" required style="width: 190px;">
+            <input type="text" id="destination" placeholder="Enter destination" required style="width: 150px;">
+            <input type="number" id="max-distance" placeholder="Max distance (km)" min="1" required style="width: 140px;">
+            <button type="button" onclick="toggleConfiguration()">⚙️ Configuration</button>
+            
+            <div id="configuration-section" class="configuration-section" style="width: 240px;">
+                <input type="number" id="charge_difference" placeholder="Charge Difference (%)" min="1" max="100" required>
+                <select id="car_model" required>
+                    <option value="">Select Car Model</option>
+                    <option value="Tesla Model 3">Tesla Model 3</option>
+                    <option value="Renault Megane électrique">Renault Megane électrique</option>
+                    <option value="BMW i4">BMW i4</option>
+                    <option value="Volkswagen ID.4">Volkswagen ID.4</option>
+                    <option value="Hyundai Kona Electric">Hyundai Kona Electric</option>
+                    <option value="Nissan Leaf">Nissan Leaf</option>
+                    <option value="Porsche Taycan">Porsche Taycan</option>
+                    <option value="Mercedes EQC">Mercedes EQC</option>
+                    <option value="Audi e-tron">Audi e-tron</option>
+                    <option value="Ford Mustang Mach-E">Ford Mustang Mach-E</option>
+                    <option value="Kia EV6">Kia EV6</option>
+                    <option value="Polestar 2">Polestar 2</option>
+                </select>
+                <input type="number" id="battery_capacity" placeholder="Battery Capacity (kWh)" min="1" required>
+                <input type="number" id="efficiency" placeholder="Efficiency (kWh/100km)" min="0.1" step="0.1" required>
+            </div>
+
             <button type="button" onclick="fetchChargingStations()">Find Route</button>
         </form>
     </section>
-    
 
     <section id="map-container">
-        <div id="map"></div>
-        <div class="legend">
-            <h4>Legend</h4>
-            <p><img src="./icons/restaurant.png" alt="Dining Available"> Charging Station with Dining</p>
-            <p><img src="./icons/charging.png" alt="Regular Charging"> Charging Station</p>
+        <div id="map">
+            <div class="legend">
+                <h4>Legend</h4>
+                <p><img src="./icons/restaurant.png" alt="Dining Available"> Charging Station with Dining</p>
+                <p><img src="./icons/charging.png" alt="Regular Charging"> Charging Station</p>
+            </div>
         </div>
     </section>
-
 
     <footer>
         <div class="footer-container">
@@ -87,131 +124,141 @@
             </div>
         </div>
     </footer>
+</body>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let map = L.map('map').setView([46.8182, 8.2275], 7);
-            let routeLayer = null;
-            let startMarker = null;
-            let endMarker = null;
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let map = L.map('map').setView([46.8182, 8.2275], 7);
+        let routeLayer = null;
+        let startMarker = null;
+        let endMarker = null;
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
 
-            function fetchChargingStations() {
-                let source = document.getElementById("source").value.trim();
-                let destination = document.getElementById("destination").value.trim();
-                let maxDistance = document.getElementById("max-distance").value;
-                let chargeDifference = document.getElementById("charge_difference").value;
+        function fetchChargingStations() {
+            let source = document.getElementById("source").value.trim();
+            let destination = document.getElementById("destination").value.trim();
+            let maxDistance = document.getElementById("max-distance").value;
+            let chargeDifference = document.getElementById("charge_difference").value;
 
-                if (!source || !destination || !maxDistance || !chargeDifference) {
-                    alert("Please enter valid values for all fields.");
+            if (!source || !destination || !maxDistance || !chargeDifference) {
+                alert("Please enter valid values for all fields.");
+                return;
+            }
+
+            Promise.all([
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${source}`).then(res => res.json()),
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${destination}`).then(res => res.json())
+            ]).then(results => {
+                let sourceData = results[0][0];
+                let destData = results[1][0];
+
+                if (!sourceData || !destData) {
+                    alert("Invalid locations. Please try again.");
                     return;
                 }
 
-                Promise.all([
-                    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${source}`).then(res => res.json()),
-                    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${destination}`).then(res => res.json())
-                ]).then(results => {
-                    let sourceData = results[0][0];
-                    let destData = results[1][0];
+                let sourceLat = parseFloat(sourceData.lat);
+                let sourceLon = parseFloat(sourceData.lon);
+                let destLat = parseFloat(destData.lat);
+                let destLon = parseFloat(destData.lon);
 
-                    if (!sourceData || !destData) {
-                        alert("Invalid locations. Please try again.");
-                        return;
-                    }
+                let backendUrl = `https://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+                /*let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;*/
+                console.log("📌 Sending Request to Backend:", backendUrl);
 
-                    let sourceLat = parseFloat(sourceData.lat);
-                    let sourceLon = parseFloat(sourceData.lon);
-                    let destLat = parseFloat(destData.lat);
-                    let destLon = parseFloat(destData.lon);
+                fetch(backendUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("🔍 Backend Response:", data);
 
-                    let backendUrl = `https://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
-                    /*let backendUrl = `http://127.0.0.1:5000/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;*/
-                    console.log("📌 Sending Request to Backend:", backendUrl);
+                        if (!data.route || !data.stations || data.stations.length === 0) {
+                            alert("No charging stations found along this route.");
+                            return;
+                        }
 
-                    fetch(backendUrl)
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log("🔍 Backend Response:", data);
-
-                            if (!data.route || !data.stations || data.stations.length === 0) {
-                                alert("No charging stations found along this route.");
-                                return;
+                        map.eachLayer(layer => {
+                            if (layer instanceof L.Marker || layer === routeLayer) {
+                                map.removeLayer(layer);
                             }
+                        });
 
-                            map.eachLayer(layer => {
-                                if (layer instanceof L.Marker || layer === routeLayer) {
-                                    map.removeLayer(layer);
-                                }
-                            });
+                        let startIcon = L.icon({
+                            iconUrl: './icons/start.png',
+                            iconSize: [70, 70]
+                        });
 
-                            let startIcon = L.icon({
-                                iconUrl: './icons/start.png',
-                                iconSize: [70, 70]
-                            });
+                        let endIcon = L.icon({
+                            iconUrl: './icons/end.png',
+                            iconSize: [70, 70]
+                        });
 
-                            let endIcon = L.icon({
-                                iconUrl: './icons/end.png',
-                                iconSize: [70, 70]
-                            });
+                        startMarker = L.marker([sourceLat, sourceLon], { icon: startIcon })
+                            .addTo(map)
+                            .bindPopup(`<b>Start Location</b><br>${source}`);
 
-                            startMarker = L.marker([sourceLat, sourceLon], { icon: startIcon })
-                                .addTo(map)
-                                .bindPopup(`<b>Start Location</b><br>${source}`);
+                        endMarker = L.marker([destLat, destLon], { icon: endIcon })
+                            .addTo(map)
+                            .bindPopup(`<b>Destination</b><br>${destination}`);
 
-                            endMarker = L.marker([destLat, destLon], { icon: endIcon })
-                                .addTo(map)
-                                .bindPopup(`<b>Destination</b><br>${destination}`);
+                        let routeCoordinates = data.route.map(coord => [coord[0], coord[1]]);
+                        routeLayer = L.polyline(routeCoordinates, { color: 'blue', weight: 4 }).addTo(map);
 
-                            let routeCoordinates = data.route.map(coord => [coord[0], coord[1]]);
-                            routeLayer = L.polyline(routeCoordinates, { color: 'blue', weight: 4 }).addTo(map);
+                        data.stations.forEach(station => {
+                            let lat = station.latitude;
+                            let lon = station.longitude;
+                            let distance = station.distance_km.toFixed(2); // Distance to route in km
 
-                            data.stations.forEach(station => {
-                                let lat = station.latitude;
-                                let lon = station.longitude;
-                                let distance = station.distance_km.toFixed(2); // Distance to route in km
+                            let costApiUrl = `https://electristay.vercel.app/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;
+                            /*let costApiUrl = `http://127.0.0.1:5001/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;*/
+                            console.log("⚡ Fetching Cost from:", costApiUrl);
 
-                                let costApiUrl = `https://electristay.vercel.app/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;
-                                /*let costApiUrl = `http://127.0.0.1:5001/estimate-charging-cost?charge_difference=${chargeDifference}&latitude=${lat}&longitude=${lon}`;*/
-                                console.log("⚡ Fetching Cost from:", costApiUrl);
+                            fetch(costApiUrl)
+                                .then(res => res.json())
+                                .then(costData => {
+                                    let popupContent = `
+                                        <b>Charging Station:</b> ${costData.charging_station || "Unknown"}<br>
+                                        <b>Operator:</b> ${costData.operator || "N/A"}<br>
+                                        <b>Latitude:</b> ${lat}<br>
+                                        <b>Longitude:</b> ${lon}<br>
+                                        <b>Distance to Route:</b> ${distance} km<br>
+                                        <b>Energy Needed:</b> ${costData.energy_needed_kwh} kWh<br>
+                                        <b>Price per kWh:</b> €${costData.price_per_kwh}<br>
+                                        <b>Estimated Cost:</b> <strong>€${costData.estimated_cost}</strong>
+                                    `;
 
-                                fetch(costApiUrl)
-                                    .then(res => res.json())
-                                    .then(costData => {
-                                        let popupContent = `
-                                            <b>Charging Station:</b> ${costData.charging_station || "Unknown"}<br>
-                                            <b>Operator:</b> ${costData.operator || "N/A"}<br>
-                                            <b>Latitude:</b> ${lat}<br>
-                                            <b>Longitude:</b> ${lon}<br>
-                                            <b>Distance to Route:</b> ${distance} km<br>
-                                            <b>Energy Needed:</b> ${costData.energy_needed_kwh} kWh<br>
-                                            <b>Price per kWh:</b> €${costData.price_per_kwh}<br>
-                                            <b>Estimated Cost:</b> <strong>€${costData.estimated_cost}</strong>
-                                        `;
+                                    let iconUrl = station.has_restaurant ? './icons/restaurant.png' : './icons/charging.png';
 
-                                        let iconUrl = station.has_restaurant ? './icons/restaurant.png' : './icons/charging.png';
-
-                                        L.marker([lat, lon], {
-                                            icon: L.icon({ iconUrl: iconUrl, iconSize: [30, 30] })
-                                        })
-                                        .addTo(map)
-                                        .bindPopup(popupContent);
+                                    L.marker([lat, lon], {
+                                        icon: L.icon({ iconUrl: iconUrl, iconSize: [30, 30] })
                                     })
-                                    .catch(error => console.error("⚠️ Error Fetching Cost:", error));
-                            });
+                                    .addTo(map)
+                                    .bindPopup(popupContent);
+                                })
+                                .catch(error => console.error("⚠️ Error Fetching Cost:", error));
+                        });
 
-                            map.fitBounds(routeLayer.getBounds());
-                        })
-                        .catch(error => console.error("⚠️ Error:", error));
-                }).catch(error => console.error("⚠️ Location Fetch Error:", error));
+                        map.fitBounds(routeLayer.getBounds());
+                    })
+                    .catch(error => console.error("⚠️ Error:", error));
+            }).catch(error => console.error("⚠️ Location Fetch Error:", error));
+        }
+
+        window.fetchChargingStations = fetchChargingStations;
+    });
+
+
+    function toggleConfiguration() {
+            let configSection = document.getElementById("configuration-section");
+            if (configSection.style.display === "none" || configSection.style.display === "") {
+                configSection.style.display = "block";
+            } else {
+                configSection.style.display = "none";
             }
+        }
 
-            window.fetchChargingStations = fetchChargingStations;
-        });
+</script>
 
-    </script>
-
-</body>
 </html>
