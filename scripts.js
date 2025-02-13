@@ -233,16 +233,12 @@ function updateContentLanguage(lang) {
 
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.querySelector("#search-form input[type='text']");
+    const searchForm = document.querySelector("#search-form");
     const mainSection = document.querySelector("main");
 
-    // Event listener for input
-    searchInput.addEventListener("input", () => {
-        // Check if the input has a value
-        if (searchInput.value.trim() !== "") {
-            mainSection.classList.add("visible"); // Add the visible class
-        } else {
-            mainSection.classList.remove("visible"); // Hide if input is cleared
-        }
+    // Event listener for form submission
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent default form submission behavior
+        mainSection.classList.add("visible"); // Make main section visible
     });
 });
