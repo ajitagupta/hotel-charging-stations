@@ -368,10 +368,13 @@ footer {
 }
 
 .title-container .search-subtitle {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif; /* Adjust to match the primary font */
+    font-size: 1.2rem; /* Adjust based on the rest of the site */
+    font-weight: 400; /* Keep it readable and elegant */    font-size: 1.2rem;
     color: #00A000;
-    margin-top: -10px;
+    text-align: center;
+    margin-top: 5px;
+    line-height: 1.6;
 }
 
 /* Responsive Design */
