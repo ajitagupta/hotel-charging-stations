@@ -45,38 +45,7 @@
         </aside>
 
         <section class="store-section">
-            <div id="store-container">
-                <div class="store-item">
-                    <img src="https://placehold.co/300x200" alt="EV Chargers">
-                    <h3>EV Chargers</h3>
-                    <p>Reliable chargers for your electric journey.</p>
-                    <button>Shop Now</button>
-                </div>
-                <div class="store-item">
-                    <img src="https://placehold.co/300x200" alt="Travel Backpacks">
-                    <h3>Travel Backpacks</h3>
-                    <p>Designed for comfortable and stylish travel.</p>
-                    <button>Shop Now</button>
-                </div>
-                <div class="store-item">
-                    <img src="https://placehold.co/300x200" alt="Luggage">
-                    <h3>Luggage</h3>
-                    <p>Durable luggage for your next adventure.</p>
-                    <button>Shop Now</button>
-                </div>
-                <div class="store-item">
-                    <img src="https://placehold.co/300x200" alt="Accessories">
-                    <h3>Accessories</h3>
-                    <p>Enhance your travel experience with quality accessories.</p>
-                    <button>Shop Now</button>
-                </div>
-                <div class="store-item">
-                    <img src="https://placehold.co/300x200" alt="Travel Guides">
-                    <h3>Travel Guides</h3>
-                    <p>Discover the best EV-friendly travel destinations.</p>
-                    <button>Shop Now</button>
-                </div>
-            </div>
+            <div id="store-container"></div>
         </section>
     </div>
 
@@ -107,35 +76,53 @@
         </div>
     </footer>
 
-    <!-- JavaScript for filtering store items -->
+    <!-- JavaScript for filtering store items and initial display -->
     <script>
+        const storeData = {
+            'EV Chargers': [
+                { title: 'Fast Charger Pro', description: 'High-speed charging for your EV.', img: 'https://placehold.co/300x200' },
+                { title: 'Compact Charger', description: 'Portable and reliable EV charger.', img: 'https://placehold.co/300x200' }
+            ],
+            'Travel Backpacks': [
+                { title: 'Adventure Backpack', description: 'Designed for travelers on the go.', img: 'https://placehold.co/300x200' },
+                { title: 'Urban Explorer', description: 'Stylish and functional travel backpack.', img: 'https://placehold.co/300x200' }
+            ],
+            'Luggage': [
+                { title: 'Lightweight Suitcase', description: 'Durable and spacious luggage.', img: 'https://placehold.co/300x200' },
+                { title: 'Traveler’s Choice', description: 'Reliable luggage for frequent travelers.', img: 'https://placehold.co/300x200' }
+            ],
+            'Accessories': [
+                { title: 'Travel Pillow', description: 'Comfortable neck pillow for long journeys.', img: 'https://placehold.co/300x200' },
+                { title: 'Portable Power Bank', description: 'Stay charged wherever you go.', img: 'https://placehold.co/300x200' }
+            ],
+            'Travel Guides': [
+                { title: 'European Road Trips', description: 'The best EV-friendly routes across Europe.', img: 'https://placehold.co/300x200' },
+                { title: 'Sustainable Travel Tips', description: 'How to travel sustainably and enjoyably.', img: 'https://placehold.co/300x200' }
+            ]
+        };
+
         function filterStore(category) {
             const storeContainer = document.getElementById('store-container');
             storeContainer.innerHTML = '';
-
-            const storeData = {
-                'EV Chargers': [
-                    { title: 'Fast Charger Pro', description: 'High-speed charging for your EV.', img: 'https://placehold.co/300x200' },
-                    { title: 'Compact Charger', description: 'Portable and reliable EV charger.', img: 'https://placehold.co/300x200' }
-                ],
-                'Travel Backpacks': [
-                    { title: 'Adventure Backpack', description: 'Designed for travelers on the go.', img: 'https://placehold.co/300x200' },
-                    { title: 'Urban Explorer', description: 'Stylish and functional travel backpack.', img: 'https://placehold.co/300x200' }
-                ],
-                'Luggage': [
-                    { title: 'Lightweight Suitcase', description: 'Durable and spacious luggage.', img: 'https://placehold.co/300x200' },
-                    { title: 'Traveler’s Choice', description: 'Reliable luggage for frequent travelers.', img: 'https://placehold.co/300x200' }
-                ],
-                'Accessories': [
-                    { title: 'Travel Pillow', description: 'Comfortable neck pillow for long journeys.', img: 'https://placehold.co/300x200' },
-                    { title: 'Portable Power Bank', description: 'Stay charged wherever you go.', img: 'https://placehold.co/300x200' }
-                ],
-                'Travel Guides': [
-                    { title: 'European Road Trips', description: 'The best EV-friendly routes across Europe.', img: 'https://placehold.co/300x200' },
-                    { title: 'Sustainable Travel Tips', description: 'How to travel sustainably and enjoyably.', img: 'https://placehold.co/300x200' }
-                ]
-            };
+            
+            const selectedItems = storeData[category] || [];
+            selectedItems.forEach(item => {
+                const storeItem = document.createElement('div');
+                storeItem.className = 'store-item';
+                storeItem.innerHTML = `
+                    <img src="${item.img}" alt="${item.title}">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <button>Shop Now</button>
+                `;
+                storeContainer.appendChild(storeItem);
+            });
         }
+
+        // Display default category on page load
+        window.onload = function() {
+            filterStore('EV Chargers');
+        };
     </script>
 </body>
 </html>
