@@ -378,7 +378,7 @@ footer {
     padding: 10px;   /* Adds padding inside the block */
     font-size: 16px; /* Adjusts readability */
     line-height: 1.5; /* Improves line spacing */
-    color: #FFC107;
+    color: black; /*doesn't work: #FFC107;*/
     font-weight: 400; /* Keep it readable and elegant */    font-size: 1.2rem;
     font-family: 'Poppins', sans-serif; /* Adjust to match the primary font */
 }
