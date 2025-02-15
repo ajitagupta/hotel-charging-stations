@@ -86,6 +86,10 @@ header nav ul li a:hover {
 }
 
 
+header nav ul li a.active {
+    color: #00A000; /* Green for the currently selected link */
+}
+
 /* Middle Container Styling */
 .middle-container {
     background: url('./images/sustainability.png') no-repeat center center; /* Background image */
@@ -374,9 +378,13 @@ footer {
     padding: 10px;   /* Adds padding inside the block */
     font-size: 16px; /* Adjusts readability */
     line-height: 1.5; /* Improves line spacing */
-    color: #00A000;
+    color: #FFC107;
     font-weight: 400; /* Keep it readable and elegant */    font-size: 1.2rem;
     font-family: 'Poppins', sans-serif; /* Adjust to match the primary font */
+}
+
+#green  {
+    color: #00A000;
 }
 
 
