@@ -1,16 +1,5 @@
 {
   "version": 2,
-  "headers": [
-    {
-      "source": "/videos/(.*)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "video/mp4"
-        }
-      ]
-    }
-  ],
   "builds": [
     {
       "src": "api/planyourjourney.py",
@@ -38,10 +27,6 @@
     },
     {
       "src": "icons/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "videos/*",
       "use": "@vercel/static"
     }
   ],
