@@ -1,45 +1,48 @@
-// Initialize Flatpickr calendar for check-in and check-out dates
-flatpickr("#checkin", { enableTime: false, dateFormat: "Y-m-d" });
-flatpickr("#checkout", { enableTime: false, dateFormat: "Y-m-d" });
+document.addEventListener("DOMContentLoaded", function () {
+    // Ensure Flatpickr is loaded before initializing
+    if (typeof flatpickr !== "undefined") {
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().split("T")[0];
 
-document.getElementById("booking-form").addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent form submission
+        // Initialize Flatpickr with today's date as default
+        flatpickr("#checkin", { 
+            enableTime: false, 
+            dateFormat: "Y-m-d", 
+            defaultDate: today 
+        });
 
-    // Get input values
-    const checkin = document.getElementById("checkin").value;
-    const checkout = document.getElementById("checkout").value;
-    const chargerBooked = document.getElementById("charger").checked;
-
-    // Validate input
-    if (!checkin || !checkout) {
-        alert("Please select both check-in and check-out dates.");
-        return;
+        flatpickr("#checkout", { 
+            enableTime: false, 
+            dateFormat: "Y-m-d", 
+            defaultDate: today 
+        });
+    } else {
+        console.error("Flatpickr failed to load!");
     }
 
-    // Static data for Mandarin Oriental Palace, Luzern
-    const hotelData = {
-        hotel_name: "Mandarin Oriental Palace, Luzern",
-        address: "Haldenstrasse 10, 6006 Lucerne, Switzerland",
-        price_per_night: 450,
-        url: "https://www.booking.com/hotel/ch/mandarin-oriental-palace-luzern.html"
-    };
+    document.getElementById("booking-form").addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent form from submitting normally
 
-    // Display hotel information
-    displayHotelInfo(hotelData, chargerBooked);
+        // Extract hotel name from the div
+        const hotelName = document.getElementById("hotel-title").innerText.trim();
+
+        // Get selected check-in and check-out dates
+        const startDate = document.getElementById("checkin").value;
+        const endDate = document.getElementById("checkout").value;
+
+        // Ensure dates are selected
+        if (!startDate || !endDate) {
+            alert("Please select a check-in and check-out date.");
+            return;
+        }
+
+        // Construct the URL for the React app
+        const reactAppUrl = `http://localhost:3000/booking?hotel=${encodeURIComponent(hotelName)}&start_date=${startDate}&end_date=${endDate}`;
+
+        // Debugging: Log the redirect URL
+        console.log("Redirecting to:", reactAppUrl);
+
+        // Redirect to the React app
+        window.location.href = reactAppUrl;
+    });
 });
-
-function displayHotelInfo(hotel, chargerBooked) {
-    const chargerMessage = chargerBooked
-        ? "<p style='color: green; font-weight: bold;'>Charging Station Reserved ✅</p>"
-        : "";
-
-    document.getElementById("hotel-info").innerHTML = `
-        <h2>${hotel.hotel_name}</h2>
-        <p>${hotel.address}</p>
-        <p>Price per night: $${hotel.price_per_night}</p>
-        ${chargerMessage}
-        <a href="${hotel.url}" target="_blank">
-            <button class="btn btn-primary">Book Now</button>
-        </a>
-    `;
-}
