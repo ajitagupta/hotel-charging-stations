@@ -2,7 +2,7 @@
   "version": 2,
   "headers": [
     {
-      "source": "videos/(.*)",
+      "source": "/videos/(.*)",
       "headers": [
         {
           "key": "Content-Type",
@@ -38,6 +38,10 @@
     },
     {
       "src": "icons/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "videos/*",
       "use": "@vercel/static"
     }
   ],
