@@ -2,7 +2,7 @@
   "version": 2,
   "headers": [
     {
-      "source": "/videos/(.*)",
+      "source": "videos/(.*)",
       "headers": [
         {
           "key": "Content-Type",
