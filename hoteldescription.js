@@ -20,6 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Flatpickr failed to load!");
     }
 
+    // Set hotel name
+    const urlParams = new URLSearchParams(window.location.search);
+    const hotelSlug = urlParams.get("hotel");
+
+    // Ensure we have a valid slug before updating the title
+    if (hotelSlug) {
+        document.getElementById("hotel-title").innerText = hotelSlug.replace(/-/g, " "); // Replace dashes with spaces
+    } else {
+        document.getElementById("hotel-title").innerText = "Hotel Not Found";
+    }
+
     document.getElementById("booking-form").addEventListener("submit", (event) => {
         event.preventDefault(); // Prevent form from submitting normally
 
