@@ -22,11 +22,11 @@
   "builds": [
     {
       "src": "api/planyourjourney.py",
-      "use": "@vercel/python@3.9"
+      "use": "@vercel/python"
     },
     {
       "src": "api/charging_cost.py",
-      "use": "@vercel/python@3.9"
+      "use": "@vercel/python"
     }
   ],
   "rewrites": [
