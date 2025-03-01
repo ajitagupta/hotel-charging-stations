@@ -1,5 +1,4 @@
-aboutus*.mp4
-*.png
+videos/
 venv/
 __pycache__/
 node_modules/
