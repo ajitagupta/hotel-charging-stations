@@ -21,10 +21,10 @@
   ],
   "functions": {
     "api/planyourjourney.py": {
-      "runtime": "python"
+      "runtime": "@vercel/python@3.9"
     },
     "api/charging_cost.py": {
-      "runtime": "python"
+      "runtime": "@vercel/python@3.9"
     }
   },
   "rewrites": [
