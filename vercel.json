@@ -21,6 +21,10 @@
   ],
   "builds": [
     {
+      "src": "api/requirements.txt",
+      "use": "@vercel/python"
+    },
+    {
       "src": "api/planyourjourney.py",
       "use": "@vercel/python"
     },
