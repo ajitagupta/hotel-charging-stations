@@ -19,14 +19,16 @@
       ]
     }
   ],
-  "functions": {
-    "api/planyourjourney.py": {
-      "runtime": "@vercel/python@3.9"
+  "builds": [
+    {
+      "src": "api/planyourjourney.py",
+      "use": "@vercel/python@3.9"
     },
-    "api/charging_cost.py": {
-      "runtime": "@vercel/python@3.9"
+    {
+      "src": "api/charging_cost.py",
+      "use": "@vercel/python@3.9"
     }
-  },
+  ],
   "rewrites": [
     {
       "source": "/proxy-api/(.*)",
