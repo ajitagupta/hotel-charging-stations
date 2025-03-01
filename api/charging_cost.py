@@ -1,6 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
+from flask import Blueprint
+
+charging_cost_bp = Blueprint("charging_cost", __name__)
 
 app = Flask(__name__)
 CORS(app)
@@ -9,7 +12,7 @@ CORS(app)
 OPENCHARGEMAP_API_URL = "https://api.openchargemap.io/v3/poi/"
 API_KEY = "cd4b0e39-c1fe-4b35-8925-6346928c4bc8"  # Replace with your Open Charge Map API Key
 
-@app.route('/estimate-charging-cost', methods=['GET'])
+@charging_cost_bp.route('/estimate-charging-cost', methods=['GET'])
 def estimate_charging_cost():
     try:
         # Get user inputs from frontend
