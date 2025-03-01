@@ -2,71 +2,39 @@
   "version": 2,
   "headers": [
     {
-      "source": "/videos/(.*)",
+      "source": "/api/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
         },
         {
-          "key": "Content-Type",
-          "value": "video/mp4"
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
         },
         {
-          "key": "Accept-Ranges",
-          "value": "bytes"
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
         }
       ]
     }
   ],
-  "builds": [
-    {
-      "src": "api/planyourjourney.py",
-      "use": "@vercel/python"
+  "functions": {
+    "api/planyourjourney.py": {
+      "runtime": "python"
     },
-    {
-      "src": "api/charging_cost.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "**/*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "**/*.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "**/*.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "images/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "icons/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "videos/**/*",
-      "use": "@vercel/static"
+    "api/charging_cost.py": {
+      "runtime": "python"
     }
-  ],
+  },
   "rewrites": [
     {
       "source": "/proxy-api/(.*)",
-      "destination": "/api/planyourjourney.py"
+      "destination": "/api/planyourjourney"
     },
     {
       "source": "/estimate-charging-cost/(.*)",
-      "destination": "/api/charging_cost.py"
+      "destination": "/api/charging_cost"
     }
-  ],
-  "env": {
-    "GRAPHOPPER_API_KEY": "@graphopper_api_key",
-    "GEO_SERVER_URL": "@geo_server_url",
-    "API_KEY": "@api_key",
-    "FOURSQUARE_API_KEY": "@foursquare_api_key"
-  }
+  ]
 }
