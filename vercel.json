@@ -11,6 +11,10 @@
         {
           "key": "Content-Type",
           "value": "video/mp4"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
         }
       ]
     }
@@ -25,48 +29,42 @@
       "use": "@vercel/python"
     },
     {
-      "src": "*.html",
+      "src": "**/*.html",
       "use": "@vercel/static"
     },
     {
-      "src": "*.css",
+      "src": "**/*.css",
       "use": "@vercel/static"
     },
     {
-      "src": "*.js",
+      "src": "**/*.js",
       "use": "@vercel/static"
     },
     {
-      "src": "images/*",
+      "src": "images/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "icons/*",
+      "src": "icons/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "videos/*",
+      "src": "videos/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/proxy-api.*",
+      "src": "/proxy-api/(.*)",
       "dest": "api/planyourjourney.py"
     },
     {
-      "src": "/estimate-charging-cost.*",
+      "src": "/estimate-charging-cost/(.*)",
       "dest": "api/charging_cost.py"
     },
     {
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "env": {
-    "GRAPHOPPER_API_KEY": "df7dbaa8-06dc-44d2-8bab-45ef03acdf44",
-    "GEO_SERVER_URL": "http://ich-tanke-strom.switzerlandnorth.cloudapp.azure.com:8080/geoserver/ich-tanke-strom/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=ich-tanke-strom:chargingStations&outputFormat=application/json",
-    "API_KEY": "cd4b0e39-c1fe-4b35-8925-6346928c4bc8",
-    "FOURSQUARE_API_KEY": "fsq3yqMebqUXB4tptfOlHpy5bBTGVwmD5nUGBsdIpxyDgGA="
-  }
+  ]
 }
