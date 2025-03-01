@@ -1,0 +1,9 @@
+aboutus*.mp4
+*.png
+venv/
+__pycache__/
+node_modules/
+*.log
+*.csv
+*.json
+*.sqlite3
