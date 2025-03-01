@@ -53,18 +53,20 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/proxy-api/(.*)",
-      "dest": "api/planyourjourney.py"
+      "source": "/proxy-api/(.*)",
+      "destination": "/api/planyourjourney.py"
     },
     {
-      "src": "/estimate-charging-cost/(.*)",
-      "dest": "api/charging_cost.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/estimate-charging-cost/(.*)",
+      "destination": "/api/charging_cost.py"
     }
-  ]
+  ],
+  "env": {
+    "GRAPHOPPER_API_KEY": "@graphopper_api_key",
+    "GEO_SERVER_URL": "@geo_server_url",
+    "API_KEY": "@api_key",
+    "FOURSQUARE_API_KEY": "@foursquare_api_key"
+  }
 }
