@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let destLat = parseFloat(destData.lat);
             let destLon = parseFloat(destData.lon);
 
-            let backendUrl = `https://electristay.vercel.app/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
+            let backendUrl = `https://planyourjourney.onrender.com/proxy-api?source_lon=${sourceLon}&source_lat=${sourceLat}&dest_lon=${destLon}&dest_lat=${destLat}&maxDistance=${maxDistance}`;
             console.log("📌 Sending Request to Backend:", backendUrl);
 
             fetch(backendUrl)
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         let lon = station.longitude;
                         let distance = station.distance_km.toFixed(2); // Distance to route in km
 
-                        let costApiUrl = `https://electristay.vercel.app/estimate-charging-cost?chargeDifference=${chargeDifference}&batteryCapacity=${batteryCapacity}&lat=${lat}&lon=${lon}&carModel=${encodeURIComponent(carModel)}&efficiency=${efficiency}`;
+                        let costApiUrl = `https://planyourjourney.onrender.com/estimate-charging-cost?chargeDifference=${chargeDifference}&batteryCapacity=${batteryCapacity}&lat=${lat}&lon=${lon}&carModel=${encodeURIComponent(carModel)}&efficiency=${efficiency}`;
                         console.log("⚡ Fetching Cost from:", costApiUrl);
 
                         fetch(costApiUrl)
