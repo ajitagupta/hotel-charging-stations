@@ -5,7 +5,7 @@ import polyline
 from geopy.distance import geodesic
 from scipy.spatial import KDTree
 import numpy as np
-from api.charging_cost import charging_cost_bp  # Import the blueprint
+from charging_cost import charging_cost_bp  # Import the blueprint
 
 
 app = Flask(__name__)
