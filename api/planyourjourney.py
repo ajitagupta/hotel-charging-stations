@@ -9,7 +9,7 @@ import numpy as np
 from charging_cost import charging_cost_bp  # ✅ Fixed Import
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://electristay.onrender.com"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # API Keys & URLs
 GRAPHOPPER_API_KEY = "df7dbaa8-06dc-44d2-8bab-45ef03acdf44"
