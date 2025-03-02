@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         let lon = station.longitude;
                         let distance = station.distance_km.toFixed(2); // Distance to route in km
 
-                        let costApiUrl = `https://planyourjourney.onrender.com/estimate-charging-cost?chargeDifference=${chargeDifference}&batteryCapacity=${batteryCapacity}&lat=${lat}&lon=${lon}&carModel=${encodeURIComponent(carModel)}&efficiency=${efficiency}`;
+                        let costApiUrl = `https://planyourjourney.onrender.com/api/estimate-charging-cost?chargeDifference=${chargeDifference}&batteryCapacity=${batteryCapacity}&lat=${lat}&lon=${lon}&carModel=${encodeURIComponent(carModel)}&efficiency=${efficiency}`;
                         console.log("⚡ Fetching Cost from:", costApiUrl);
 
                         fetch(costApiUrl)
