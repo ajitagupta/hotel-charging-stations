@@ -18,20 +18,26 @@ FOURSQUARE_API_KEY = "fsq3yqMebqUXB4tptfOlHpy5bBTGVwmD5nUGBsdIpxyDgGA="
 FOURSQUARE_API_URL = "https://api.foursquare.com/v3/places/search"
 
 # ✅ Register the Blueprint for Charging Cost API
-app.register_blueprint(charging_cost_bp, url_prefix="/estimate-charging-cost")
+app.register_blueprint(charging_cost_bp, url_prefix="/api")
 
 @app.route("/proxy-api", methods=["GET"])
 def get_route():
-    source_lon = float(request.args.get("source_lon"))
-    source_lat = float(request.args.get("source_lat"))
-    dest_lon = float(request.args.get("dest_lon"))
-    dest_lat = float(request.args.get("dest_lat"))
-    max_distance = float(request.args.get("maxDistance", 10))  
+    source_lon = request.args.get("source_lon")
+    source_lat = request.args.get("source_lat")
+    dest_lon = request.args.get("dest_lon")
+    dest_lat = request.args.get("dest_lat")
+    max_distance = request.args.get("maxDistance", 10)  # Default 10 if missing
 
-    print(f"📌 Received Request: Source({source_lat}, {source_lon}) -> Destination({dest_lat}, {dest_lon}) | Max Distance: {max_distance} km")
+    # ✅ Fix: Ensure all parameters are provided
+    if None in (source_lon, source_lat, dest_lon, dest_lat):
+        return jsonify({"error": "Missing required parameters"}), 400
 
-    if not all([source_lon, source_lat, dest_lon, dest_lat]):
-        return jsonify({"error": "Missing parameters"}), 400
+    source_lon = float(source_lon)
+    source_lat = float(source_lat)
+    dest_lon = float(dest_lon)
+    dest_lat = float(dest_lat)
+    max_distance = float(max_distance)
+
 
     # Step 1: Fetch Route from GraphHopper
     gh_url = f"https://graphhopper.com/api/1/route?point={source_lat},{source_lon}&point={dest_lat},{dest_lon}&vehicle=car&locale=en&key={GRAPHOPPER_API_KEY}&type=json"
