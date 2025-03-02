@@ -9,7 +9,7 @@ from charging_cost import charging_cost_bp  # Import the blueprint
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/proxy-api/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "https://electristay.onrender.com"}})
 
 GRAPHOPPER_API_KEY = "df7dbaa8-06dc-44d2-8bab-45ef03acdf44"
 GEO_SERVER_URL = "http://ich-tanke-strom.switzerlandnorth.cloudapp.azure.com:8080/geoserver/ich-tanke-strom/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=ich-tanke-strom:chargingStations&outputFormat=application/json"
