@@ -1,12 +1,5 @@
 
-window.addEventListener('scroll', function() {
-    var header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
+
 
 // Initialize the Leaflet Map
 const map = L.map("map").setView([47.3769, 8.5417], 12);
@@ -251,4 +244,13 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault(); // Prevent default form submission behavior
         mainSection.classList.add("visible"); // Make main section visible
     });
+});
+
+window.addEventListener('scroll', function() {
+    var header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
 });

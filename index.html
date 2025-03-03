@@ -43,69 +43,67 @@
     </header>
 
     <div class="middle-container">
-
-        <section id="search">
-            <div class="title-container">
-                <h2 class="title-heading" data-translate="search-title">
-                   Find the Right Hotel for You
-                </h2>
-                <p class="search-subtitle">
-                    Discover the best hotels near you with tailored categories and charging stations.
-                </p>
-            </div>
-            
-
-            <form id="search-form">
-                <div class="search-container">
-                    <!-- Location Input with Icon -->
-                    <div class="input-wrapper">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" id="location" placeholder="Where ... ? (e.g. Zurich)" class="search-input" data-placeholder="location">
-                    </div>
-            
-                    <!-- Hotel Category Dropdown -->
-                    <div class="select-wrapper">
-                        <select id="category-type" name="category-type" class="search-select">
-                            <option value="all">Select Hotel Category</option>
-                            <option value="swiss-hotels">Swiss Hotels</option>
-                            <option value="spa-wellness">Spa and Wellness Hotels</option>
-                            <option value="family-hotels">Family Hotels</option>
-                            <option value="bike-hotels">Bike Hotels</option>
-                            <option value="luxury-hotels">Luxury Hotels</option>
-                            <option value="winter-sports-hotels">Winter Sports Hotels</option>
-                        </select>
-                    </div>
-            
-                    <!-- Charging Type Dropdown -->
-                    <div class="select-wrapper">
-                        <select id="charging-type" name="charging-type" class="search-select">
-                            <option value="all" data-translate="chargingTypeAll">Select Charging Type</option>
-                            <option value="any" data-translate="chargingTypeAny">Any</option>
-                            <option value="rapid-ultra-rapid" data-translate="chargingTypeRapid">Rapid / Ultra-Rapid (CCS, CHAdeMO)</option>
-                            <option value="fast" data-translate="chargingTypeFast">Fast Charging (Type 2, 7kW-22kW)</option>
-                            <option value="slow" data-translate="chargingTypeSlow">Slow Charging (Type 1, up to 3.7kW)</option>
-                        </select>
-                    </div>
-            
-                    <!-- Search Button -->
-                    <button type="submit" class="search-button" data-translate="search">Search</button>
+        <div class="content-wrapper">
+            <section id="search">
+                <div class="title-container">
+                    <h2 class="title-heading" data-translate="search-title">
+                        Find the Right Hotel for You
+                    </h2>
+                    <p class="search-subtitle">
+                        Discover the best hotels near you with tailored categories and charging stations.
+                    </p>
                 </div>
-            </form>
-            
-                    
-        </section>
-        
-
-        <main>
-            <section id="hotel-list">
-                <!-- Hotel search results will be dynamically displayed here -->
-            </section>
-            <section id="map">
-                <!-- Map will be displayed here -->
-            </section>
-        </main>
     
+                <form id="search-form">
+                    <div class="search-container">
+                        <!-- Location Input with Icon -->
+                        <div class="input-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="location" placeholder="Where ... ? (e.g. Zurich)" class="search-input" data-placeholder="location">
+                        </div>
+    
+                        <!-- Hotel Category Dropdown -->
+                        <div class="select-wrapper">
+                            <select id="category-type" name="category-type" class="search-select">
+                                <option value="all">Select Hotel Category</option>
+                                <option value="swiss-hotels">Swiss Hotels</option>
+                                <option value="spa-wellness">Spa and Wellness Hotels</option>
+                                <option value="family-hotels">Family Hotels</option>
+                                <option value="bike-hotels">Bike Hotels</option>
+                                <option value="luxury-hotels">Luxury Hotels</option>
+                                <option value="winter-sports-hotels">Winter Sports Hotels</option>
+                            </select>
+                        </div>
+    
+                        <!-- Charging Type Dropdown -->
+                        <div class="select-wrapper">
+                            <select id="charging-type" name="charging-type" class="search-select">
+                                <option value="all" data-translate="chargingTypeAll">Select Charging Type</option>
+                                <option value="any" data-translate="chargingTypeAny">Any</option>
+                                <option value="rapid-ultra-rapid" data-translate="chargingTypeRapid">Rapid / Ultra-Rapid (CCS, CHAdeMO)</option>
+                                <option value="fast" data-translate="chargingTypeFast">Fast Charging (Type 2, 7kW-22kW)</option>
+                                <option value="slow" data-translate="chargingTypeSlow">Slow Charging (Type 1, up to 3.7kW)</option>
+                            </select>
+                        </div>
+    
+                        <!-- Search Button -->
+                        <button type="submit" class="search-button" data-translate="search">Search</button>
+                    </div>
+                </form>
+            </section>
+    
+            <main>
+                <section id="hotel-list">
+                    <!-- Hotel search results will be dynamically displayed here -->
+                </section>
+                <section id="map">
+                    <!-- Map will be displayed here -->
+                </section>
+            </main>
+        </div>
     </div>
+    
+    
 
     <footer>
         <div class="footer-container">
