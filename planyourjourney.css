@@ -3,52 +3,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif; /* Updated modern font */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
 }
 
 /* Styling the body background */
 body {
-    background-color: #f5f5f5; /* Soft gray background for urban elegance */
+    background-color: rgb(50, 55, 70); /* Deep blue-gray */
     line-height: 1.7;
-    color: #333333; /* Neutral dark gray text */
+    color: rgb(190, 170, 150); /* Soft warm gray text */
 }
 
-/* Header Styling */
-header {
-    background-color: #ffffff; /* White background */
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-bottom: 2px solid #ffc107; /* Yellow border for visual continuity */
-}
 
 /* Styling the search section */
 #search {
-    background-color: #ffffff; /* White background for search section */
+    background-color: rgb(89, 87, 99); /* Dark gray for contrast */
     padding: 3rem 0;
     text-align: center;
-    color: #333333; /* Neutral dark gray text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for separation */
+    color: rgb(190, 170, 150); /* Warm gray text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #search h2 {
     font-size: 2.2rem;
     margin-bottom: 20px;
-    color: #ffc107; /* Yellow for headings */
+    color: rgb(220, 60, 30); /* Red-orange for headings */
     font-weight: bold;
-    font-family: "Poppins", sans-serif; /* Modern and clean font for emphasis */
-}
-
-
-/* Map Section (if any) */
-#map {
-    height: 500px;
-    background-color: #ffffff; /* White background for map */
-    border-radius: 8px;
-    border: 2px solid #ffc107; /* Prominent yellow border */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    letter-spacing: 1px;
 }
 
 /* Journey Form Styling */
@@ -56,13 +36,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff; /* White background for form */
+    background-color: rgb(50, 55, 70); /* Deep blue-gray */
     padding: 1.5rem;
     border-radius: 8px;
     max-width: 1150px;
     margin: 2rem auto;
-    gap: 15px; /* Increased spacing for better usability */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(220, 60, 30, 0.3);
 }
 
 #journey-form input[type="text"],
@@ -70,34 +50,79 @@ header {
 #journey-form input[type="number"] {
     padding: 0.85rem;
     border-radius: 6px;
-    border: 1px solid #e0e0e0; /* Light gray border for inputs */
-    background-color: #ffffff; /* White background for inputs */
+    border: 1px solid rgba(190, 170, 150, 0.3);
+    background-color: rgb(89, 87, 99); /* Dark gray for contrast */
     font-size: 1rem;
-    color: #333333; /* Neutral dark gray text */
+    color: rgb(190, 170, 150);
     width: 100%;
 }
 
 #journey-form button {
     padding: 0.85rem 1.5rem;
-    background-color: #ffc107; /* Yellow button */
-    color: #000000; /* Black text for button */
+    background-color: rgb(220, 60, 30); /* Red-orange button */
+    color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #journey-form button:hover {
-    background-color: #E69100; /* Dark orange for better visibility */
-    color: #FFFFFF; /* White text for contrast */
+    background-color: rgb(255, 140, 60); /* Softer red-orange hover effect */
+    transform: scale(1.05);
 }
 
+/* Placeholder Styling */
 #journey-form input[type="text"]::placeholder,
 #journey-form input[type="number"]::placeholder {
-    color: #888888; /* Subtle gray for placeholder text */
+    color: rgb(190, 170, 150);
     font-size: 1rem;
+}
+
+/* Map Section */
+#map-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+#map {
+    height: 500px;
+    background-color: rgb(89, 87, 99); /* Dark gray for contrast */
+    border-radius: 8px;
+    border: 2px solid rgb(220, 60, 30); /* Red-orange border */
+    box-shadow: 0 4px 12px rgba(220, 60, 30, 0.3);
+}
+
+/* Legend Box */
+.legend {
+    background: rgb(89, 87, 99);
+    color: rgb(190, 170, 150);
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    border: 1px solid rgb(220, 60, 30);
+}
+
+.legend img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* Configuration Section */
+.configuration-section {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgb(89, 87, 99); /* Dark gray */
+    border-radius: 5px;
+    border: 1px solid rgba(220, 60, 30, 0.5);
+    color: rgb(190, 170, 150);
 }
 
 /* Responsive Design */
@@ -139,4 +164,3 @@ header {
         height: 300px;
     }
 }
-

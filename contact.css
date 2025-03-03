@@ -1,9 +1,17 @@
+/* General Styling */
+body {
+    background-color: rgb(50, 55, 70); /* Deep blue-gray */
+    color: rgb(190, 170, 150); /* Soft warm gray */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    line-height: 1.7;
+}
+
 /* Contact Section Layout */
 #contact-section {
     padding: 4rem 2rem;
     display: flex;
     justify-content: center;
-    background-color: #F5F5F5; /* Light gray background for urban sophistication */
+    background: linear-gradient(90deg, rgb(50, 55, 70), rgb(89, 87, 99)); /* Futuristic gradient */
 }
 
 .container {
@@ -17,57 +25,64 @@
 .left-column {
     flex: 1;
     padding: 2rem;
+    background-color: rgb(89, 87, 99); /* Dark gray background */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(220, 60, 30, 0.3);
 }
 
 .left-column h2 {
     font-size: 2rem;
-    color: #FFC107; /* Yellow text for headings */
+    color: rgb(220, 60, 30); /* Red-orange text */
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .left-column p {
     font-size: 1.2rem;
-    color: #333333; /* Dark gray text */
+    color: rgb(190, 170, 150); /* Warm gray text */
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .left-column ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    color: #333333; /* Dark gray text */
+    list-style-type: none;
+    padding-left: 0;
+    color: rgb(190, 170, 150);
+    text-align: center;
 }
 
 .left-column ul li {
     margin-bottom: 0.5rem;
     font-size: 1rem;
-    color: #666666; /* Subtle gray text for list items */
+    padding: 10px;
+    background: rgba(220, 60, 30, 0.1);
+    border-radius: 8px;
 }
 
 /* Right Column / Contact Form Styling */
 .right-column {
     flex: 1;
-    background-color: #FFFFFF; /* White background for form */
+    background: rgb(89, 87, 99);
     padding: 2rem;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-radius: 8px;
-    border: 1px solid #E0E0E0; /* Light gray border */
+    box-shadow: 0px 4px 8px rgba(220, 60, 30, 0.3);
+    border-radius: 12px;
 }
 
 .right-column h3 {
     font-size: 1.5rem;
-    color: #FFC107; /* Yellow text for form title */
+    color: rgb(220, 60, 30); /* Red-orange */
     margin-bottom: 1rem;
-    text-align: left;
+    text-align: center;
 }
 
+/* Form Styling */
 .form-group {
     margin-bottom: 1.5rem;
-    text-align: left;
 }
 
 .form-group label {
     font-size: 1rem;
-    color: #333333; /* Dark gray text */
+    color: rgb(190, 170, 150);
     margin-bottom: 0.5rem;
     display: block;
 }
@@ -77,30 +92,33 @@
     width: 100%;
     padding: 0.75rem;
     border-radius: 5px;
-    border: 1px solid #E0E0E0; /* Light gray border for input fields */
+    border: 1px solid rgba(220, 60, 30, 0.3);
     font-size: 1rem;
-    background-color: #FFFFFF; /* White background for inputs */
-    color: #333333; /* Dark gray text */
+    background-color: rgb(50, 55, 70); /* Dark background */
+    color: rgb(190, 170, 150); /* Warm gray text */
 }
 
 .form-group textarea {
-    resize: vertical; /* Allow resizing vertically only */
+    resize: vertical;
 }
 
+/* Submit Button */
 button.btn {
-    background-color: #FFC107; /* Yellow button */
-    color: #000000; /* Black text for button */
+    background-color: rgb(220, 60, 30); /* Red-orange */
+    color: white;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    width: 100%;
 }
 
 button.btn:hover {
-    background-color: #E69100; /* Dark orange for better visibility */
-    color: #FFFFFF; /* White text for contrast */
+    background-color: rgb(255, 140, 60);
+    transform: scale(1.05);
 }
 
 /* Responsive Design */
@@ -122,27 +140,14 @@ button.btn:hover {
     .left-column h2 {
         font-size: 1.8rem;
     }
-    .left-column p {
-        font-size: 1.1rem;
-    }
     .right-column h3 {
         font-size: 1.4rem;
-    }
-    .form-group input, .form-group textarea {
-        font-size: 0.95rem;
-    }
-    button.btn {
-        width: 100%;
-        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .left-column h2 {
         font-size: 1.5rem;
-    }
-    .left-column p {
-        font-size: 1rem;
     }
     .right-column h3 {
         font-size: 1.3rem;
@@ -153,6 +158,5 @@ button.btn:hover {
     }
     button.btn {
         font-size: 0.9rem;
-        padding: 0.65rem 1.2rem;
     }
 }

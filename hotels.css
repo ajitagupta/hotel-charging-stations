@@ -1,37 +1,36 @@
 /* General Styling for Hotels Page */
 body {
-    font-family: 'Roboto', sans-serif; /* Updated font for modern look */
-    background-color: #f5f5f5; /* Soft gray background for urban elegance */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    background-color: rgb(50, 55, 70); /* Deep blue-gray background */
     margin: 0;
     padding: 0;
-    color: #333; /* Neutral dark gray for text */
+    color: rgb(190, 170, 150); /* Soft warm gray for text */
 }
 
 /* Main container to hold sidebar and hotels section */
 .main-container {
     display: flex;
     height: 90vh;
-    overflow: hidden; /* Prevent scroll bars for fixed layout */
+    overflow: hidden;
 }
 
 /* Sidebar Styling */
 .sidebar {
     width: 300px;
-    background-color: #ffffff; /* White background for sidebar */
-    color: #333; /* Dark gray text for contrast */
+    background-color: rgb(89, 87, 99); /* Dark futuristic gray */
+    color: rgb(190, 170, 150); /* Soft contrast */
     padding: 2rem 1.5rem;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Softer shadow for elegance */
-    border-right: 4px solid #ffc107; /* Prominent yellow border */
+    border-right: 4px solid rgb(220, 60, 30); /* Red-orange border */
     overflow-y: auto;
 }
 
 .sidebar h2 {
-    font-size: 1.8rem; /* Slightly larger heading */
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: #ffc107; /* Yellow text for emphasis */
+    color: rgb(220, 60, 30); /* Red-orange text */
     text-align: center;
     font-weight: 600;
-    letter-spacing: 1px; /* Subtle spacing for a polished look */
+    letter-spacing: 1px;
 }
 
 .sidebar ul {
@@ -39,16 +38,15 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem; /* Increased spacing between list items */
+    gap: 0.8rem;
 }
 
 .sidebar ul li {
-    background-color: #f9f9f9; /* Light gray background for items */
-    color: #333; /* Neutral dark gray text */
+    background-color: rgb(50, 55, 70); /* Deep blue-gray */
+    color: rgb(190, 170, 150);
     font-size: 1.1rem;
     padding: 1rem;
-    border-radius: 12px; /* Rounded corners for sophistication */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle depth */
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -56,13 +54,13 @@ body {
 }
 
 .sidebar ul li:hover {
-    background-color: #ffc107; /* Yellow on hover */
-    color: #000; /* Black text for better visibility */
-    transform: translateX(6px); /* Slight shift on hover */
+    background-color: rgb(220, 60, 30); /* Red-orange hover effect */
+    color: white;
+    transform: translateX(6px);
 }
 
 .sidebar ul li:active {
-    transform: translateX(3px); /* Slight press effect */
+    transform: translateX(3px);
 }
 
 /* Hotels Section */
@@ -76,17 +74,17 @@ body {
 .hotel-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem; /* Spacing between cards */
+    gap: 1.5rem;
 }
 
 .hotel-card {
-    background-color: #ffffff; /* White background */
-    color: #333; /* Dark gray text */
-    width: 25%; /* Adjust card width for two-column layout */
-    border-radius: 12px; /* Smooth rounded corners */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: rgb(89, 87, 99); /* Dark gray */
+    color: rgb(190, 170, 150);
+    width: 25%;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,30 +92,29 @@ body {
 }
 
 .hotel-card:hover {
-    transform: scale(1.03); /* Slight zoom on hover */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Prominent shadow on hover */
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(220, 60, 30, 0.3);
 }
 
 .hotel-card img {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 1rem;
-    object-fit: cover; /* Ensure the image fits nicely */
+    object-fit: cover;
 }
 
 .hotel-card h3 {
-    font-size: 1.5rem; /* Slightly larger title */
-    color: #ffc107; /* Yellow text */
+    font-size: 1.5rem;
+    color: rgb(220, 60, 30); /* Red-orange */
     margin-bottom: 0.8rem;
     font-weight: 600;
 }
 
 .hotel-card p {
-    font-size: 1rem; /* Comfortable text size */
-    color: #666; /* Neutral gray */
+    font-size: 1rem;
+    color: rgb(190, 170, 150);
     margin: 0.5rem 0;
 }
-
 
 /* Responsive Design */
 @media (max-width: 1024px) {

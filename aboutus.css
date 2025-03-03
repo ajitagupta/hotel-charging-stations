@@ -1,70 +1,79 @@
+/* General Styling */
+body {
+    background-color: rgb(50, 55, 70); /* Deep blue-gray background */
+    color: rgb(190, 170, 150); /* Soft warm gray text */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    line-height: 1.7;
+}
 
+/* About Us Video Section */
+.aboutus-image-section {
+    width: 100%;
+    overflow: hidden;
+}
+
+.aboutus-image-section video {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.9); /* Slight dim effect for a premium look */
+}
 
 /* Hero Section */
 .hero-section {
-    color: #FFC107; /* Yellow text for contrast */
     padding: 100px 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
-}
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Black overlay for better text visibility */
-    z-index: -1;
+    background: linear-gradient(90deg, rgb(50, 55, 70), rgb(89, 87, 99));
 }
 
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #FFC107;
+    color: rgb(220, 60, 30); /* Red-orange */
 }
 
 .hero-content p {
     font-size: 1.5rem;
     max-width: 800px;
     margin: 0 auto;
+    color: rgb(190, 170, 150);
 }
 
 /* Mission Section */
 .mission-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: #FFFFFF;
-    border-bottom: 2px solid #E0E0E0;
+    background-color: rgb(89, 87, 99); /* Dark gray */
+    border-bottom: 2px solid rgba(220, 60, 30, 0.5);
 }
 
 .mission-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #FFC107;
+    color: rgb(220, 60, 30);
 }
 
 .mission-section p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    color: #333333;
+    color: rgb(190, 170, 150);
 }
 
 /* Values Section */
 .values-section {
-    background-color: #F5F5F5;
+    background-color: rgb(50, 55, 70);
     padding: 60px 20px;
     text-align: center;
-    border-bottom: 2px solid #E0E0E0; /* Added separation */
+    border-bottom: 2px solid rgba(220, 60, 30, 0.5);
 }
 
 .values-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: black;
+    color: rgb(220, 60, 30);
 }
 
 .values-grid {
@@ -74,33 +83,33 @@
 }
 
 .value-item {
-    background-color: #FFFFFF;
+    background-color: rgb(89, 87, 99); /* Dark gray */
     padding: 20px;
     margin: 10px;
     width: 30%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(220, 60, 30, 0.3);
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .value-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(220, 60, 30, 0.4);
 }
 
 .value-item h3 {
-    color: #FFC107;
+    color: rgb(220, 60, 30);
     margin-bottom: 10px;
 }
 
 .value-item p {
     font-size: 1rem;
-    color: #666666;
+    color: rgb(190, 170, 150);
 }
 
 /* Team Section */
 .team-section {
-    background-color: #FFFFFF; /* Changed to white for contrast */
+    background-color: rgb(89, 87, 99);
     padding: 60px 20px;
     text-align: center;
 }
@@ -108,41 +117,24 @@
 .team-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #FFC107;
+    color: rgb(220, 60, 30);
 }
 
 .team-section p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    color: #333333;
+    color: rgb(190, 170, 150);
 }
 
 /* Footer */
 footer {
-    background-color: #FFC107;
-    color: #FFFFFF;
+    background-color: rgb(50, 55, 70);
+    color: rgb(190, 170, 150);
     padding: 20px;
     text-align: center;
-    border-top: 2px solid #E0E0E0;
+    border-top: 2px solid rgba(220, 60, 30, 0.5);
 }
-
-.urban-link {
-    color: #FFD700; /* Bold Gold/Yellow */
-    font-weight: bold;
-    text-decoration: none;
-    border-bottom: 2px solid #FFD700; /* Underline effect */
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-}
-
-.urban-link:hover {
-    color: #000000; /* Black on hover */
-    border-bottom: 2px solid #000000; /* Black underline on hover */
-    background-color: #FFD700; /* Highlight with yellow */
-    padding: 2px 5px; /* Slight padding for a refined look */
-    border-radius: 3px; /* Slight rounded edges */
-}
-
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -184,7 +176,7 @@ footer {
     .hero-content p {
         font-size: 1rem;
     }
-    .mission-section, .values-section, .why-electristay, .team-section {
+    .mission-section, .values-section, .team-section {
         padding: 40px 15px;
     }
     .value-item {
