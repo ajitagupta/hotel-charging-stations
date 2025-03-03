@@ -252,17 +252,6 @@ body {
 }
 
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ffffff; /* White background for footer */
-    color: #333; /* Neutral dark gray text */
-    border-top: 2px solid #ffc107; /* Yellow top border for theme */
-    font-size: 1rem;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
 /* Styled Email Text */
 .contact-email {
     font-style: italic; /* Italic text for emphasis */

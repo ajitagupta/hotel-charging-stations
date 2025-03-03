@@ -1,17 +1,4 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
 
-/* Body Styling */
-body {
-    background-color: #F5F5F5; /* Light gray background */
-    color: #333333; /* Dark gray text */
-    line-height: 1.6;
-}
 
 /* Hero Section */
 .hero-section {

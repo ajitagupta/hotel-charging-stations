@@ -118,17 +118,6 @@ body {
     margin: 0.5rem 0;
 }
 
-/* Footer */
-footer {
-    background-color: #ffffff; /* White background for footer */
-    color: #333; /* Neutral dark gray text for readability */
-    text-align: center;
-    padding: 1.5rem;
-    border-top: 2px solid #ffc107; /* Yellow border for continuity */
-    font-size: 1rem;
-    letter-spacing: 0.5px; /* Subtle spacing for modern typography */
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
