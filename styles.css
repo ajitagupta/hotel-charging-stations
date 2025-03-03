@@ -98,60 +98,110 @@ header nav ul li a.active {
     border-radius: 8px; /* Optional rounded corners */
 }
 
-/* Search Section Styling */
-#search {
-    padding: 3rem 0; /* Maintain spacing for the section */
-    text-align: center;
-    color: #333333; /* Dark gray text */
-    background-color: transparent; /* Transparent background for visibility */
-}
 
-/* Search Form Styling */
+/* Ensure the form container behaves properly */
 #search-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.75rem;
-    background-color: #FFFFFF; /* White background for contrast */
+    padding: 12px;
+    background: #fff;
     border-radius: 8px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox to distribute elements in one row */
+.search-container {
+    display: flex;
+    width: 100%;
     gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Prevents wrapping */
 }
 
-#search-form input[type="text"] 
-{
-    max-width: 40%; /* Allow full width */
-    width: 25%;
-    min-width: 300px; /* Set a reasonable minimum width */
-}
-#search-form input[type="text"],
-#search-form select {
-    padding: 0.85rem; /* Slightly larger padding */
-    border: 1px solid #CCC; /* Light border */
-    border-radius: 5px;
+/* Input with icon wrapper */
+.input-wrapper {
+    display: flex;
+    align-items: center;
     flex-grow: 1;
+    position: relative;
+    max-width: 300px;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 12px;
+    color: #666;
     font-size: 1rem;
-    color: #333333; /* Dark gray text */
 }
 
-#search-form button {
-    padding: 0.85rem 1.5rem; /* Larger padding for prominence */
-    background-color: #FFC107; /* Yellow for button */
-    color: #000000; /* Black text */
+.search-input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    height: 46px;
+}
+
+/* Dropdown Wrapper */
+.select-wrapper {
+    flex-grow: 1;
+    max-width: 220px;
+}
+
+.search-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    height: 46px;
+}
+
+/* Search Button */
+.search-button {
+    padding: 12px 20px;
+    background-color: #FFC107;
+    color: #000;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem; /* Slightly larger */
+    border-radius: 6px;
+    font-size: 1rem;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    height: 46px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-#search-form button:hover {
-    background-color: #E69100; /* Dark orange for better visibility */
-    color: #FFFFFF; /* White text for contrast */
+/* Prevent Wrapping on Larger Screens */
+@media (min-width: 769px) {
+    .search-container {
+        flex-wrap: nowrap; /* Ensures everything remains on one line */
+    }
 }
+
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-input,
+    .search-select,
+    .search-button {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+
+
 
 
 /* Main Layout - Initially Hidden */
@@ -361,33 +411,56 @@ footer {
     vertical-align: middle;
 }
 
+/* Title Container Styling */
 .title-container {
-    background-color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    padding: 20px 30px;
     text-align: center;
-    display: inline-block;
-    margin-bottom: 20px;
+    display: block;
+    margin-bottom: 25px;
 }
 
-.title-container h2 {
-    font-size: 2.2rem;
-    font-weight: 600;
+/* Title Styling */
+.title-heading {
+    font-size: 3rem; /* Large size for prominence */
+    font-weight: 700;
+    color: #fff; /* White text for contrast */
     margin: 0;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for readability */
 }
 
-.title-container .search-subtitle {
-    display: block;  /* Ensures it's treated as a block element */
-    width: 100%;     /* Makes it take the full width of the container */
-    margin: 10px 0;  /* Adds spacing above and below */
-    padding: 10px;   /* Adds padding inside the block */
-    font-size: 16px; /* Adjusts readability */
-    line-height: 1.5; /* Improves line spacing */
-    color: black; /*doesn't work: #FFC107;*/
-    font-weight: 400; /* Keep it readable and elegant */    font-size: 1.2rem;
-    font-family: 'Poppins', sans-serif; /* Adjust to match the primary font */
+/* Icon Styling */
+.title-heading .icon {
+    font-size: 2.5rem;
+    vertical-align: middle;
+    margin-right: 5px;
 }
+
+/* Subtitle Styling */
+.search-subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #fff; /* White text */
+    margin-top: 8px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.3px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Shadow for better readability */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .title-heading {
+        font-size: 2.2rem;
+    }
+    
+    .search-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+
 
 #green  {
     color: #00A000;
