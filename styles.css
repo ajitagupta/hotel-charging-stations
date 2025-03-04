@@ -18,12 +18,12 @@ header {
     position: relative;
     top: 0;
     width: 100%;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 10%, rgba(51, 0, 0, 0.8) 90%);
-    padding: 10px 0;
+    background: linear-gradient(90deg, rgba(10, 10, 10, 0.9) 10%, rgba(50, 50, 50, 0.8) 90%);
+    padding: 12px 0;
     z-index: 1000;
 }
 
-
+/* Navigation Bar */
 nav {
     display: flex;
     justify-content: space-between;
@@ -31,16 +31,15 @@ nav {
     padding: 0 20px;
 }
 
-/* Logo and title */
+/* Logo and Title */
 .title {
-    color: rgb(220, 60, 30); /* Vibrant red-orange */
-    font-size: 28px; /* Stronger emphasis */
+    font-size: 28px;
     font-weight: bold;
     margin-left: 10px;
-    font-family: "Orbitron", sans-serif; /* Modern, futuristic font */
+    font-family: "Orbitron", sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: linear-gradient(to right, rgb(220, 60, 30), rgb(255, 140, 60));
+    background: linear-gradient(to right, #d0d0d0, #f8f8f8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -48,15 +47,13 @@ nav {
 .title span {
     display: block;
     font-size: 16px;
-    color: rgb(190, 170, 150); /* Soft warm gray for a sleek touch */
+    color: #b0b0b0;
     font-weight: 500;
     text-transform: none;
     letter-spacing: 0.5px;
 }
 
-
-
-/* Navigation links */
+/* Navigation Links */
 nav ul {
     display: flex;
     list-style: none;
@@ -81,7 +78,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: rgba(255, 69, 0, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
 }
 
@@ -92,7 +89,7 @@ nav ul li a::after {
     left: 50%;
     width: 0;
     height: 2px;
-    background: #FF4500;
+    background: linear-gradient(to right, #d0d0d0, #f8f8f8);
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
@@ -101,6 +98,13 @@ nav ul li a:hover::after {
     left: 0;
 }
 
+/* Active Page Highlight */
+nav ul li .active {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+/* Navigation Icons */
 .nav-icon {
     width: 22px;
     height: 22px;
@@ -108,13 +112,9 @@ nav ul li a:hover::after {
     filter: brightness(0) invert(1);
 }
 
-nav ul li .active {
-    background: rgba(255, 69, 0, 0.5);
-    border-radius: 8px;
-}
-
+/* Language Selector */
 #language-selector {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(20, 20, 20, 0.7);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -125,8 +125,55 @@ nav ul li .active {
 }
 
 #language-selector:hover {
-    background: rgba(255, 69, 0, 0.7);
+    background: rgba(255, 255, 255, 0.3);
 }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
 
 /* Ensure everything is centered and aligned properly */
 .middle-container {
@@ -217,39 +264,33 @@ nav ul li .active {
 /* Search Button */
 .search-button {
     padding: 12px 20px;
-    background-color: #FFC107;
-    color: #000;
-    border: none;
+    background: linear-gradient(90deg, #d0d0d0, #f8f8f8);
+    color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 6px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
     height: 46px;
     white-space: nowrap;
     flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Prevent Wrapping on Larger Screens */
-@media (min-width: 769px) {
-    .search-container {
-        flex-wrap: nowrap; /* Ensures everything remains on one line */
-    }
+/* Hover Effect */
+.search-button:hover {
+    background: linear-gradient(90deg, #c0c0c0, #e8e8e8);
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Responsive Fix for Mobile */
-@media (max-width: 768px) {
-    .search-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .search-input,
-    .search-select,
-    .search-button {
-        width: 100%;
-        max-width: none;
-    }
+/* Active (Pressed) Effect */
+.search-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
 
@@ -270,6 +311,7 @@ main {
     gap: 20px;
     position: relative;
     z-index: 5; /* Ensure it doesn't overlap other elements */
+    border: 2 px red;
 }
 
 /* Make it visible when needed */
@@ -320,20 +362,20 @@ main.visible {
 
 #hotel-list .hotel-info h3 {
     font-size: 1.6rem; /* Slightly larger title */
-    color: #FFC107; /* Yellow for title */
+    color: #d0d0d0; /* gray for title */
     font-family: "Poppins", sans-serif;
     margin: 0 0 5px 0;
 }
 
 #hotel-list .hotel-info h3 a {
-    color: #FFC107; /* Yellow for links */
+    color: #d0d0d0; /* gray for links */
     text-decoration: none; /* Remove underline */
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
 }
 
 #hotel-list .hotel-info h3 a:hover {
-    color: #E68A00; /* Darker yellow-orange for contrast */
+    color: #c0c0c0; /* Darker gray for contrast */
     transform: scale(1.05); /* Keep the zoom effect */
 }
 
@@ -356,17 +398,17 @@ main.visible {
     border-radius: 8px;
 }
 
-
 /* Footer */
 footer {
-    background: linear-gradient(90deg, rgb(50, 55, 70) 10%, rgb(89, 87, 99) 90%);
+    background: linear-gradient(90deg, rgb(20, 20, 20) 10%, rgb(60, 60, 70) 90%);
     padding: 3rem 0;
-    box-shadow: 0 -2px 6px rgba(220, 60, 30, 0.3);
-    color: rgb(190, 170, 150);
+    box-shadow: 0 -2px 6px rgba(255, 255, 255, 0.2);
+    color: #d0d0d0;
     text-align: center;
     position: relative;
 }
 
+/* Footer Container */
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -375,22 +417,25 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     gap: 30px;
-    border-top: 2px solid rgba(220, 60, 30, 0.2);
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Footer Columns */
 .footer-column {
     flex: 1;
     text-align: center;
 }
 
+/* Footer Headings */
 .footer-column h4 {
     font-size: 1.4rem;
     font-weight: bold;
-    color: rgb(220, 60, 30);
+    color: #f8f8f8;
     margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
+/* Footer Links */
 .footer-column ul {
     list-style: none;
     padding: 0;
@@ -407,22 +452,24 @@ footer {
 }
 
 .footer-column ul li a:hover {
-    color: rgb(255, 140, 60);
+    color: #b0b0b0;
     transform: scale(1.05);
 }
 
+/* Footer Logo */
 .footer-column img {
     max-width: 120px;
     margin: 0 auto 10px;
     display: block;
-    filter: drop-shadow(0px 0px 5px rgba(220, 60, 30, 0.3));
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.3));
 }
 
+/* Footer Title */
 .footer-title {
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
-    background: linear-gradient(to right, rgb(220, 60, 30), rgb(255, 140, 60));
+    background: linear-gradient(to right, #e0e0e0, #f8f8f8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 1px;
@@ -441,20 +488,21 @@ footer {
     display: inline-block;
     width: 45px;
     height: 45px;
-    background: rgba(220, 60, 30, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease, transform 0.3s ease;
-    border: 1px solid rgba(255, 140, 60, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .social-icons a:hover {
-    background: rgb(220, 60, 30);
+    background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
 }
 
+/* Social Icons Images */
 .social-icons img {
     width: 24px;
     height: 24px;
@@ -464,6 +512,39 @@ footer {
 
 .social-icons a:hover img {
     transform: rotate(360deg);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-title {
+        font-size: 1.5rem;
+    }
+
+    .footer-column h4 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-title {
+        font-size: 1.3rem;
+    }
+
+    .footer-column h4 {
+        font-size: 1rem;
+    }
 }
 
 
@@ -476,32 +557,38 @@ footer {
 
 /* Title Container */
 .title-container {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(20, 25, 35, 0.8); /* Darker gradient background for depth */
     padding: 25px;
     border-radius: 10px;
     width: 100%;
     margin-bottom: 30px; /* Ensures space between title and search form */
+    text-align: center;
 }
 
+/* Title Heading */
 .title-heading {
     font-size: 3.5rem;
     font-weight: 700;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(200, 200, 200, 0.95));
+    background: linear-gradient(90deg, rgba(220, 220, 220, 1), rgba(170, 170, 170, 1)); /* Soft metallic gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Poppins', sans-serif;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
 }
 
+/* Subtitle */
 .search-subtitle {
     font-size: 1.6rem;
     font-weight: 400;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(200, 200, 200, 0.9));
+    background: linear-gradient(90deg, rgba(180, 180, 180, 0.95), rgba(130, 130, 130, 0.95)); /* Softer silver-like gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-top: 15px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
+
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -571,5 +658,58 @@ footer {
     .footer-container {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        width: 80%;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    #hotel-list, #map {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        width: 90%;
+    }
+
+    .search-input, .search-select {
+        width: 100%;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        width: 100%;
+    }
+
+    .search-button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    #hotel-list, #map {
+        width: 100%;
     }
 }

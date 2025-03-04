@@ -1,17 +1,17 @@
-/* General Styling */
+/* 🌍 General Styling
 body {
-    background-color: rgb(50, 55, 70); /* Deep blue-gray */
-    color: rgb(190, 170, 150); /* Soft warm gray */
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    background-color: rgb(45, 50, 65); /* Dark blue-gray
+    color: rgb(215, 215, 215); /* Soft gray
+    font-family: 'Orbitron', sans-serif;
     line-height: 1.7;
-}
+}*/ 
 
-/* Contact Section Layout */
+/* 📩 Contact Section Layout */
 #contact-section {
     padding: 4rem 2rem;
     display: flex;
     justify-content: center;
-    background: linear-gradient(90deg, rgb(50, 55, 70), rgb(89, 87, 99)); /* Futuristic gradient */
+    background: linear-gradient(90deg, rgb(50, 55, 70), rgb(70, 75, 90));
 }
 
 .container {
@@ -21,25 +21,25 @@ body {
     gap: 3rem;
 }
 
-/* Left Column Styling */
+/* 📞 Left Column Styling */
 .left-column {
     flex: 1;
     padding: 2rem;
-    background-color: rgb(89, 87, 99); /* Dark gray background */
+    background: linear-gradient(135deg, rgb(60, 65, 80) 20%, rgb(90, 95, 110) 80%);
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(220, 60, 30, 0.3);
+    box-shadow: 0 4px 10px rgba(150, 150, 150, 0.3);
 }
 
 .left-column h2 {
     font-size: 2rem;
-    color: rgb(220, 60, 30); /* Red-orange text */
+    color: rgb(230, 230, 230);
     margin-bottom: 1rem;
     text-align: center;
 }
 
 .left-column p {
     font-size: 1.2rem;
-    color: rgb(190, 170, 150); /* Warm gray text */
+    color: rgb(190, 190, 190);
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -47,7 +47,6 @@ body {
 .left-column ul {
     list-style-type: none;
     padding-left: 0;
-    color: rgb(190, 170, 150);
     text-align: center;
 }
 
@@ -55,34 +54,35 @@ body {
     margin-bottom: 0.5rem;
     font-size: 1rem;
     padding: 10px;
-    background: rgba(220, 60, 30, 0.1);
+    background: rgba(180, 180, 180, 0.1);
     border-radius: 8px;
+    color: rgb(200, 200, 200);
 }
 
-/* Right Column / Contact Form Styling */
+/* 📝 Right Column / Contact Form Styling */
 .right-column {
     flex: 1;
-    background: rgb(89, 87, 99);
+    background: linear-gradient(135deg, rgb(60, 65, 80) 20%, rgb(90, 95, 110) 80%);
     padding: 2rem;
-    box-shadow: 0px 4px 8px rgba(220, 60, 30, 0.3);
     border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(150, 150, 150, 0.3);
 }
 
 .right-column h3 {
     font-size: 1.5rem;
-    color: rgb(220, 60, 30); /* Red-orange */
+    color: rgb(230, 230, 230);
     margin-bottom: 1rem;
     text-align: center;
 }
 
-/* Form Styling */
+/* 📩 Form Styling */
 .form-group {
     margin-bottom: 1.5rem;
 }
 
 .form-group label {
     font-size: 1rem;
-    color: rgb(190, 170, 150);
+    color: rgb(200, 200, 200);
     margin-bottom: 0.5rem;
     display: block;
 }
@@ -92,36 +92,36 @@ body {
     width: 100%;
     padding: 0.75rem;
     border-radius: 5px;
-    border: 1px solid rgba(220, 60, 30, 0.3);
+    border: 1px solid rgba(180, 180, 180, 0.3);
     font-size: 1rem;
-    background-color: rgb(50, 55, 70); /* Dark background */
-    color: rgb(190, 170, 150); /* Warm gray text */
+    background-color: rgb(50, 55, 70);
+    color: rgb(215, 215, 215);
 }
 
 .form-group textarea {
     resize: vertical;
 }
 
-/* Submit Button */
+/* 📤 Submit Button */
 button.btn {
-    background-color: rgb(220, 60, 30); /* Red-orange */
-    color: white;
+    background: linear-gradient(135deg, rgb(80, 85, 100) 20%, rgb(120, 125, 140) 80%);
+    color: rgb(230, 230, 230);
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
     display: block;
     width: 100%;
 }
 
 button.btn:hover {
-    background-color: rgb(255, 140, 60);
+    background: rgb(150, 150, 170);
     transform: scale(1.05);
 }
 
-/* Responsive Design */
+/* 📱 Responsive Design */
 @media (max-width: 1024px) {
     .container {
         flex-direction: column;

@@ -1,139 +1,167 @@
-/* General Styling */
-body {
-    background-color: rgb(50, 55, 70); /* Deep blue-gray background */
-    color: rgb(190, 170, 150); /* Soft warm gray text */
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
-    line-height: 1.7;
-}
-
-/* Store Layout */
+/* 📌 Main Store Layout */
 .store-layout {
     display: flex;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    background: rgb(89, 87, 99); /* Dark futuristic gray */
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(220, 60, 30, 0.3);
-    gap: 20px;
+    height: 90vh;
+    overflow: hidden;
+    background: rgb(45, 50, 65); /* Darker blue-gray background */
 }
 
-/* Sidebar */
+/* 📂 Sidebar Styling */
 .sidebar {
-    width: 250px;
-    background: rgb(50, 55, 70); /* Deep blue-gray */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(220, 60, 30, 0.2);
+    width: 300px;
+    background-color: rgb(60, 65, 80); /* Deep gray-blue */
+    color: rgb(215, 215, 215); /* Soft gray for contrast */
+    padding: 2rem 1.5rem;
+    border-right: 4px solid rgb(150, 150, 150); /* Soft metallic border */
+    overflow-y: auto;
 }
 
 .sidebar h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: rgb(220, 60, 30); /* Red-orange text */
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: rgb(240, 240, 240); /* White for clarity */
     text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .sidebar ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 
 .sidebar ul li {
-    padding: 12px;
+    background-color: rgb(50, 55, 70); /* Dark background */
+    color: rgb(215, 215, 215);
+    font-size: 1.1rem;
+    padding: 1rem;
+    border-radius: 12px;
     cursor: pointer;
-    border-bottom: 1px solid rgba(190, 170, 150, 0.3);
-    transition: background-color 0.3s ease;
-    font-weight: 500;
-    color: rgb(190, 170, 150);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .sidebar ul li:hover {
-    background-color: rgb(220, 60, 30); /* Red-orange hover */
-    color: white;
-    font-weight: bold;
+    background-color: rgb(180, 180, 180); /* Lighter metallic hover */
+    color: rgb(30, 30, 30);
     transform: translateX(6px);
 }
 
-/* Store Section */
+.sidebar ul li:active {
+    transform: translateX(3px);
+}
+
+/* 🏬 Store Section */
 .store-section {
-    flex: 1;
-    padding: 20px;
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
 }
 
-/* Store Items Grid */
+/* 🛍️ Store Items Grid */
 #store-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
 }
 
-/* Store Items */
+/* 📦 Store Items */
 .store-item {
-    background: rgb(89, 87, 99); /* Dark gray */
-    padding: 15px;
+    background: linear-gradient(135deg, rgb(60, 65, 80) 20%, rgb(90, 95, 110) 80%);
+    color: rgb(220, 220, 220);
+    width: 25%;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(220, 60, 30, 0.3);
-    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .store-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(220, 60, 30, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 6px 14px rgba(180, 180, 180, 0.3);
 }
 
 .store-item img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
     border-radius: 8px;
+    margin-bottom: 1rem;
+    object-fit: cover;
 }
 
 .store-item h3 {
-    font-size: 1.3rem;
-    margin: 10px 0;
-    font-weight: bold;
-    color: rgb(220, 60, 30); /* Red-orange */
+    font-size: 1.5rem;
+    color: rgb(230, 230, 230); /* Soft white */
+    margin-bottom: 0.8rem;
+    font-weight: 600;
 }
 
 .store-item p {
     font-size: 1rem;
-    color: rgb(190, 170, 150);
+    color: rgb(200, 200, 200);
+    margin: 0.5rem 0;
 }
 
-/* Button Styling */
+/* 🛒 Button Styling */
 .store-item button {
     padding: 10px 15px;
-    background-color: rgb(220, 60, 30); /* Red-orange */
+    background-color: rgb(90, 95, 110); /* Dark gray metallic */
     border: none;
     color: white;
     font-weight: bold;
     cursor: pointer;
     border-radius: 6px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .store-item button:hover {
-    background-color: rgb(255, 140, 60); /* Softer orange */
+    background-color: rgb(150, 150, 160); /* Soft metallic hover */
+    color: rgb(30, 30, 30);
     transform: scale(1.05);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
     .store-layout {
         flex-direction: column;
-        padding: 15px;
+        height: auto;
     }
-
     .sidebar {
         width: 100%;
         text-align: center;
+        padding: 1rem;
     }
+    .store-section {
+        padding: 1rem;
+    }
+    .store-item {
+        width: 45%;
+    }
+}
 
+@media (max-width: 768px) {
     #store-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
+    }
+    .store-item {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar h2 {
+        font-size: 1.5rem;
+    }
+    .store-item {
+        width: 100%;
     }
 }

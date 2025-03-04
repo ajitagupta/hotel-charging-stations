@@ -1,33 +1,25 @@
-/* General Styling for Hotels Page */
-body {
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
-    background-color: rgb(50, 55, 70); /* Deep blue-gray background */
-    margin: 0;
-    padding: 0;
-    color: rgb(190, 170, 150); /* Soft warm gray for text */
-}
-
-/* Main container to hold sidebar and hotels section */
+/* Main Container */
 .main-container {
     display: flex;
     height: 90vh;
     overflow: hidden;
+    background: rgb(45, 50, 65); /* Darker blue-gray background */
 }
 
 /* Sidebar Styling */
 .sidebar {
     width: 300px;
-    background-color: rgb(89, 87, 99); /* Dark futuristic gray */
-    color: rgb(190, 170, 150); /* Soft contrast */
+    background-color: rgb(60, 65, 80); /* Deep gray-blue */
+    color: rgb(215, 215, 215); /* Soft gray for contrast */
     padding: 2rem 1.5rem;
-    border-right: 4px solid rgb(220, 60, 30); /* Red-orange border */
+    border-right: 4px solid rgb(150, 150, 150); /* Soft metallic border */
     overflow-y: auto;
 }
 
 .sidebar h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: rgb(220, 60, 30); /* Red-orange text */
+    color: rgb(240, 240, 240); /* White for clarity */
     text-align: center;
     font-weight: 600;
     letter-spacing: 1px;
@@ -42,8 +34,8 @@ body {
 }
 
 .sidebar ul li {
-    background-color: rgb(50, 55, 70); /* Deep blue-gray */
-    color: rgb(190, 170, 150);
+    background-color: rgb(50, 55, 70); /* Dark background */
+    color: rgb(215, 215, 215);
     font-size: 1.1rem;
     padding: 1rem;
     border-radius: 12px;
@@ -54,8 +46,8 @@ body {
 }
 
 .sidebar ul li:hover {
-    background-color: rgb(220, 60, 30); /* Red-orange hover effect */
-    color: white;
+    background-color: rgb(180, 180, 180); /* Lighter metallic hover */
+    color: rgb(30, 30, 30);
     transform: translateX(6px);
 }
 
@@ -75,14 +67,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
+    justify-content: center;
 }
 
 .hotel-card {
-    background-color: rgb(89, 87, 99); /* Dark gray */
-    color: rgb(190, 170, 150);
+    background: linear-gradient(135deg, rgb(60, 65, 80) 20%, rgb(90, 95, 110) 80%);
+    color: rgb(220, 220, 220);
     width: 25%;
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -93,7 +86,7 @@ body {
 
 .hotel-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 4px 12px rgba(220, 60, 30, 0.3);
+    box-shadow: 0 6px 14px rgba(180, 180, 180, 0.3);
 }
 
 .hotel-card img {
@@ -105,14 +98,14 @@ body {
 
 .hotel-card h3 {
     font-size: 1.5rem;
-    color: rgb(220, 60, 30); /* Red-orange */
+    color: rgb(230, 230, 230); /* Soft white */
     margin-bottom: 0.8rem;
     font-weight: 600;
 }
 
 .hotel-card p {
     font-size: 1rem;
-    color: rgb(190, 170, 150);
+    color: rgb(200, 200, 200);
     margin: 0.5rem 0;
 }
 

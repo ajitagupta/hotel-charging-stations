@@ -1,12 +1,12 @@
-/* General Styling */
+/* 🌍 General Styling 
 body {
-    background-color: rgb(50, 55, 70); /* Deep blue-gray background */
-    color: rgb(190, 170, 150); /* Soft warm gray text */
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    background-color: rgb(45, 50, 65); /* Dark blue-gray */
+    color: rgb(215, 215, 215); /* Soft gray
+    font-family: 'Orbitron', sans-serif;
     line-height: 1.7;
-}
+}*/
 
-/* About Us Video Section */
+/* 🎥 About Us Video Section */
 .aboutus-image-section {
     width: 100%;
     overflow: hidden;
@@ -16,66 +16,66 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    filter: brightness(0.9); /* Slight dim effect for a premium look */
+    filter: brightness(0.85); /* Slight dim effect */
 }
 
-/* Hero Section */
+/* 🌟 Hero Section */
 .hero-section {
-    padding: 100px 20px;
+    padding: 80px 20px;
     text-align: center;
-    position: relative;
-    background: linear-gradient(90deg, rgb(50, 55, 70), rgb(89, 87, 99));
+    background: linear-gradient(90deg, rgb(50, 55, 70), rgb(70, 75, 90));
 }
 
 .hero-content h1 {
     font-size: 3rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-weight: bold;
-    color: rgb(220, 60, 30); /* Red-orange */
+    color: rgb(240, 240, 240); /* Soft white */
 }
 
 .hero-content p {
     font-size: 1.5rem;
     max-width: 800px;
     margin: 0 auto;
-    color: rgb(190, 170, 150);
+    color: rgb(190, 190, 190);
 }
 
-/* Mission Section */
+/* 🔋 Mission Section */
 .mission-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: rgb(89, 87, 99); /* Dark gray */
-    border-bottom: 2px solid rgba(220, 60, 30, 0.5);
+    background: rgb(60, 65, 80); /* Dark blue-gray */
+    border-bottom: 2px solid rgba(150, 150, 150, 0.5); /* Soft metallic */
 }
 
 .mission-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: rgb(220, 60, 30);
+    color: rgb(240, 240, 240); /* Soft white */
 }
 
 .mission-section p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    color: rgb(190, 170, 150);
+    color: rgb(190, 190, 190);
 }
 
-/* Values Section */
+/* 🔗 Values Section */
 .values-section {
-    background-color: rgb(50, 55, 70);
+    background: rgb(50, 55, 70);
     padding: 60px 20px;
     text-align: center;
-    border-bottom: 2px solid rgba(220, 60, 30, 0.5);
+    border-bottom: 2px solid rgba(150, 150, 150, 0.5);
 }
 
 .values-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: rgb(220, 60, 30);
+    color: rgb(240, 240, 240);
 }
 
+/* 🔹 Values Grid */
 .values-grid {
     display: flex;
     justify-content: space-around;
@@ -83,33 +83,34 @@ body {
 }
 
 .value-item {
-    background-color: rgb(89, 87, 99); /* Dark gray */
+    background: linear-gradient(135deg, rgb(60, 65, 80) 20%, rgb(90, 95, 110) 80%);
     padding: 20px;
     margin: 10px;
     width: 30%;
-    box-shadow: 0 4px 8px rgba(220, 60, 30, 0.3);
+    box-shadow: 0 4px 10px rgba(150, 150, 150, 0.3);
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .value-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(220, 60, 30, 0.4);
+    box-shadow: 0 6px 14px rgba(150, 150, 150, 0.4);
 }
 
 .value-item h3 {
-    color: rgb(220, 60, 30);
+    color: rgb(230, 230, 230); /* Soft white */
     margin-bottom: 10px;
+    font-size: 1.4rem;
 }
 
 .value-item p {
     font-size: 1rem;
-    color: rgb(190, 170, 150);
+    color: rgb(190, 190, 190);
 }
 
-/* Team Section */
+/* 🌍 Team Section */
 .team-section {
-    background-color: rgb(89, 87, 99);
+    background: rgb(60, 65, 80);
     padding: 60px 20px;
     text-align: center;
 }
@@ -117,26 +118,17 @@ body {
 .team-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: rgb(220, 60, 30);
+    color: rgb(240, 240, 240);
 }
 
 .team-section p {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    color: rgb(190, 170, 150);
+    color: rgb(190, 190, 190);
 }
 
-/* Footer */
-footer {
-    background-color: rgb(50, 55, 70);
-    color: rgb(190, 170, 150);
-    padding: 20px;
-    text-align: center;
-    border-top: 2px solid rgba(220, 60, 30, 0.5);
-}
-
-/* Responsive Design */
+/* 📱 Responsive Design */
 @media (max-width: 1024px) {
     .hero-content h1 {
         font-size: 2.5rem;

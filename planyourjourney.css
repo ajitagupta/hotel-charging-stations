@@ -1,57 +1,40 @@
-/* Resetting margins and box-sizing */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
-}
-
-/* Styling the body background */
-body {
-    background-color: rgb(50, 55, 70); /* Deep blue-gray */
-    line-height: 1.7;
-    color: rgb(190, 170, 150); /* Soft warm gray text */
-}
-
-
-/* Styling the search section */
+/* 🔍 Search Section */
 #search {
-    background-color: rgb(89, 87, 99); /* Dark gray for contrast */
-    padding: 3rem 0;
+    background: rgb(60, 65, 80); /* Sleek deep gray */
+    padding: 3rem 1rem;
     text-align: center;
-    color: rgb(190, 170, 150); /* Warm gray text */
+    color: rgb(215, 215, 215); /* Soft white-gray */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #search h2 {
     font-size: 2.2rem;
     margin-bottom: 20px;
-    color: rgb(220, 60, 30); /* Red-orange for headings */
+    color: rgb(240, 240, 240); /* Pure white for readability */
     font-weight: bold;
     letter-spacing: 1px;
 }
 
-/* Journey Form Styling */
+/* 🛣️ Journey Form */
 #journey-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(50, 55, 70); /* Deep blue-gray */
+    background: rgb(50, 55, 70); /* Deep gray-blue */
     padding: 1.5rem;
     border-radius: 8px;
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 2rem auto;
     gap: 15px;
-    box-shadow: 0 4px 12px rgba(220, 60, 30, 0.3);
+    box-shadow: 0 4px 12px rgba(150, 150, 150, 0.3);
 }
 
-#journey-form input[type="text"],
-#journey-form select,
-#journey-form input[type="number"] {
+#journey-form input,
+#journey-form select {
     padding: 0.85rem;
     border-radius: 6px;
     border: 1px solid rgba(190, 170, 150, 0.3);
-    background-color: rgb(89, 87, 99); /* Dark gray for contrast */
+    background: rgb(60, 65, 80); /* Dark gray */
     font-size: 1rem;
     color: rgb(190, 170, 150);
     width: 100%;
@@ -59,8 +42,8 @@ body {
 
 #journey-form button {
     padding: 0.85rem 1.5rem;
-    background-color: rgb(220, 60, 30); /* Red-orange button */
-    color: white;
+    background: rgb(180, 180, 180); /* Soft metallic button */
+    color: rgb(30, 30, 30);
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -70,18 +53,11 @@ body {
 }
 
 #journey-form button:hover {
-    background-color: rgb(255, 140, 60); /* Softer red-orange hover effect */
+    background: rgb(200, 200, 200); /* Slightly lighter hover */
     transform: scale(1.05);
 }
 
-/* Placeholder Styling */
-#journey-form input[type="text"]::placeholder,
-#journey-form input[type="number"]::placeholder {
-    color: rgb(190, 170, 150);
-    font-size: 1rem;
-}
-
-/* Map Section */
+/* 🗺️ Map Section */
 #map-container {
     text-align: center;
     padding: 2rem;
@@ -89,47 +65,52 @@ body {
 
 #map {
     height: 500px;
-    background-color: rgb(89, 87, 99); /* Dark gray for contrast */
+    background: rgb(60, 65, 80);
     border-radius: 8px;
-    border: 2px solid rgb(220, 60, 30); /* Red-orange border */
-    box-shadow: 0 4px 12px rgba(220, 60, 30, 0.3);
+    border: 2px solid rgb(150, 150, 150);
+    box-shadow: 0 4px 12px rgba(150, 150, 150, 0.3);
+    position: relative; /* Ensures legend positioning works */
 }
 
-/* Legend Box */
+/* 📌 Legend */
 .legend {
-    background: rgb(89, 87, 99);
-    color: rgb(190, 170, 150);
-    padding: 10px;
+    background: rgba(0, 0, 0, 0.85); /* Black background */
+    padding: 12px;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 6px;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    bottom: 20px; /* Placed at the bottom */
+    right: 20px;  /* Aligned to the right */
     z-index: 1000;
-    border: 1px solid rgb(220, 60, 30);
+    border: 1px solid rgb(220, 60, 30); /* Red-orange border */
+    text-align: left; /* Left-aligned text inside */
+    color: white; /* White text for contrast */
+}
+
+.legend h4 {
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255); /* White for clarity */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.legend p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+    color: rgb(230, 230, 230); /* Slightly soft white */
+    font-size: 14px;
 }
 
 .legend img {
     width: 20px;
-    margin-right: 5px;
+    height: 20px;
+    filter: brightness(1) invert(0); /* Ensures icons are visible on black */
 }
 
-/* Configuration Section */
-.configuration-section {
-    display: none;
-    margin-top: 15px;
-    padding: 10px;
-    background: rgb(89, 87, 99); /* Dark gray */
-    border-radius: 5px;
-    border: 1px solid rgba(220, 60, 30, 0.5);
-    color: rgb(190, 170, 150);
-}
-
-/* Responsive Design */
+/* 📱 Responsive Design */
 @media (max-width: 1024px) {
-    header {
-        padding: 1rem;
-    }
     #journey-form {
         flex-direction: column;
         max-width: 90%;
@@ -137,6 +118,9 @@ body {
     }
     #journey-form input, #journey-form select, #journey-form button {
         width: 100%;
+    }
+    #map {
+        height: 450px;
     }
 }
 
@@ -151,6 +135,12 @@ body {
     #map {
         height: 400px;
     }
+    .legend {
+        bottom: 10px; /* Adjusted position for smaller screens */
+        right: 10px;
+        font-size: 12px;
+        padding: 8px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -161,6 +151,12 @@ body {
         padding: 1rem;
     }
     #map {
-        height: 300px;
+        height: 350px;
+    }
+    .legend {
+        bottom: 5px;
+        right: 5px;
+        font-size: 12px;
+        padding: 6px;
     }
 }
