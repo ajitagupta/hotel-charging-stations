@@ -1,12 +1,10 @@
-/* 🌍 General Styling 
 body {
-    background-color: rgb(45, 50, 65); /* Dark blue-gray */
-    /*color: rgb(215, 215, 215); /* Soft gray
+    background-color: #222831; /* Dark charcoal gray */
     font-family: 'Orbitron', sans-serif;
     line-height: 1.7;
-}*/
+    color: #EAEAEA; /* Light contrast */
+}
 
-/* 🎥 About Us Video Section */
 .aboutus-image-section {
     width: 100%;
     overflow: hidden;
@@ -16,66 +14,44 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    filter: brightness(0.85); /* Slight dim effect */
+    filter: brightness(0.85);
 }
 
-/* 🌟 Hero Section */
 .hero-section {
     padding: 80px 20px;
     text-align: center;
-    background: linear-gradient(90deg, rgb(50, 55, 70), rgb(70, 75, 90));
+    background: linear-gradient(90deg, #2A3B47, #00AEEF); /* Deep gray to electric blue */
 }
 
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 15px;
     font-weight: bold;
-    color: rgb(240, 240, 240); /* Soft white */
+    color: #EAEAEA; /* Light gray */
 }
 
 .hero-content p {
     font-size: 1.5rem;
     max-width: 800px;
     margin: 0 auto;
-    color: rgb(190, 190, 190);
+    color: #A8B6BF;
 }
 
-/* 🔋 Mission Section */
 .mission-section {
     padding: 60px 20px;
     text-align: center;
-    background: rgb(60, 65, 80); /* Dark blue-gray */
-    border-bottom: 2px solid rgba(150, 150, 150, 0.5); /* Soft metallic */
+    background: #2A3B47; /* Dark cool gray */
+    color: #EAEAEA;
+    border-bottom: 2px solid rgba(0, 174, 239, 0.5); /* Neon blue border */
 }
 
-.mission-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: rgb(240, 240, 240); /* Soft white */
-}
-
-.mission-section p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: rgb(190, 190, 190);
-}
-
-/* 🔗 Values Section */
 .values-section {
-    background: rgb(50, 55, 70);
+    background: #1F2933; /* Dark muted blue-gray */
     padding: 60px 20px;
     text-align: center;
-    border-bottom: 2px solid rgba(150, 150, 150, 0.5);
+    border-bottom: 2px solid rgba(0, 174, 239, 0.5);
 }
 
-.values-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: rgb(240, 240, 240);
-}
-
-/* 🔹 Values Grid */
 .values-grid {
     display: flex;
     justify-content: space-around;
@@ -83,52 +59,32 @@ body {
 }
 
 .value-item {
-    background: linear-gradient(135deg, rgb(60, 65, 80) 20%, rgb(90, 95, 110) 80%);
+    background: #2F3C48; /* Dark blue-gray */
     padding: 20px;
     margin: 10px;
     width: 30%;
-    box-shadow: 0 4px 10px rgba(150, 150, 150, 0.3);
+    box-shadow: 0 4px 10px rgba(100, 100, 100, 0.2);
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.value-item.alternate {
+    background: #00AEEF; /* Futuristic electric blue */
+    color: #222831;
+}
+
 .value-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 14px rgba(150, 150, 150, 0.4);
+    box-shadow: 0 6px 14px rgba(0, 174, 239, 0.4);
 }
 
-.value-item h3 {
-    color: rgb(230, 230, 230); /* Soft white */
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-}
-
-.value-item p {
-    font-size: 1rem;
-    color: rgb(190, 190, 190);
-}
-
-/* 🌍 Team Section */
 .team-section {
-    background: rgb(60, 65, 80);
+    background: #2A3B47;
     padding: 60px 20px;
     text-align: center;
+    color: #EAEAEA;
 }
 
-.team-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: rgb(240, 240, 240);
-}
-
-.team-section p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: rgb(190, 190, 190);
-}
-
-/* 📱 Responsive Design */
 @media (max-width: 1024px) {
     .hero-content h1 {
         font-size: 2.5rem;
